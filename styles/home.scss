@@ -1,0 +1,172 @@
+
+
+@media(min-width: 35em){
+
+.home section{
+    width: 100vw;
+    padding: 2em;
+}
+
+.home section > p, .home section > h1{
+    text-align: center;
+}
+.serv-btns div a,
+.serv-btns,
+.rw{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.serv-btns div a{
+    gap: 1rem;
+}
+
+.rw{
+    gap: 3rem;
+}
+
+.serv-btns div{
+    background-color: white();
+    color: muted();
+    padding: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2rem;
+    box-shadow: 0 0 1rem muted(.3);
+}
+
+.rw div{
+    flex: 1 1 1rem;
+    gap: 2rem;
+}
+
+.sec1-caption > div{
+    text-align: center;
+}
+
+.sec1-caption > div > h1{
+    font-size: 5rem;
+    color: muted();
+}
+
+
+.sec2{
+    background-color: muted();
+}
+
+.sec2-caption > div{
+    text-align: center;
+    color: white;
+}
+
+.sec2-caption > div > h1{
+    font-size: 5rem;
+
+}
+
+.sec2-caption .divider{
+    width: 10rem;
+    margin-inline: auto;
+    height: .1rem;
+    border-bottom: solid .2rem white();
+}
+
+.divider{
+    width: 10rem;
+    margin-inline: auto;
+    height: .1rem;
+    border-bottom: solid .2rem muted();
+}
+
+.sbx{
+    border: solid 1px muted();
+    margin-bottom: 1em;
+    padding: 1em;
+}
+.sbx h4{
+    color: muted();
+    text-align: center;
+    font-weight: 800;
+}
+.sbx picture{
+    margin-bottom: 1em;
+    display: block;
+}
+
+.sbx picture img{
+    display: block;
+    height: 18rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.big-ser-img{
+    height: 40rem;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 2em;
+    box-shadow: 1rem 1rem 2rem muted(.3);
+}
+
+.big-ser-img img{
+    height: 100%;
+}
+
+.sec2-rw div{
+    background-color: white;
+    padding: 2em;
+    box-shadow: 0 0 2rem black();
+    border-radius: 2rem;
+}
+
+.sec3 h1{
+    font-size: 5rem;
+    color: muted();
+}
+
+.sec3 button{
+    margin-inline: auto;
+    display: block;
+    background-color: danger();
+    color: white();
+    padding: 1rem;
+    border-radius: 3rem;
+    padding-inline: 3rem;
+    cursor: pointer;
+}
+
+.mtb{
+    margin-block: 5rem;
+}
+
+.blog picture{
+    height: 15rem;
+    overflow: hidden;
+    display: block;
+}
+.blog  > div{
+    & > span{
+        display: block;
+        border-radius: 1.4rem;
+        background-color: success();
+        color: white();
+        font-size: 1rem;
+        width: 12rem;
+        text-align: center;
+        margin-block: 1.2rem;
+    }
+
+
+
+    & > div{
+        padding: .3rem;
+        border-top: solid 1px #ccc;
+        font-size: 1.2rem;
+        justify-content: space-between;
+        display: flex;
+    }
+
+}
+
+
+}
+
