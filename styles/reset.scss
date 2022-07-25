@@ -49,18 +49,29 @@
     text-decoration: none;
     @extend .text-muted;
   }
-
   h1{
     font-size: clamp(1.6px, 12vw, 20vw);
   }
   h2{
-    font-size: clamp(1.6px, 12vw, 20vw);
+    font-size: clamp(1.5px, 10vw, 18vw);
   }
   h3{
-    font-size: clamp(1.6px, 12vw, 20vw);
+    font-size: clamp(1.4px, 8vw, 16vw);
   }
   h4{
-    font-size: clamp(1.6px, 12vw, 20vw);
+    font-size: clamp(1.3px, 6vw, 14vw);
+  }
+  p{
+    font-size: clamp(11px, 1.4rem, 1.6rem)
+  }
+  .container{
+    width: calc(100% - 40px);
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    div{
+      flex: 5rem 1 1;
+    }
   }
   
   
