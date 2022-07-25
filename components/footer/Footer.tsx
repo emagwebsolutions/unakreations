@@ -5,13 +5,17 @@ const Footer = ()=>{
         <footer>
             <div>
             <div>
-                <i className="fa fa-mobile fa-lg"></i> <h4>+233 3220 48605/ +233 576 705880/ +233 242 208113</h4>
+                <i className="fa fa-mobile fa-lg"></i> 
+                <h4>
+                    +233 3220 48605/ +233 576 705880/ +233 242 208113
+                </h4>
             </div>
             <div>
                 <i className="fa fa-envelope fa-lg"></i> <h4>info@unakreations.com</h4>
             </div>
             <div>
-                <i className="fa fa-map-marker fa-lg"></i> <h4>Kumasi -Ghana</h4>
+                <i className="fa fa-map-marker fa-lg"></i> 
+                <h4>Kumasi -Ghana</h4>
             </div>
             <div>
                 <Link href="https://www.facebook.com">

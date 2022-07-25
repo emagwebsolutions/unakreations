@@ -29,32 +29,34 @@ const Nav = ()=>{
                 e.target.setAttribute('data-nav', 'false')
             }
         }
-          
         window.addEventListener('click', onclick);
-        
         return () => {
           window.removeEventListener('click', onclick);
         }
-      }, []);
+    }, []);
 
 
     return (
         <> 
         <section className="nav-section">
-        <span>Call us now on: <a href="tel:+233576705880">+233 57 670 5880</a></span>
-        <span>Email us: info@unakreations.com</span> 
+            <span>
+                Call us now on: 
+                <a href="tel:+233576705880">+233 57 670 5880</a>
+            </span>
+            <span>Email us: info@unakreations.com</span> 
         </section>
 
         <Hamburgeropen opennav = {opennav}  name="U & A Creation" />
 
+
         <nav data-nav="false" ref={nav} className="nav">
+
             <div className="nav-wrapper">
-
             <Hamburgerclose closenav = {closenav}  />
-
             <div className="logo">
                 <img src="/logo.jpg" alt="Logo" />
             </div>
+
             <ul>
                 <li className="active">
                     <Link href="/">
@@ -132,7 +134,9 @@ const Nav = ()=>{
                     <Link href="/"><a>Request a free quote</a></Link>
                 </li>
             </ul>
+
             </div>
+
         </nav>
         </>
     )
