@@ -1,109 +1,123 @@
 
 import Link from 'next/link'
+import { datacontext } from '../../context/store'
+import Image from 'next/image'
+import {PortableText} from '@portabletext/react'
 
 const Sectionone = ()=>{
+
+    const { post } = datacontext()
+
+
+    const aboutunagrafix = Object.values(post).filter((v: any) => {
+        return v.slug === 'about-u-and-a-grafix'
+    }).map((vl: any,k: any) =>(
+        <div key={k}>
+          <h1>{vl.title}</h1>
+          <div className="divider"></div>
+          <div>
+          <PortableText value={vl.body} />
+          </div>
+        </div>
+    ))
+
+
+    const largeimg = Object.values(post).filter((v: any) => {
+        return v.slug === 'u-and-a-grafix-large-image'
+    }).map((vl: any,k: any) =>(
+        <div key={k}>
+          <Image width="4" height="3" layout="responsive" src={vl.mainImage+''} alt="" />
+          </div>
+    ))
+
+
+    const grafixbrands = Object.values(post).filter((v: any) => {
+      return v.cat_title === 'Grafix Brands'
+    }).map((vl: any,k: any) =>(
+      <div key={k} className="brands">
+        <picture>
+        <Image width="4" height="3" layout="responsive" src={vl.mainImage+''} alt="" />
+        </picture>
+    
+        <h4>{vl.title}</h4>
+     </div>
+    ))
+
+   
+
+
     return (
         <section>
+
             <div className="container">
+                <div className="sec1-caption">
+                    {aboutunagrafix}
+                </div>
+            </div>
 
-            <div className="rw sec1-caption">
+
+            <div className="container gap-2">
+
                 <div>
-                    <h1>U & A Grafix</h1>
-                    <div className="divider"></div>
-                    <p>
-                    We have a Team of young and dynamic professionals committed to providing you with excellent services. We are understanding, unique and multifaceted in ideas.
-                    </p>
+                    <div className="flex gap-2">
+                        {grafixbrands[0]}
+                        {grafixbrands[1]}
+                    </div>
+                    <div className="flex gap-2">
+                        {grafixbrands[2]}
+                        {grafixbrands[3]}
+                    </div>
                 </div>
-            </div>
-
-                <div className="rw">
-                    <div>
-
-                        <div className="rw">
-                            <div>
-                                <div className="sbx">
-                                <picture>
-                                    <img src="/letterhead.jpg" alt="" />
-                                </picture>
-                                <h4>LETTERHEADS</h4>
-                                </div>
-                            </div>
-                            <div>
-                            <div className="sbx">
-                                <picture>
-                                    <img src="/branding.jpeg" alt="" />
-                                </picture>
-                                <h4>BRANDING</h4>
-                            </div>
-                            </div>
-                        </div>
+             
 
 
-                        <div className="rw">
-                            <div className="sbx">
-                                <picture>
-                                    <img src="/businesscards.jpg" alt="" />
-                                </picture>
-                                <h4>BUSINESS CARDS</h4>
-                            </div>
-                            <div className="sbx">
-                                <picture>
-                                    <img src="/souvenirs.jpg" alt="" />
-                                </picture>
-                                <h4>SOUVENIRS</h4>
-                            </div>
-                        </div>
+                <div>
+                    <div className="big-ser-img">
+                       {largeimg} 
                     </div>
 
-
-                    <div>
-                        <div>
-                            <picture className="big-ser-img">
-                                <img src="/signage.jpg" alt="" />
-                            </picture>
-                        </div>
-                        <div>
-                            <div className="rw serv-btns">
+                    <div className="serv-btns">
                                 <div>
                                     <Link href="#">
                                         <a>
-                                            <i className="fa fa-pencil fa-lg"></i> <h4>PORTFOLIO</h4> 
+                                            <i className="fa fa-pencil fa-lg"></i> PORTFOLIO 
                                         </a>
                                     </Link>
                                 </div>
                                 <div>
                                     <Link href="#">
                                         <a>
-                                        <i className="fa fa-gear fa-lg"></i> <h4>SERVICES</h4>
+                                        <i className="fa fa-gear fa-lg"></i>SERVICES
                                         </a>
                                     </Link>
                                 </div>
                             </div>
-                            <div className="rw serv-btns">
+                            <div className="serv-btns">
                                 <div>
                                     <Link href="#">
                                         <a>
-                                        <i className="fa fa-book fa-lg"></i> <h4>GET QUOTE</h4>
+                                        <i className="fa fa-book fa-lg"></i>GET QUOTE
                                         </a>
                                     </Link>
                                 </div>
-                                <div>
-                                    <Link href="#">
-                                        <a>
-                                            <i className="fa fa-envelope fa-lg"></i> <h4>CONTACT US</h4>    
-                                        </a>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
+                                <div>
+                                    <Link href="#">
+                                        <a>
+                                            <i className="fa fa-envelope fa-lg"></i> CONTACT US   
+                                        </a>
+                                    </Link>
+                                </div>
+
+                            </div>
                 </div>
+
             </div>
+
+
+
         </section>
     )
 }
 
 export default Sectionone
-
-

@@ -50,10 +50,10 @@
     @extend .text-muted;
   }
   h1{
-    font-size: clamp(1.6px, 3vw, 6vw);
+    font-size: clamp(1.6px, 5vw, 8vw);
   }
   h2{
-    font-size: clamp(1.5px, 2.5vw, 5vw);
+    font-size: clamp(1.5px, 3.5vw, 6vw);
   }
   h3{
     font-size: clamp(1.4px, 2vw, 4vw);
@@ -62,7 +62,8 @@
     font-size: clamp(1.3px, 1.5vw, 3vw);
   }
   p{
-    font-size: clamp(11px, 1.2vw, 1.5rem)
+    font-size: clamp(11px, 1.2vw, 1.5rem);
+    color: muted();
   }
   .container{
     width: calc(100% - 40px);

@@ -1,84 +1,36 @@
+import { datacontext } from '../../context/store'
+import Image from 'next/image'
+import {PortableText} from '@portabletext/react'
 
 const Sectionthree = ()=>{
-    return (
-        <section className="sec3">
+    const { post } = datacontext()
 
-        <h1>OUR BLOG</h1>
-        <div className="divider"></div>
-
-        <div className="container mtb">
-            <div className="rw ">
-
-                <div className="blog">
-                    <picture>
-                        <img src="/graphics.jpg" alt="" />
-                    </picture>
-                    <div>
-                        <span>Graphics Design</span>
-                        <h3>Colour Theory</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ullam, reprehenderit? Praesentium doloribus soluta, quia.
-                        </p>
-                        <div>
-                            <span>By UNA Kreations </span> <span>2 Days ago</span>
-                        </div>
-                    </div>
+    const testimonials = Object.values(post).filter((v: any) => {
+        return v.cat_title === 'Testimonials'
+      }).map((vl: any,k: any) =>(
+        <div key={k}>
+            <div className="testm-row">
+                <div className="img-test">
+                <Image width="4" height="4" layout="responsive" src={vl.mainImage+''} alt="" />
                 </div>
-
-                <div  className="blog">
-                    <picture>
-                        <img src="/tshirt.jpeg" alt="" />
-                    </picture>
-                    <div>
-                        <span>T-Shirt Printing</span>
-                        <h3>Heat transfer vs Screen printing</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ullam, reprehenderit? Praesentium doloribus soluta, quia.
-                        </p>
-                        <div>
-                            <span>By UNA Kreations </span> <span>3 Days ago</span>
-                        </div>
-                    </div>
+                <h4>{vl.title}</h4>
+                <div className="quote">
+                    <i className='fa fa-quote-left'></i>
+                    <PortableText value={vl.body} />
+                    <i className='fa fa-quote-right'></i>
                 </div>
-
-                <div  className="blog">
-                    <picture>
-                        <img src="/training.jpeg" alt="" />
-                    </picture>
-                    <div>
-                        <span>Training</span>
-                        <h3>Acquiring the right skills</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ullam, reprehenderit? Praesentium doloribus soluta, quia.
-                        </p>
-                        <div>
-                            <span>By UNA Kreations </span> <span>2 Days ago</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div  className="blog">
-                    <picture>
-                        <img src="/billbioard.jpg" alt="" />
-                    </picture>
-                    <div>
-                        <span>Advertising</span>
-                        <h3>Billboard Advertising</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, ullam, reprehenderit? Praesentium doloribus soluta, quia.
-                        </p>
-                        <div>
-                            <span>By UNA Kreations </span> <span>2 Days ago</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+       </div>
+      ))
 
-        <button className="blog-btn">VIEW ALL</button>
-
-    </section>
+    return (
+        <section className="sec3 testimonials">
+            <h1>Testimonials</h1>
+            <div className="divider"></div>
+            <div className="container gap-2">
+                {testimonials}
+            </div>
+        </section>
     )
 }
 
