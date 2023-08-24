@@ -19,19 +19,19 @@ const Footer = ()=>{
             </div>
             <div>
                 <Link href="https://www.facebook.com">
-                    <a>
+                
                     <i className="fa fa-facebook fa-lg"></i>
-                    </a>
+                
                 </Link>
                 <Link href="https://www.twitter.com">
-                    <a>
+                
                     <i className="fa fa-twitter fa-lg"></i>
-                    </a>
+            
                 </Link>
                 <Link href="https://www.instagram.com">
-                    <a>
+                
                     <i className="fa fa-instagram fa-lg"></i>
-                    </a>
+                
                 </Link>
             </div>
             <div>

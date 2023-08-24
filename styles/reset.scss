@@ -66,11 +66,15 @@
     color: muted();
   }
   .container{
-    width: calc(100% - 40px);
+    padding-inline: 5em;
     margin-inline: auto;
+ 
+  }
+
+  .flex{
     display: flex;
     flex-wrap: wrap;
-    div{
+    & > div{
       flex: 5rem 1 1;
     }
   }

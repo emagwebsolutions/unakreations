@@ -1,148 +1,172 @@
-
-
-@media(min-width: 35em){
-    .testimonials{
-        background-color: #eee;
-        
-        h1{
-            text-align: center;
-            color: muted();
-        }
-        .testm-row{
-            background-color: white;
-            padding: 2em;
-            text-align: center;
-            margin-top: 2em;
-        }
-        .img-test{
-            width: 15rem;
-            height: 15rem;
-            display: block;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            border: solid 1rem danger();
-            margin-inline: auto;
-        }
-        .fa-quote-left{
-            text-align: left!important;
-            display: block;
-            color: #ccc;
-        }
-        .fa-quote-right{
-            text-align: right!important;
-            display: block;
-            color: #ccc;
-        }
+@media (min-width: 35em) {
+  .serv-btns > div:hover {
+    background-color: #777;
+    cursor: pointer;
+    a {
+      color: white !important;
+      display: block;
     }
-    .unaklodin{
-        color: white;
-        text-align: center;
-        p{
-            color: white!important;
-            margin-bottom: 2em;
-        }
-
-        .divider{
-            width: 10rem;
-            border-bottom: solid 1px white;
-        }
-        .unaklodinimg{
-            width: 100%;
-            background-color: white;
-            padding: 1em;
-            height: 100%;
-            overflow: hidden;
-        }
+  }
+  .testimonials {
+    background-color: #eee;
+    padding: 5em;
+    h1 {
+      text-align: center;
+      color: muted();
     }
-    .brands{
-        padding: 1em;
-        border: solid muted() .1rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-bottom: 1.5em;
-        color: muted();
-        picture{
-            height: 90%;
-            overflow: hidden;
-        }
+    .testm-row {
+      background-color: white;
+      padding: 2em;
+      text-align: center;
+      margin-top: 2em;
+      h4{
+        margin-block: .5em;
+      }
+    }
+    .img-test {
+      width: 15rem;
+      height: 15rem;
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      border: solid 1rem danger();
+      margin-inline: auto;
+    }
+    .fa-quote-left {
+      text-align: left !important;
+      display: block;
+      color: #ccc;
+    }
+    .fa-quote-right {
+      text-align: right !important;
+      display: block;
+      color: #ccc;
+    }
+  }
+  .unaklodin {
+    color: white;
+    text-align: center;
+    p {
+      color: white !important;
+      margin-bottom: 2em;
     }
 
-    .home section{
-        width: 100vw;
-        padding: 2em;
+    .divider {
+      width: 10rem;
+      border-bottom: solid 1px white;
     }
-
-
-
-    .serv-btns{
-        display: flex;
-        gap: 1.2em;
-        div{
-            background-color: white();
-            color: muted();
-            padding: 1em;
-            margin-bottom: 1em;
-            font-size: clamp(11px, 1.2vw, 1.5rem);
-            box-shadow: 0 0 1rem muted(.3);
-            font-weight: bold;
-        }
-
+    .unaklodinimg {
+      width: 100%;
+      background-color: white;
+      padding: 1em;
+      height: 100%;
+      overflow: hidden;
     }
+  }
 
-    .sec1-caption{
-        text-align: center;
-        color: muted();
-        margin-bottom: 1em;
+  .brands {
+    padding: 1em;
+    border: solid muted() 0.1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5em;
+    color: muted();
+    picture {
+      height: 90%;
+      overflow: hidden;
     }
+  }
 
-    .divider{
-        width: 10rem;
-        margin-inline: auto;
-        height: .1rem;
-        border-bottom: solid .2rem muted();
+  .home section {
+    width: 100vw;
+    padding: 2em;
+  }
+
+  .serv-btns {
+    display: flex;
+    gap: 1.2em;
+    div {
+      flex: 1rem 1 1;
+      background-color: white();
+      color: muted();
+      padding: 1em;
+      margin-bottom: 1em;
+      font-size: clamp(11px, 1.2vw, 1.5rem);
+      box-shadow: 0 0 1rem muted(0.3);
+      font-weight: bold;
     }
+  }
 
-    .sbx{
-        border: solid 1px muted();
-        margin-bottom: 1em;
-        padding: 1em;
+  .sec1-caption {
+    text-align: center;
+    color: muted();
+    margin-bottom: 1em;
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 1em;
     }
-    .sbx h4{
-        color: muted();
-        text-align: center;
-        font-weight: 800;
+  }
+
+  .divider {
+    width: 10rem;
+    margin-inline: auto;
+    height: 0.1rem;
+    border-bottom: solid 0.2rem muted();
+    margin-bottom: 1em;
+  }
+
+  .sbx {
+    border: solid 1px muted();
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+  .sbx h4 {
+    color: muted();
+    text-align: center;
+    font-weight: 800;
+  }
+  .sbx picture {
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  .sbx picture img {
+    display: block;
+    height: 18rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .big-ser-img {
+    height: 62%;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 2em;
+    box-shadow: 1rem 1rem 2rem muted(0.3);
+  }
+
+  .sec3 {
+    padding-block: 3em;
+    h1 {
+      font-size: 4rem;
     }
-    .sbx picture{
-        margin-bottom: 1em;
-        display: block;
+  }
+
+
+  .sec2 {
+    background-color: muted();
+
+    h1 {
+      font-size: 4rem;
     }
+    padding: 5em;
+  }
 
-    .sbx picture img{
-        display: block;
-        height: 18rem;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .big-ser-img{
-        height: 62%;
-        overflow: hidden;
-        display: block;
-        margin-bottom: 2em;
-        box-shadow: 1rem 1rem 2rem muted(.3);
-    }
-
-    .sec2{
-        background-color: muted();
-
-    }
-
-
-
-.sec4 button{
+  .sec4 button {
     margin-inline: auto;
     display: block;
     background-color: danger();
@@ -151,14 +175,9 @@
     border-radius: 3rem;
     padding-inline: 3rem;
     cursor: pointer;
-}
+  }
 
-.mtb{
+  .mtb {
     margin-block: 5rem;
+  }
 }
-
-
-
-
-}
-

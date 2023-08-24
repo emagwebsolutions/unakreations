@@ -1,46 +1,47 @@
-import { datacontext } from '../../context/store'
-import Image from 'next/image'
-import {PortableText} from '@portabletext/react'
+import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
 
+const Sectiontwo = () => {
+  return (
+    <section className="sec2 unaklodin">
 
-const Sectiontwo = ()=>{
-    const { post } = datacontext()
-
-    const aboutunaklodin = Object.values(post).filter((v: any) => {
-        return v.slug === 'about-u-and-a-klodin'
-    }).map((vl: any,k: any) =>(
-        <div key={k}>
+      <div className="container">
+        <div>
+          <div>
+            <h1>Our Services</h1>
+            <div className="divider"></div>
             <div>
-                <h1>{vl.title}</h1>
-                <div className="divider"></div>
-                <PortableText value={vl.body} />
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
+              omnis earum assumenda aspernatur est error nostrum repellendus
+              pariatur perferendis dolorum magni placeat, delectus saepe aliquid
+              voluptas quidem laudantium dolorem accusamus!
             </div>
+            <br />
+          </div>
         </div>
-    ))
+      </div>
 
-    const images = Object.values(post).filter((v: any) => {
-        return v.cat_title === 'U & A Klodin'
-    }).map((vl: any,k: any) =>(
-        <div key={k}>
-            <div className="unaklodinimg">
-                <Image width="2" height="1" layout="responsive" src={vl.mainImage+''} alt="" />
-            </div>
-        </div>
-    ))
 
-    return (
-        <section className="sec2 unaklodin">
+      <div className="container gap-2">
 
-        <div className="container">
-            {aboutunaklodin}
-        </div>
 
-        <div className="container gap-2">
-            {images}
-        </div>
+          <div className="unaklodinimg">
+            <Image width="500" height="150" src="/serv.jpeg" alt="" />
+          </div>
+          <div className="unaklodinimg">
+            <Image width="500" height="150" src="/serv.jpeg" alt="" />
+          </div>
+          <div className="unaklodinimg">
+            <Image width="500" height="150" src="/serv.jpeg" alt="" />
+          </div>
+          <div className="unaklodinimg">
+            <Image width="500" height="150" src="/serv.jpeg" alt="" />
+          </div>
 
+
+      </div>
     </section>
-    )
-}
+  );
+};
 
-export default Sectiontwo
+export default Sectiontwo;
