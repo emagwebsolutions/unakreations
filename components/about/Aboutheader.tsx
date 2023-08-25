@@ -16,7 +16,7 @@ const Aboutheader = () => {
 
   return (
     <div className="aboutheader">
-      <div className="container">
+      <div className="container flex">
         <div>
           <h1>{title}</h1>
         </div>

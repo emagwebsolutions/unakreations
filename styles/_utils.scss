@@ -1,0 +1,26 @@
+.card {
+  & > div {
+    background-color: white;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0.3rem 0.3rem 1.2rem rgba(0, 0, 0, 0.3);
+  }
+}
+
+.card-gap {
+  gap: 2em;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.alignitems-center {
+  align-items: center;
+}
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end{
+  justify-content: flex-end;
+}

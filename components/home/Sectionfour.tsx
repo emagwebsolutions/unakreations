@@ -8,7 +8,7 @@ const Sectionfour = () => {
       <h1>Our Blog</h1>
       <div className="divider"></div>
 
-      <div className="container gap-3">
+      <div className="container flex gap-3">
         <div className="blog">
           <picture>
             <Image width="500" height="200" src="/serv.jpeg" alt="" />

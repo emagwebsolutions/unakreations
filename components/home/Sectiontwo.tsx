@@ -22,7 +22,7 @@ const Sectiontwo = () => {
       </div>
 
 
-      <div className="container gap-2">
+      <div className="container flex gap-2">
 
 
           <div className="unaklodinimg">
