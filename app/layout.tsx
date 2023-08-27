@@ -5,7 +5,7 @@ import './globals.scss';
 import { Provider } from 'react-redux';
 import store from '@/store/store';
 
-export const metadata: Metadata = {
+ const metadata: Metadata = {
   title: 'UNA KREATIONS',
   description: 'Graphics Design,Printing,Clodin',
 };
