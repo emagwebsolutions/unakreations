@@ -61,6 +61,9 @@ const Nav = () => {
             <li>
               <Link href="/#">About Us</Link>
               <ul>
+              <li>
+                  <Link href="/overview">Overview</Link>
+                </li>
                 <li>
                   <Link href="/team">Our Team</Link>
                 </li>
@@ -70,19 +73,13 @@ const Nav = () => {
               </ul>
             </li>
             <li>
-              <Link href="/#">Services</Link>
+              <Link href="/service">Services</Link>
               <ul>
                 <li>
-                  <Link href="/klodin">U&A Klodin</Link>
-                </li>
-                <li>
-                  <Link href="/album">U&A Album</Link>
+                  <Link href="klodin">U&A Klodin</Link>
                 </li>
                 <li>
                   <Link href="/grafix">U&A GRAFIX</Link>
-                </li>
-                <li>
-                  <Link href="/photocopy">Photocopy</Link>
                 </li>
                 <li>
                   <Link href="/advertising">Advertising</Link>

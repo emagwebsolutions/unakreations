@@ -1,53 +1,73 @@
 'use client';
 
 import Card from '@/components/Card';
+import Cardtwo from '@/components/Cardtwo';
 import Universal from '@/components/Universal';
-import Aboutheader from '@/components/about/Aboutheader';
+import Pageheader from '@/components/Pageheader';
 
 export default function Team() {
   return (
     <Universal>
-      <Aboutheader />
-      <section className="team">
-        <div>
-          <div className="container">
-            <h3>Meet our designers and developers</h3>
-            <div>
-              We are a digital agency helping businesses of all size get a
-              better return from online activities.
-            </div>
+      <Pageheader />
+      <section className="testimonials">
+
+
+        <Cardtwo img="/graphics.jpg">
+          <div>
+            I would like to thank you for the website design and development
+            work you did for Hisel. With very little direction from us you were
+            able to design the ballet placemat which is one of our most popular
+            and profitable items.
           </div>
-        </div>
 
-        <div className="container flex card-gap justify-center">
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
+          <div>
+            Michale Wang CEO - HiSEL Power Corportaion www.hiselpower.com
+          </div>
+        </Cardtwo>
 
 
 
+        <Cardtwo img="/graphics.jpg">
+          <div>
+            I would like to thank you for the website design and development
+            work you did for Hisel. With very little direction from us you were
+            able to design the ballet placemat which is one of our most popular
+            and profitable items.
+          </div>
+
+          <div>
+            Michale Wang CEO - HiSEL Power Corportaion www.hiselpower.com
+          </div>
+        </Cardtwo>
+
+
+
+        <Cardtwo img="/graphics.jpg">
+          <div>
+            I would like to thank you for the website design and development
+            work you did for Hisel. With very little direction from us you were
+            able to design the ballet placemat which is one of our most popular
+            and profitable items.
+          </div>
+
+          <div>
+            Michale Wang CEO - HiSEL Power Corportaion www.hiselpower.com
+          </div>
+        </Cardtwo>
+
+
+        <Cardtwo img="/graphics.jpg">
+          <div>
+            I would like to thank you for the website design and development
+            work you did for Hisel. With very little direction from us you were
+            able to design the ballet placemat which is one of our most popular
+            and profitable items.
+          </div>
+
+          <div>
+            Michale Wang CEO - HiSEL Power Corportaion www.hiselpower.com
+          </div>
+        </Cardtwo>
 
 
 
@@ -55,18 +75,6 @@ export default function Team() {
 
 
 
-
-
-
-        </div>
-
-        <div>
-          <h2>Marketing works! Design delivers.</h2>
-          <p>
-            We are a digital agency helping businesses of all size get a better
-            return from online activities.
-          </p>
-        </div>
       </section>
     </Universal>
   );

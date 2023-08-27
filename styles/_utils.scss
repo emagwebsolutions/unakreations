@@ -7,6 +7,29 @@
   }
 }
 
+.cardthree {
+  & > div {
+    background-color: white;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0.3rem 0.3rem 1.2rem rgba(0, 0, 0, 0.3);
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.cardtwo {
+  display: flex;
+  background-color: white;
+  padding: 1.2em;
+  margin-bottom: 2em;
+  gap: 1.5em;
+}
+
 .card-gap {
   gap: 2em;
 }
@@ -21,6 +44,114 @@
   justify-content: flex-start;
 }
 
-.flex-end{
+.flex-end {
   justify-content: flex-end;
+}
+
+.pageheader {
+  & > div {
+    .active {
+      font-weight: bold;
+      color: #df4020;
+    }
+    h1 {
+      color: #1175c0;
+      font-size: 3rem;
+    }
+
+    background-color: #dedede;
+    position: relative;
+    padding: 1em;
+    display: flex;
+    & > div:nth-of-type(1) {
+      flex-basis: 7rem;
+      flex-grow: 1;
+      align-items: center;
+      display: flex;
+    }
+    & > div:nth-of-type(2) {
+      flex-basis: 60rem;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.servbtn {
+  flex: 1rem 1 1;
+  background-color: white();
+  color: muted();
+  padding: 1em;
+  margin-bottom: 1em;
+  font-size: clamp(11px, 1.2vw, 1.5rem);
+  box-shadow: 0 0 1rem muted(0.3);
+  font-weight: bold;
+}
+
+.fa-icons {
+  h4 {
+    font-size: 1.4rem;
+  }
+}
+
+.headerimage {
+  display: flex;
+  align-items: center;
+  .container {
+    & > div {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2em;
+    }
+  }
+  color: white;
+  p {
+    color: white !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 4rem;
+  }
+  text-align: center;
+}
+
+.pagepara {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 4rem;
+  }
+  padding-block: 5rem;
+}
+
+.postlist {
+  padding-bottom: 5em;
+}
+
+.brands {
+  padding: 1em;
+  border: solid muted() 0.1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5em;
+  color: muted();
+  picture {
+    height: 90%;
+    overflow: hidden;
+  }
+}
+
+.otherservices {
+  padding: 5rem;
+  background-color: #dedede;
+}
+
+
+.postcontent{
+  padding-block: 5rem;
 }

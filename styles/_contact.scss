@@ -1,0 +1,171 @@
+
+
+
+@media(max-width: 35em){
+
+  .contact {
+    padding: 2em;
+    .short-line {
+      width: 5rem;
+      border-bottom: solid #bc1f28 0.4rem;
+      margin-block: 1.7rem;
+    }
+    & > section:nth-of-type(1) {
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      padding-block: 5em;
+    }
+  
+  
+    & > section:nth-of-type(2) {
+      h2 {
+        font-size: 2.6rem;
+        font-weight: bold;
+      }
+      background-color: #f8f8f8;
+      padding-block: 5em;
+    }
+  
+    .form-control {
+      margin-top: 1.5em;
+      font-size: 1.6rem;
+      position: relative;
+  
+      p {
+        color: red;
+      }
+      & > label {
+        position: absolute;
+        left: 1.2rem;
+        top: 0.5rem;
+        pointer-events: none;
+      }
+      input {
+        width: 100%;
+        border-radius: 3rem;
+        border: solid 0.1rem #777;
+        padding-block: 0.3em;
+        padding-inline: 0.7em;
+      }
+      input:focus + label {
+        position: absolute;
+        top: -2rem;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+  
+      input:not(:placeholder-shown) + label {
+        position: absolute;
+        top: -2rem;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      textarea {
+        width: 100%;
+        border-radius: 0.7rem;
+        border: solid 0.1rem #777;
+        padding-block: 0.3em;
+        padding-inline: 1em;
+        height: 15rem;
+      }
+    }
+    button {
+      background-color: #c02535;
+      color: white;
+      border-radius: 3rem;
+      padding-inline: 2em;
+      padding-block: 0.4em;
+      margin-top: 1em;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media(min-width: 35em){
+  .contact {
+    .short-line {
+      width: 5rem;
+      border-bottom: solid #bc1f28 0.4rem;
+      margin-block: 1.7rem;
+    }
+    & > section:nth-of-type(1) {
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      padding-block: 5em;
+    }
+  
+  
+    & > section:nth-of-type(2) {
+      h2 {
+        font-size: 2.6rem;
+        font-weight: bold;
+      }
+      background-color: #f8f8f8;
+      padding-block: 5em;
+      & > div {
+        display: flex;
+        gap: 4rem;
+        & > div{
+          flex: 5rem 1 1;
+        }
+      }
+    }
+  
+    .form-control {
+      margin-top: 1.5em;
+      font-size: 1.6rem;
+      position: relative;
+  
+      p {
+        color: red;
+      }
+      & > label {
+        position: absolute;
+        left: 1.2rem;
+        top: 0.5rem;
+        pointer-events: none;
+      }
+      input {
+        width: 100%;
+        border-radius: 3rem;
+        border: solid 0.1rem #777;
+        padding-block: 0.3em;
+        padding-inline: 0.7em;
+      }
+      input:focus + label {
+        position: absolute;
+        top: -2rem;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+  
+      input:not(:placeholder-shown) + label {
+        position: absolute;
+        top: -2rem;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      textarea {
+        width: 100%;
+        border-radius: 0.7rem;
+        border: solid 0.1rem #777;
+        padding-block: 0.3em;
+        padding-inline: 1em;
+        height: 15rem;
+      }
+    }
+    button {
+      background-color: #c02535;
+      color: white;
+      border-radius: 3rem;
+      padding-inline: 2em;
+      padding-block: 0.4em;
+      margin-top: 1em;
+      font-size: 1.6rem;
+    }
+  }
+}

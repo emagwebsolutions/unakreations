@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
+import Servicebuttons from '../Servicebuttons';
+import Brands from '../Brands';
 
 const Sectionone = () => {
   return (
     <section>
-      <div className="container flex">
+      <div className="container">
         <div className="sec1-caption">
           <div>
             <h1>About us</h1>
             <div className="divider"></div>
-      
+
             <div>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               aspernatur nihil nulla! Saepe inventore in sapiente vel quod,
@@ -22,37 +24,17 @@ const Sectionone = () => {
         </div>
       </div>
 
-      <div className="container flex gap-2">
+      <div className="container home-flex gap-2">
         <div>
-          <div className="flex gap-2">
-            <div className="brands">
-              <picture>
-                <Image width="500" height="200" src="/branding.jpeg" alt="" />
-              </picture>
-              <h4>Branding</h4>
-            </div>
+          <div className="home-flex gap-2">
+            <Brands img="/branding.jpeg" title="Branding" />
 
-            <div className="brands">
-              <picture>
-                <Image width="500" height="200" src="/billbioard.jpg" alt="" />
-              </picture>
-              <h4>Billboards</h4>
-            </div>
+            <Brands img="/billbioard.jpg" title="Billboards" />
           </div>
-          <div className="flex gap-2">
-            <div className="brands">
-              <picture>
-                <Image width="500" height="200" src="/businesscards.jpg" alt="" />
-              </picture>
-              <h4>Business cards</h4>
-            </div>
+          <div className="home-flex gap-2">
+            <Brands img="/businesscards.jpg" title="Business cards" />
 
-            <div className="brands">
-              <picture>
-                <Image width="500" height="200" src="/graphics.jpg" alt="" />
-              </picture>
-              <h4>Graphics Design</h4>
-            </div>
+            <Brands img="/graphics.jpg" title="Graphics Design" />
           </div>
         </div>
 
@@ -61,30 +43,13 @@ const Sectionone = () => {
             <Image width="1000" height="500" src="/signage.jpg" alt="" />
           </div>
 
-          <div className="serv-btns">
-            <div>
-              <Link href="/portfolio">
-                <i className="fa fa-pencil fa-lg"></i> PORTFOLIO
-              </Link>
-            </div>
-            <div>
-              <Link href="/services">
-                <i className="fa fa-gear fa-lg"></i>SERVICES
-              </Link>
-            </div>
+          <div className="home-flex gap-2">
+            <Servicebuttons name="PORTFOLIO" url="/portfolio" fa="pencil" />
+            <Servicebuttons name="SERVICES" url="/services" fa="gear" />
           </div>
-          <div className="serv-btns">
-            <div>
-              <Link href="/quote">
-                <i className="fa fa-book fa-lg"></i>GET QUOTE
-              </Link>
-            </div>
-
-            <div>
-              <Link href="/contact">
-                <i className="fa fa-envelope fa-lg"></i> CONTACT US
-              </Link>
-            </div>
+          <div className="home-flex gap-2">
+            <Servicebuttons name="GET QUOTE" url="/contact" fa="book" />
+            <Servicebuttons name="CONTACT" url="/contact" fa="envelope" />
           </div>
         </div>
       </div>

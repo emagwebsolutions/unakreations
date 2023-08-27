@@ -2,12 +2,12 @@
 
 import Card from '@/components/Card';
 import Universal from '@/components/Universal';
-import Aboutheader from '@/components/about/Aboutheader';
+import Pageheader from '@/components/Pageheader';
 
 export default function Team() {
   return (
     <Universal>
-      <Aboutheader />
+      <Pageheader />
       <section className="team">
         <div>
           <div className="container">
@@ -19,7 +19,7 @@ export default function Team() {
           </div>
         </div>
 
-        <div className="container flex card-gap justify-center">
+        <div className="container blog-flex card-gap justify-center">
           <Card img="/graphics.jpg">
             <h4>Fullname</h4>
             <p>job title</p>
