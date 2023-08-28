@@ -1,7 +1,21 @@
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
+import { useEffect, useState } from 'react';
+import { useTestimonialsQuery } from '@/store/features/fetchData';
 
 const Sectiontwo = () => {
+
+
+  const [getData, setData] = useState('');
+  const { data } = useTestimonialsQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
+
   return (
     <section className="sec2 unaklodin">
 

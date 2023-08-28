@@ -1,12 +1,21 @@
 'use client';
 
-
 import Universal from '@/components/Universal';
 import ContactForm from '@/components/ContactForm';
 import { useSelector } from 'react-redux';
 import Pageheadertwo from '@/components/Pageheadertwo';
+import { useContactQuery } from '@/store/features/fetchData';
+import { useEffect, useState } from 'react';
 
 const Contact = () => {
+  const [getData, setData] = useState('');
+  const { data } = useContactQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
   const cont = useSelector((state: any) => state?.contact?.contactdetails);
   const ob = cont[0];
 
@@ -14,7 +23,7 @@ const Contact = () => {
 
   return (
     <Universal>
-  <Pageheadertwo />
+      <Pageheadertwo />
 
       <div className="contact">
         <section>

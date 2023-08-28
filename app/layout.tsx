@@ -1,11 +1,12 @@
-'use client'
+'use client';
 
 import type { Metadata } from 'next';
 import './globals.scss';
-import { Provider } from 'react-redux';
-import store from '@/store/store';
 
- const metadata: Metadata = {
+import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
+import { apidata } from '@/store/features/fetchData';
+
+const metadata: Metadata = {
   title: 'UNA KREATIONS',
   description: 'Graphics Design,Printing,Clodin',
 };
@@ -18,10 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider store={store}>
-        {children}
-        </Provider>
-        </body>
+        <ApiProvider api={apidata}>{children}</ApiProvider>
+      </body>
     </html>
   );
 }

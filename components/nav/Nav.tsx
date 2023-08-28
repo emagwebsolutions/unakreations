@@ -1,10 +1,21 @@
 import Link from 'next/link';
 import Hamburgeropen from './Hamburgeropen';
 import Hamburgerclose from './Hamburgerclose';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useContactQuery } from '@/store/features/fetchData';
 
 const Nav = () => {
+  
+  const [getData, setData] = useState('');
+  const { data } = useContactQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
   const nav = useRef<HTMLElement>(null);
 
   const opennav = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -61,7 +72,7 @@ const Nav = () => {
             <li>
               <Link href="/#">About Us</Link>
               <ul>
-              <li>
+                <li>
                   <Link href="/overview">Overview</Link>
                 </li>
                 <li>

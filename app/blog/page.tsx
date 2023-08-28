@@ -6,13 +6,12 @@ import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { useTestimonialsQuery } from '@/store/features/fetchData';
-import { useEffect, useState } from 'react';
+import { useBlogQuery } from '@/store/features/fetchData';
+import { useState, useEffect } from 'react';
 
-const Training = () => {
-  
+const Blog = () => {
   const [getData, setData] = useState('');
-  const { data } = useTestimonialsQuery('');
+  const { data } = useBlogQuery('');
 
   useEffect(() => {
     if (data) {
@@ -32,7 +31,7 @@ const Training = () => {
     </div>
   );
 
-  const data1 = [
+  const datax = [
     {
       img: '/serv.jpeg',
       slug: 'service/serv',
@@ -60,10 +59,10 @@ const Training = () => {
       <Pageheadertwo />
       <Headerimage img="tshirt.jpeg" para={para} />
       <Pagepara para={para} />
-      <Postlist data={data1} />
+      <Postlist data={datax} />
       <Otherservices />
     </Universal>
   );
 };
 
-export default Training;
+export default Blog;

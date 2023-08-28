@@ -3,8 +3,19 @@
 import Card from '@/components/Card';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
+import { useOurteamQuery } from '@/store/features/fetchData';
+import { useEffect, useState } from 'react';
 
 export default function Team() {
+  const [getData, setData] = useState('');
+  const { data } = useOurteamQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
   return (
     <Universal>
       <Pageheader />
@@ -45,19 +56,6 @@ export default function Team() {
             <h4>Fullname</h4>
             <p>job title</p>
           </Card>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
         <div>

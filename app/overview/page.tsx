@@ -5,8 +5,20 @@ import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
 import Icons from '@/components/Icons';
 import Sectionthree from '@/components/home/Sectionthree';
+import { useEffect, useState } from 'react';
+import { useOverviewQuery } from '@/store/features/fetchData';
 
 export default function Overview() {
+  const [getData, setData] = useState('');
+  const { data } = useOverviewQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
+
   return (
     <Universal>
       <Pageheader />

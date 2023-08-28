@@ -1,23 +1,37 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import Image from 'next/image';
-
+import { useEffect, useState } from 'react';
+import { useSliderQuery } from '@/store/features/fetchData';
 
 const Slider = () => {
+  type GRC = {
+    img: string;
+  }[];
+
+  const [getData, setData] = useState<GRC>([]);
+  const { data } = useSliderQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
+  const url = getData.map((v, k) => v.img);
 
 
   const images = [
     {
-      url: '/1.jpg',
+      url: url[0]
     },
     {
-      url: '/2.jpg',
+      url: url[1]
     },
     {
-      url: '/3.jpg',
+      url: url[2]
     },
-  ];
-
+  ]
 
 
   return (

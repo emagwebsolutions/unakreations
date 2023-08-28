@@ -2,8 +2,9 @@ import { createClient } from 'next-sanity';
 
 const client = createClient({
   dataset: 'production',
-  projectId: '@2023azPP',
+  projectId: 'k4oizxiu',
   apiVersion: '2023-09-27',
+  useCdn: true
 });
 
 export default client;

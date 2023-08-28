@@ -1,8 +1,22 @@
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useTestimonialsQuery } from '@/store/features/fetchData';
 
 const Sectionfour = () => {
+
+  const [getData, setData] = useState('');
+  const { data } = useTestimonialsQuery('');
+
+  useEffect(() => {
+    if (data) {
+      setData(data);
+    }
+  }, [data]);
+
+
+
   return (
     <section className="sec3 blogpostwrapper">
       <h1>Our Blog</h1>
