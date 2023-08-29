@@ -42,7 +42,6 @@ const Sectionone = () => {
   const businesscard = getBrand.filter((v) => v.slug == 'business-cards');
   const graphics = getBrand.filter((v) => v.slug === 'graphicsdesign');
 
-  console.log(branding)
 
   return (
     <section>

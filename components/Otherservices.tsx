@@ -1,54 +1,37 @@
-import React from 'react';
+
+import { useBrandingQuery } from '@/store/features/fetchData';
 import Brands from './Brands';
+import {useState,useEffect} from 'react'
 
-type BD = {
-  brandsdata: { img: string; title: string }[];
-};
-
-const brandsdata = [
-  {
-    img: '/branding.jpeg',
-    title: 'Branding',
-  },
-  {
-    img: '/businesscards.jpg',
-    title: 'Business cards',
-  },
-  {
-    img: '/billbioard.jpg',
-    title: 'Billboards',
-  },
-  {
-    img: '/graphics.jpg',
-    title: 'Graphics Design',
-  },
-];
 
 const Otherservices = () => {
-  const brandsdata = [
-    {
-      img: '/branding.jpeg',
-      title: 'Branding',
-    },
-    {
-      img: '/businesscards.jpg',
-      title: 'Business cards',
-    },
-    {
-      img: '/billbioard.jpg',
-      title: 'Billboards',
-    },
-    {
-      img: '/graphics.jpg',
-      title: 'Graphics Design',
-    },
-  ];
+
+  type BRNDS = {
+    title: string;
+    img: string;
+    slug: string;
+  }[];
+
+
+  const [getBrand, setBrand] = useState<BRNDS>([]);
+  const { data: branding } = useBrandingQuery('');
+
+
+
+
+
+  useEffect(() => {
+    if (branding) {
+      setBrand(branding);
+    }
+  }, [branding]);
+
 
   return (
     <div className="home-flex gap-2 otherservices justify-center">
-      {brandsdata.map((v, k) => (
+      {getBrand.map((v, k) => (
         <Brands key={k} img={v.img} title={v.title} />
-      ))}
+      )).slice(0,4)}
     </div>
   );
 };
