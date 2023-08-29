@@ -16,8 +16,7 @@ const Contact = () => {
       setData(data);
     }
   }, [data]);
-  const cont = useSelector((state: any) => state?.contact?.contactdetails);
-  const ob = cont[0];
+
 
   const wd = `100%`;
 
@@ -52,7 +51,7 @@ const Contact = () => {
             </div>
             <div>
               <iframe
-                src={ob?.googlemap}
+                src='/1.jpg'
                 width={wd}
                 height="450"
                 style={{ border: 0 }}

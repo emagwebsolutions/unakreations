@@ -14,6 +14,7 @@ import advertising from './advertising';
 import printing from './printing';
 import training from './training';
 import administrative from './administrative';
+import services from './services';
 
 export const schemaTypes = [
   blog,
@@ -32,4 +33,5 @@ export const schemaTypes = [
   administrative,
   category,
   blockContent,
+  services
 ];
