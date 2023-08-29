@@ -4,6 +4,7 @@ import Hamburgerclose from './Hamburgerclose';
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useContactQuery } from '@/store/features/fetchData';
+import { usePathname } from 'next/navigation';
 
 const Nav = () => {
   type CN = {
@@ -18,6 +19,7 @@ const Nav = () => {
     instagram: string;
   }[];
   const [getData, setData] = useState<CN>([]);
+  const [getActive, setActive] = useState('');
   const { data } = useContactQuery('');
 
   useEffect(() => {
@@ -58,6 +60,8 @@ const Nav = () => {
     };
   }, []);
 
+  const path = usePathname();
+
   return (
     <>
       <section className="nav-section">
@@ -80,11 +84,24 @@ const Nav = () => {
           </div>
 
           <ul>
-            <li className="active">
-              <Link href="/">Home</Link>
+            <li>
+              <Link href="/" className={path === '/' ? 'active' : ''}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/#">About Us</Link>
+              <Link
+                href="/#"
+                className={
+                  path === '/overview'
+                    ? 'active'
+                    : path === '/team'
+                    ? 'active'
+                    : ''
+                }
+              >
+                About Us
+              </Link>
               <ul>
                 <li>
                   <Link href="/overview">Overview</Link>
@@ -95,7 +112,26 @@ const Nav = () => {
               </ul>
             </li>
             <li>
-              <Link href="/service">Services</Link>
+              <Link
+                href="/#"
+                className={
+                  path === '/klodin'
+                    ? 'active'
+                    : path === '/grafix'
+                    ? 'active'
+                    : path === '/advertising'
+                    ? 'active'
+                    : path === '/printing'
+                    ? 'active'
+                    : path === '/training'
+                    ? 'active'
+                    : path === '/administrative'
+                    ? 'active'
+                    : ''
+                }
+              >
+                Services
+              </Link>
               <ul>
                 <li>
                   <Link href="klodin">U&A Klodin</Link>
@@ -118,7 +154,18 @@ const Nav = () => {
               </ul>
             </li>
             <li>
-              <Link href="/#">Portfolio</Link>
+              <Link
+                href="/#"
+                className={
+                  path === '/branding'
+                    ? 'active'
+                    : path === '/gallery'
+                    ? 'active'
+                    : ''
+                }
+              >
+                Portfolio
+              </Link>
               <ul>
                 <li>
                   <Link href="/branding">Branding</Link>
@@ -128,14 +175,26 @@ const Nav = () => {
                 </li>
               </ul>
             </li>
+
+
             <li>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/blog" className={path === '/blog' ? 'active' : ''}>
+                Blog
+              </Link>
             </li>
+
+
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link
+                href="/contact"
+                className={path === '/contact' ? 'active' : ''}
+              >
+                Contact Us
+              </Link>
             </li>
+     
             <li className="request-btn">
-              <Link href="/">Request a free quote</Link>
+              <Link href="/contact">Request a free quote</Link>
             </li>
           </ul>
         </div>
