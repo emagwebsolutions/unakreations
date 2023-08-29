@@ -5,7 +5,7 @@ export async function GET(req: Request) {
   try{
   const ftch = await client.fetch(
     groq`
-    *[_type === 'ourteam']{
+    *[_type == 'ourteam']{
         _id,
         _createdAt,
         'img': mainImage.asset->url,
