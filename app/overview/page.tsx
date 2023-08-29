@@ -7,9 +7,16 @@ import Icons from '@/components/Icons';
 import Sectionthree from '@/components/home/Sectionthree';
 import { useEffect, useState } from 'react';
 import { useOverviewQuery } from '@/store/features/fetchData';
+import { PortableText } from '@portabletext/react';
 
 export default function Overview() {
-  const [getData, setData] = useState('');
+  type ST = {
+    title: string;
+    slug: string;
+    body: any;
+  }[];
+
+  const [getData, setData] = useState<ST>([]);
   const { data } = useOverviewQuery('');
 
   useEffect(() => {
@@ -18,6 +25,11 @@ export default function Overview() {
     }
   }, [data]);
 
+  const vision = getData.filter((v) => v.slug === 'vision');
+  const mission = getData.filter((v) => v.slug === 'mission');
+  const icons = getData
+    .filter((v) => v.slug !== 'mission' && v.slug !== 'vision')
+    .map((vl, ky) => <Icons key={ky} fa={vl.slug} title={vl.title} />);
 
   return (
     <Universal>
@@ -26,21 +38,15 @@ export default function Overview() {
         <div>
           <div className="container">
             <div>
-              <h2>Vision</h2>
+              <h2>{vision[0]?.title}</h2>
               <div>
-                To provide professional, full-service advertising, graphic
-                design and website design solutions to businesses who understand
-                the role and importance of their marketing material.
+                <PortableText value={vision[0]?.body} />
               </div>
             </div>
             <div>
-              <h2>Mission</h2>
-              <div>
-                We enable our clients to communicate key messages and empower
-                individuals to transform society through the innovative use of
-                digital media, storytelling, graphic design and strategy. We
-                amplify the impact of our work by inspiring others through our
-                values-driven business practices.
+              <h2>{mission[0]?.title}</h2>
+              <div >
+                <PortableText value={mission[0]?.body} />
               </div>
             </div>
           </div>
@@ -49,13 +55,7 @@ export default function Overview() {
         <div>
           <div className="container">
             <h2>Why choose UNA KREATIONS?</h2>
-            <div className="home-flex">
-              <Icons fa="umbrella" title="We care about our customers.." />
-              <Icons fa="slideshare" title="Professional Services" />
-              <Icons fa="bar-chart" title="Our Experience" />
-              <Icons fa="phone" title="Communication Is The Key" />
-              <Icons fa="id-card" title="Company Profile" />
-            </div>
+            <div className="home-flex">{icons}</div>
           </div>
         </div>
 

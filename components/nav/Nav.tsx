@@ -6,8 +6,18 @@ import Image from 'next/image';
 import { useContactQuery } from '@/store/features/fetchData';
 
 const Nav = () => {
-  
-  const [getData, setData] = useState('');
+  type CN = {
+    email: string;
+    mobile1: string;
+    mobile2: string;
+    gpsaddress: string;
+    officelocation: string;
+    googlemap: string;
+    facebook: string;
+    twitter: string;
+    instagram: string;
+  }[];
+  const [getData, setData] = useState<CN>([]);
   const { data } = useContactQuery('');
 
   useEffect(() => {
@@ -15,6 +25,8 @@ const Nav = () => {
       setData(data);
     }
   }, [data]);
+
+  const arr = getData.map((v) => v);
 
   const nav = useRef<HTMLElement>(null);
 
@@ -51,9 +63,11 @@ const Nav = () => {
       <section className="nav-section">
         <span>
           Call us now on:
-          <a href="tel:+233576705880">+233 57 670 5880</a>
+          <a href="tel:+233576705880">
+            {arr[0]?.mobile1}/{arr[0]?.mobile2}
+          </a>
         </span>
-        <span>Email us: info@unakreations.com</span>
+        <span>Email us: {arr[0]?.email}</span>
       </section>
 
       <Hamburgeropen opennav={opennav} name="U & A Creation" />
@@ -77,9 +91,6 @@ const Nav = () => {
                 </li>
                 <li>
                   <Link href="/team">Our Team</Link>
-                </li>
-                <li>
-                  <Link href="/testimonials">Testimonials</Link>
                 </li>
               </ul>
             </li>

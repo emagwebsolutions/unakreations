@@ -10,7 +10,7 @@ const Headerimage = ({ img, para }: HIM) => {
     <div
       className="headerimage"
       style={{
-        backgroundImage: `url(/${img})`,
+        backgroundImage: `url(${img})`,
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         backgroundAttachment: 'fixed',

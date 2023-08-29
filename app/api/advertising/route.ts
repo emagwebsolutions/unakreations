@@ -11,6 +11,7 @@ export async function GET(req: Request) {
         'img': mainImage.asset->url,
         'slug': slug.current,
         'cat': categories[0]->title,
+        "excerpt": array::join(string::split((pt::text(body)), "")[0..200], "") + "...",
         body,
         title
     }

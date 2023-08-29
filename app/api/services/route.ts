@@ -5,17 +5,15 @@ export async function GET(req: Request) {
   try{
   const ftch = await client.fetch(
     groq`
-    *[_type == 'contacts']{
+    *[_type == 'services']{
         _id,
         _createdAt,
-        email,
-        mobile1,
-        mobile2,
-        gpsaddress,
-        officelocation,
-        googlemap,
-        twitter,
-        instagram
+        'img': mainImage.asset->url,
+        'slug': slug.current,
+        'cat': categories[0]->title,
+        "excerpt": array::join(string::split((pt::text(body)), "")[0..200], "") + "...",
+        body,
+        title
     }
     `);
     return new Response(JSON.stringify(ftch));

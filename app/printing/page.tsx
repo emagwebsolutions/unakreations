@@ -6,14 +6,20 @@ import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { useTestimonialsQuery } from '@/store/features/fetchData';
-import {useEffect,useState} from 'react'
+import { usePrintingQuery } from '@/store/features/fetchData';
+import { PortableText } from '@portabletext/react';
+import { useState, useEffect } from 'react';
 
 const Printing = () => {
+  type GD = {
+    title: string;
+    body: any;
+    img: string;
+    slug: string;
+  }[];
 
-  const [getData, setData] = useState('');
-  const { data } = useTestimonialsQuery('');
-  
+  const [getData, setData] = useState<GD>([]);
+  const { data } = usePrintingQuery('');
 
   useEffect(() => {
     if (data) {
@@ -21,48 +27,23 @@ const Printing = () => {
     }
   }, [data]);
 
+  const header = getData.filter((v) => v.slug === 'header');
 
-  const para = (
-    <div>
-      <h1>Message Title</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nulla
-        voluptate praesentium quibusdam aliquid. Aut, pariatur rem sed omnis vel
-        laborum quidem distinctio consectetur est ratione molestias et nam
-        aspernatur?
-      </p>
-    </div>
+  const para = getData.filter((v) => v.slug === 'paragraph');
+
+  const list = getData.filter(
+    (v) => v.slug !== 'header' && v.slug !== 'paragraph'
   );
-
-  const data1 = [
-    {
-      img: '/serv.jpeg',
-      slug: 'service/serv',
-      body: para,
-    },
-    {
-      img: '/serv.jpeg',
-      slug: 'service/card',
-      body: para,
-    },
-    {
-      img: '/serv.jpeg',
-      slug: 'service/comp',
-      body: para,
-    },
-    {
-      img: '/serv.jpeg',
-      slug: 'service/shirt',
-      body: para,
-    },
-  ];
 
   return (
     <Universal>
       <Pageheadertwo />
-      <Headerimage img="tshirt.jpeg" para={para} />
-      <Pagepara para={para} />
-      <Postlist data={data1} />
+      <Headerimage
+        img={header[0]?.img}
+        para={<PortableText value={header[0]?.body} />}
+      />
+      <Pagepara para={<PortableText value={para[0]?.body} />} />
+      <Postlist data={list} page="printing" />
       <Otherservices />
     </Universal>
   );

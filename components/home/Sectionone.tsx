@@ -6,6 +6,7 @@ import { useBrandingQuery, useOverviewQuery } from '@/store/features/fetchData';
 import { PortableText } from '@portabletext/react';
 
 const Sectionone = () => {
+  
   type MSSN = {
     title: string;
     body: any;

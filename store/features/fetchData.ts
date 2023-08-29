@@ -48,6 +48,9 @@ export const apidata = createApi({
     administrative: builder.query({
       query: (args: any) => '/administrative',
     }),
+    services: builder.query({
+      query: (args: any) => '/services',
+    }),
   }),
 });
 
@@ -66,4 +69,5 @@ export const {
   usePrintingQuery,
   useTrainingQuery,
   useAdministrativeQuery,
+  useServicesQuery
 } = apidata;

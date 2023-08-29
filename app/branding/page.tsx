@@ -6,11 +6,11 @@ import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { useAdvertisingQuery } from '@/store/features/fetchData';
+import { useBrandingQuery } from '@/store/features/fetchData';
 import { PortableText } from '@portabletext/react';
 import { useState, useEffect } from 'react';
 
-const Advertising = () => {
+const Branding = () => {
   type GD = {
     title: string;
     body: any;
@@ -19,7 +19,7 @@ const Advertising = () => {
   }[];
 
   const [getData, setData] = useState<GD>([]);
-  const { data } = useAdvertisingQuery('');
+  const { data } = useBrandingQuery('');
 
   useEffect(() => {
     if (data) {
@@ -43,10 +43,10 @@ const Advertising = () => {
         para={<PortableText value={header[0]?.body} />}
       />
       <Pagepara para={<PortableText value={para[0]?.body} />} />
-      <Postlist data={list} page="Advertising" />
+      <Postlist data={list} page="branding" />
       <Otherservices />
     </Universal>
   );
 };
 
-export default Advertising;
+export default Branding;

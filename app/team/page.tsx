@@ -5,9 +5,16 @@ import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
 import { useOurteamQuery } from '@/store/features/fetchData';
 import { useEffect, useState } from 'react';
+import { PortableText } from '@portabletext/react';
 
 export default function Team() {
-  const [getData, setData] = useState('');
+  type TM = {
+    title: string;
+    img: string;
+    slug: string;
+    body: any;
+  }[];
+  const [getData, setData] = useState<TM>([]);
   const { data } = useOurteamQuery('');
 
   useEffect(() => {
@@ -16,54 +23,40 @@ export default function Team() {
     }
   }, [data]);
 
+  const topinfo = getData.filter((v) => v.slug === 'topinfo');
+  const bottominfo = getData.filter((v) => v.slug === 'bottominfo');
+
+  const team = getData
+    .filter((v) => v.slug !== 'bottominfo' && v.slug !== 'topinfo')
+    .map((vl, ky) => (
+      <Card key={ky} img={vl.img}>
+        <h4>{vl.title}</h4>
+        <div>
+          <PortableText value={vl.body} />
+        </div>
+      </Card>
+    ));
+
   return (
     <Universal>
       <Pageheader />
       <section className="team">
         <div>
           <div className="container">
-            <h3>Meet our designers and developers</h3>
+            <h2>{topinfo[0]?.title}</h2>
             <div>
-              We are a digital agency helping businesses of all size get a
-              better return from online activities.
+              <PortableText value={topinfo[0]?.body} />
             </div>
           </div>
         </div>
 
-        <div className="container blog-flex card-gap justify-center">
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-          <Card img="/graphics.jpg">
-            <h4>Fullname</h4>
-            <p>job title</p>
-          </Card>
-        </div>
+        <div className="container blog-flex card-gap justify-center">{team}</div>
 
         <div>
-          <h2>Marketing works! Design delivers.</h2>
-          <p>
-            We are a digital agency helping businesses of all size get a better
-            return from online activities.
-          </p>
+          <h2>{bottominfo[0]?.title}</h2>
+          <div>
+            <PortableText value={bottominfo[0]?.body} />
+          </div>
         </div>
       </section>
     </Universal>
