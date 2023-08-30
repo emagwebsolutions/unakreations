@@ -11,7 +11,10 @@ const Sectiontwo = () => {
     body: any;
   }[];
   const [getData, setData] = useState<SEV>([]);
+  
   const { data } = useServicesQuery('');
+  const [getSkip,setSkip] = useState(true)
+
 
   useEffect(() => {
     if (data) {

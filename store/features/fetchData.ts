@@ -5,67 +5,67 @@ export const apidata = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: '/api',
   }),
-  tagTypes: ['posts'],
+  tagTypes: ['Services','Blog','Slider','Contact','Overview','Ourteam','Testimonials','Branding','Gallery','Kloding','Grafix','Advertising','Printing','Training','Administrative'],
   endpoints: (builder) => ({
     blog: builder.query({
       query: (args: any) => '/blog',
-      providesTags: ['posts']
+      providesTags: ['Blog']
     }),
     slider: builder.query({
       query: (args: any) => '/slider',
-      providesTags: ['posts']
+      providesTags: ['Slider']
     }),
     contact: builder.query({
       query: (args: any) => '/contact',
-      providesTags: ['posts']
+      providesTags: ['Contact']
     }),
     overview: builder.query({
       query: (args: any) => '/overview',
-      providesTags: ['posts']
+      providesTags: ['Overview']
     }),
     ourteam: builder.query({
       query: (args: any) => '/ourteam',
-      providesTags: ['posts']
+      providesTags: ['Ourteam']
     }),
     testimonials: builder.query({
       query: (args: any) => '/testimonials',
-      providesTags: ['posts']
+      providesTags: ['Testimonials']
     }),
     branding: builder.query({
       query: (args: any) => '/branding',
-      providesTags: ['posts']
+      providesTags: ['Branding']
     }),
     gallery: builder.query({
       query: (args: any) => '/gallery',
-      providesTags: ['posts']
+      providesTags: ['Gallery']
     }),
     klodin: builder.query({
       query: (args: any) => '/klodin',
-      providesTags: ['posts']
+      providesTags: ['Kloding']
     }),
     grafix: builder.query({
       query: (args: any) => '/grafix',
-      providesTags: ['posts']
+      providesTags: ['Grafix']
     }),
     advertising: builder.query({
       query: (args: any) => '/advertising',
-      providesTags: ['posts']
+      providesTags: ['Advertising']
     }),
     printing: builder.query({
       query: (args: any) => '/printing',
-      providesTags: ['posts']
+      providesTags: ['Printing']
     }),
     training: builder.query({
       query: (args: any) => '/training',
-      providesTags: ['posts']
+      providesTags: ['Training']
     }),
     administrative: builder.query({
       query: (args: any) => '/administrative',
-      providesTags: ['posts']
+      providesTags: ['Administrative']
     }),
     services: builder.query({
       query: (args: any) => '/services',
-      providesTags: ['posts']
+      providesTags: ['Services']
     }),
     sendemail: builder.mutation({
       query: (args: any) => ({
@@ -73,7 +73,6 @@ export const apidata = createApi({
         method: 'POST',
         body: args,
       }),
-      invalidatesTags: ['posts']
     }),
   }),
 });
@@ -94,5 +93,5 @@ export const {
   useTrainingQuery,
   useAdministrativeQuery,
   useServicesQuery,
-  useSendemailMutation
+  useSendemailMutation,
 } = apidata;

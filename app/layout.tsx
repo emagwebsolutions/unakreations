@@ -3,8 +3,9 @@
 import type { Metadata } from 'next';
 import './globals.scss';
 
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react';
+import { Provider } from 'react-redux';
 import { apidata } from '@/store/features/fetchData';
+import store from '@/store/store';
 
 const metadata: Metadata = {
   title: 'UNA KREATIONS',
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ApiProvider api={apidata}>{children}</ApiProvider>
+        <Provider store={store}>{children}</Provider>
       </body>
     </html>
   );

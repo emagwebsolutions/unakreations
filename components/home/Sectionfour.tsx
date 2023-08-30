@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useBlogQuery } from '@/store/features/fetchData';
