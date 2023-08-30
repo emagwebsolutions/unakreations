@@ -51,6 +51,13 @@ export const apidata = createApi({
     services: builder.query({
       query: (args: any) => '/services',
     }),
+    sendemail: builder.mutation({
+      query: (args: any) => ({
+        url: '/sendemail',
+        method: 'POST',
+        body: JSON.stringify(args),
+      }),
+    }),
   }),
 });
 
@@ -69,5 +76,6 @@ export const {
   usePrintingQuery,
   useTrainingQuery,
   useAdministrativeQuery,
-  useServicesQuery
+  useServicesQuery,
+  useSendemailMutation
 } = apidata;
