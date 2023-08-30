@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { useEffect, useState } from 'react';
 import { useServicesQuery } from '@/store/features/fetchData';
+import { useDispatch } from 'react-redux';
+import { apidata } from '@/store/features/fetchData';
 
 const Sectiontwo = () => {
   type SEV = {
@@ -12,15 +14,20 @@ const Sectiontwo = () => {
   }[];
   const [getData, setData] = useState<SEV>([]);
   
-  const { data } = useServicesQuery('',{skip: false});
+  const { data,refetch } = useServicesQuery('')
   const [getSkip,setSkip] = useState(true)
+
+  const dispatch = useDispatch()
 
 
   useEffect(() => {
+    refetch()
     if (data) {
       setData(data);
+   
     }
-  }, [data]);
+
+  }, [data,refetch]);
 
   const arr = getData.filter((v) => {
     return (
