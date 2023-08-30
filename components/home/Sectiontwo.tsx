@@ -12,7 +12,7 @@ const Sectiontwo = () => {
   }[];
   const [getData, setData] = useState<SEV>([]);
   
-  const { data } = useServicesQuery('');
+  const { data } = useServicesQuery('',{skip: false});
   const [getSkip,setSkip] = useState(true)
 
 
