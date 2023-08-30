@@ -17,8 +17,6 @@ const ContactForm = () => {
     console.log(data);
   };
 
-  console.log(isSubmitting);
-
   if (isSubmitSuccessful) {
     return 'Submitting complete';
   }

@@ -8,7 +8,12 @@ import { useContactQuery } from '@/store/features/fetchData';
 import { useEffect, useState } from 'react';
 
 const Contact = () => {
-  const [getData, setData] = useState('');
+
+type CD = {
+  googlemap: string
+}[]
+
+  const [getData, setData] = useState<CD>([]);
   const { data } = useContactQuery('');
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const Contact = () => {
             </div>
             <div>
               <iframe
-                src='/1.jpg'
+                src={getData[0]?.googlemap}
                 width={wd}
                 height="450"
                 style={{ border: 0 }}

@@ -56,12 +56,5 @@ export default defineType({
       type: 'string',
     }),
 
-
-
-
-
-
-
-
   ],
 })
