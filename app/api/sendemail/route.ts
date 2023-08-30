@@ -1,35 +1,29 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
-let nodemailer = require('nodemailer')
+import { NextResponse } from 'next/server';
 
+let nodemailer = require('nodemailer');
 
-export  function POST(
-  req: Request
-) {
-
-  const {fullname,email,subject,message}: any = req.json()
-
+export async function POST(req: Request) {
+  const body: any = await req.json();
 
   const smtpTransport = nodemailer.createTransport({
     port: 587,
-    host: "smtp-relay.sendinblue.com",
+    host: 'smtp-relay.brevo.com',
     auth: {
-      user: 'info@belshawcleaningservices.com',
-      pass: 'OyDHFBRJVfTS5aGM'
-    }
-  })
-  
-  const run = async ()=>{
-    let sendResult = await smtpTransport.sendMail({
-      from: email,
-      to: 'BELSHAW CLEANING SERVICES <info@belshawcleaningservices.com>',
-      subject: 'Free Quote Request',
-      text: `
-          Fullname: ${fullname}\n,
-          Email: ${email}\n,
-          message: ${message}\n,
+      user: 'codinister@gmail.com',
+      pass: 'N2LWRJgZOjVKbYIx',
+    },
+  });
+
+  let sendResult = await smtpTransport.sendMail({
+    from: body.email,
+    to: 'emag38@yahoo.com',
+    subject: body.subject,
+    text: `
+          Fullname: ${body.fullname}\n,
+          Email: ${body.email}\n,
+          message: ${body.message}\n,
       `,
-      html: `
+    html: `
           <table border="1" cellpadding="12">
           <thead>
           <tr>
@@ -42,7 +36,7 @@ export  function POST(
                   Fullname:
                   </td>
                   <td>
-                  ${fullname}
+                  ${body.fullname}
                   </td>
               </tr>
 
@@ -51,7 +45,7 @@ export  function POST(
                   Email:
                   </td>
                   <td>
-                  ${email}
+                  ${body.email}
                   </td>
               </tr>
 
@@ -60,25 +54,21 @@ export  function POST(
                   Frequency of Cleaning:
                   </td>
                   <td>
-                  ${message}
+                  ${body.message}
                   </td>
               </tr>
 
           </tbody>
           </table>
-      `
-    })
+      `,
+  });
 
-    if(sendResult){
-      const res = { 
-        success: true,
-        message: 'Message Sent!' 
-      }
-
-      return new Response(JSON.stringify(res))
-    }
-}
-
-run().catch(err => console.error(err))
-  
+  if (sendResult) {
+    return NextResponse.json({
+      message: 'Message Sent!',
+    });
+  }
+  else{
+    console.log('An error occured!')
+  }
 }

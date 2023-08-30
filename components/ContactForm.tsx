@@ -1,3 +1,4 @@
+import { useSendemailMutation } from '@/store/features/fetchData';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
@@ -5,8 +6,10 @@ const ContactForm = () => {
     fullname: string;
     email: string;
     subject: string;
-    emailbody: string;
+    message: string;
   };
+
+  const [sendemail,result] = useSendemailMutation()
 
   const form = useForm<formValues>();
   const { register, formState, handleSubmit } = form;
@@ -14,7 +17,9 @@ const ContactForm = () => {
     formState;
 
   const onSubmit = (data: formValues) => {
-    console.log(data);
+    sendemail(data)
+
+    console.log(data)
   };
 
   if (isSubmitSuccessful) {
@@ -74,14 +79,14 @@ const ContactForm = () => {
       </div>
       <div className="form-control">
         <textarea
-          {...register('emailbody', {
+          {...register('message', {
             required: {
               value: true,
               message: 'Message box field required!',
             },
           })}
         ></textarea>
-        <p>{errors.emailbody?.message}</p>
+        <p>{errors.message?.message}</p>
       </div>
       <button>Submit</button>
 
