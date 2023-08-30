@@ -17,18 +17,18 @@ const Sectiontwo = () => {
   const { data,refetch } = useServicesQuery('')
   const [getSkip,setSkip] = useState(true)
 
-  const dispatch = useDispatch()
+
 
 
   useEffect(() => {
-    refetch()
+
     if (data) {
       setData(data);
    
     }
 
   }, [data,refetch]);
-
+  refetch()
   const arr = getData.filter((v) => {
     return (
       v.slug === 'klodin' ||
