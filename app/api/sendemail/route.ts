@@ -7,7 +7,7 @@ export  function POST(
   req: Request
 ) {
 
-  const {} = req.json()
+  const {fullname,email,subject,message}: any = req.json()
 
 
   const smtpTransport = nodemailer.createTransport({
@@ -21,16 +21,13 @@ export  function POST(
   
   const run = async ()=>{
     let sendResult = await smtpTransport.sendMail({
-      from: req.body.email,
+      from: email,
       to: 'BELSHAW CLEANING SERVICES <info@belshawcleaningservices.com>',
       subject: 'Free Quote Request',
       text: `
-          Fullname: ${req.body.fullname}\n,
-          Email: ${req.body.email}\n,
-          Phone: ${req.body.phone}\n,
-          Frequency of Cleaning: ${req.body.frequency}\n,
-          Square footage to be cleaned: ${req.body.squarefootage}\n,
-          Description: ${req.body.description}\n,
+          Fullname: ${fullname}\n,
+          Email: ${email}\n,
+          message: ${message}\n,
       `,
       html: `
           <table border="1" cellpadding="12">
@@ -45,7 +42,7 @@ export  function POST(
                   Fullname:
                   </td>
                   <td>
-                  ${req.body.fullname}
+                  ${fullname}
                   </td>
               </tr>
 
@@ -54,16 +51,7 @@ export  function POST(
                   Email:
                   </td>
                   <td>
-                  ${req.body.email}
-                  </td>
-              </tr>
-
-              <tr>
-                  <td>
-                  Phone:
-                  </td>
-                  <td>
-                  ${req.body.phone}
+                  ${email}
                   </td>
               </tr>
 
@@ -72,37 +60,22 @@ export  function POST(
                   Frequency of Cleaning:
                   </td>
                   <td>
-                  ${req.body.frequency}
+                  ${message}
                   </td>
               </tr>
 
-              <tr>
-                  <td>
-                  Square footage to be cleaned:
-                  </td>
-                  <td>
-                  ${req.body.squarefootage}
-                  </td>
-              </tr>
-
-              <tr>
-                  <td>
-                  Description:
-                  </td>
-                  <td>
-                  ${req.body.description}
-                  </td>
-              </tr>
           </tbody>
           </table>
       `
     })
 
     if(sendResult){
-      res.status(200).json({ 
+      const res = { 
         success: true,
         message: 'Message Sent!' 
-      })
+      }
+
+      return new Response(JSON.stringify(res))
     }
 }
 
