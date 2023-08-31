@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { useEffect, useState } from 'react';
-import { useServicesQuery } from '@/store/features/fetchData';
-import { useDispatch } from 'react-redux';
-import { apidata } from '@/store/features/fetchData';
+
 
 const Sectiontwo = () => {
   type SEV = {
@@ -13,22 +11,17 @@ const Sectiontwo = () => {
     body: any;
   }[];
   const [getData, setData] = useState<SEV>([]);
-  
-  const { data,refetch } = useServicesQuery('')
-  const [getSkip,setSkip] = useState(true)
-
-
 
 
   useEffect(() => {
+    fetch(`/api/services`)
+      .then((resp) => resp.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log(err));
+  }, []);
 
-    if (data) {
-      setData(data);
-   
-    }
+  console.log(getData)
 
-  }, [data,refetch]);
-  refetch()
   const arr = getData.filter((v) => {
     return (
       v.slug === 'klodin' ||
