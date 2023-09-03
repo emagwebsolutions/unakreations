@@ -1,12 +1,12 @@
 'use client';
 
+import useGetQuery from '@/axios/useGetQuery';
 import Headerimage from '@/components/Headerimage';
 import Otherservices from '@/components/Otherservices';
 import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { usePrintingQuery } from '@/store/features/fetchData';
 import { PortableText } from '@portabletext/react';
 import { useState, useEffect } from 'react';
 
@@ -18,14 +18,8 @@ const Printing = () => {
     slug: string;
   }[];
 
-  const [getData, setData] = useState<GD>([]);
-  const { data } = usePrintingQuery('');
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('printing', '/printing');
+  const getData: GD = data?.data || [];
 
   const header = getData.filter((v) => v.slug === 'header');
 

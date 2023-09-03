@@ -3,9 +3,9 @@
 import Card from '@/components/Card';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
-import { useOurteamQuery } from '@/store/features/fetchData';
 import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
+import useGetQuery from '@/axios/useGetQuery';
 
 export default function Team() {
   type TM = {
@@ -14,14 +14,11 @@ export default function Team() {
     slug: string;
     body: any;
   }[];
-  const [getData, setData] = useState<TM>([]);
-  const { data } = useOurteamQuery('');
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('team', '/ourteam');
+  const getData: TM = data?.data || [];
+
+
 
   const topinfo = getData.filter((v) => v.slug === 'topinfo');
   const bottominfo = getData.filter((v) => v.slug === 'bottominfo');

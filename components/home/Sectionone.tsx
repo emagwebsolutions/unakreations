@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Servicebuttons from '../Servicebuttons';
 import Brands from '../Brands';
 import { useEffect, useState } from 'react';
-import { useBrandingQuery, useOverviewQuery } from '@/store/features/fetchData';
 import { PortableText } from '@portabletext/react';
+import useGetQuery from '@/axios/useGetQuery';
 
 const Sectionone = () => {
   
@@ -19,22 +19,14 @@ const Sectionone = () => {
     slug: string;
   }[];
 
-  const [getBrand, setBrand] = useState<BRNDS>([]);
-  const [getData, setData] = useState<MSSN>([]);
-  const { data } = useOverviewQuery('');
-  const { data: branding } = useBrandingQuery('');
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('overview', '/overview');
+  const getData: MSSN = data?.data || [];
 
-  useEffect(() => {
-    if (branding) {
-      setBrand(branding);
-    }
-  }, [branding]);
+  const { data: branding } = useGetQuery('branding', '/branding');
+  const getBrand: BRNDS = branding?.data || []
+
+
 
   const vision = getData.filter((v) => v.slug === 'vision');
   const labels = getBrand.filter((v) => v.slug === 'labels');

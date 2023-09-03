@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import { PortableText, PortableTextBlockComponent } from '@portabletext/react';
-import { useEffect, useState } from 'react';
-import { useTestimonialsQuery } from '@/store/features/fetchData';
+import { PortableText } from '@portabletext/react';
+import useGetQuery from '@/axios/useGetQuery';
 
 type LS = {
   _id: string;
@@ -12,14 +11,8 @@ type LS = {
 }[];
 
 const Sectionthree = () => {
-  const [getData, setData] = useState<LS>([]);
-  const { data } = useTestimonialsQuery('');
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('testimonials', '/testimonials');
+  const arr: LS = data?.data || [];
 
   return (
     <section className="sec3 testimonials">
@@ -27,7 +20,7 @@ const Sectionthree = () => {
       <div className="divider"></div>
 
       <div className="container blog-flex justify-center gap-2">
-        {getData.map((v, k) => (
+        {arr.map((v, k) => (
           <div className="testm-row" key={k}>
             <div className="img-test">
               <Image width="170" height="140" src={v.img} alt="" />

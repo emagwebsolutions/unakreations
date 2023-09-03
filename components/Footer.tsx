@@ -1,4 +1,4 @@
-import { useContactQuery } from '@/store/features/fetchData';
+import useGetQuery from '@/axios/useGetQuery';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -14,27 +14,25 @@ const Footer = () => {
     twitter: string;
     instagram: string;
   }[];
-  const [getData, setData] = useState<CN>([]);
-  const { data } = useContactQuery('');
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
 
-  const arr = getData.map((v)=>v)
+
+  const { data } = useGetQuery('contact', '/contact');
+  const getData: CN = data?.data || [];
+
+  const arr = getData?.map((v) => v);
 
   return (
     <footer>
       <div>
         <div>
           <i className="fa fa-mobile fa-lg"></i>
-          <h4>{arr[0]?.mobile1}/{arr[0]?.mobile2}</h4>
+          <h4>
+            {arr[0]?.mobile1}/{arr[0]?.mobile2}
+          </h4>
         </div>
         <div>
-          <i className="fa fa-envelope fa-lg"></i>{' '}
-          <h4>{arr[0]?.email}</h4>
+          <i className="fa fa-envelope fa-lg"></i> <h4>{arr[0]?.email}</h4>
         </div>
         <div>
           <i className="fa fa-map-marker fa-lg"></i>

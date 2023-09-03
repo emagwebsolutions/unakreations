@@ -4,8 +4,7 @@ import type { Metadata } from 'next';
 import './globals.scss';
 
 import { Provider } from 'react-redux';
-import { apidata } from '@/store/features/fetchData';
-import store from '@/store/store';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const metadata: Metadata = {
   title: 'UNA KREATIONS',
@@ -17,10 +16,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const queryClient = new QueryClient();
+
   return (
     <html lang="en">
       <body>
-        <Provider store={store}>{children}</Provider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
       </body>
     </html>
   );

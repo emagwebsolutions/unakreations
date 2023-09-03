@@ -7,10 +7,12 @@ import Sectionthree from '@/components/home/Sectionthree';
 import Sectiontwo from '@/components/home/Sectiontwo';
 import Slider from '@/components/home/Slider';
 
+
+
 export default function Home() {
   return (
     <Universal>
-      <Slider />
+       <Slider />
       <Sectionone />
       <Sectiontwo />
       <Sectionthree />

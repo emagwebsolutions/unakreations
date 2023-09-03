@@ -10,24 +10,21 @@ const Pageheader = () => {
       : path === '/testimonials'
       ? 'Testimonials'
       : path === '/overview'
-      ? 'Overview' : '';
-
-
+      ? 'Overview'
+      : '';
 
   return (
     <div className="pageheader">
-
-
       <div className="container">
         <div>
           <h1>{title}</h1>
         </div>
 
-
         <div>
           <Link href="/team" className={path === '/team' ? 'active' : ''}>
             Our Team
-          </Link>&nbsp;&nbsp; | &nbsp;&nbsp;
+          </Link>
+          &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link
             href="/testimonials"
             className={path === '/testimonials' ? 'active' : ''}
@@ -42,12 +39,7 @@ const Pageheader = () => {
             Overview
           </Link>
         </div>
-
-
-        
       </div>
-
-
     </div>
   );
 };

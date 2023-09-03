@@ -2,26 +2,17 @@
 
 import Universal from '@/components/Universal';
 import ContactForm from '@/components/ContactForm';
-import { useSelector } from 'react-redux';
 import Pageheadertwo from '@/components/Pageheadertwo';
-import { useContactQuery } from '@/store/features/fetchData';
 import { useEffect, useState } from 'react';
+import useGetQuery from '@/axios/useGetQuery';
 
 const Contact = () => {
+  type CD = {
+    googlemap: string;
+  }[];
 
-type CD = {
-  googlemap: string
-}[]
-
-  const [getData, setData] = useState<CD>([]);
-  const { data } = useContactQuery('');
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
-
+  const { data } = useGetQuery('contact', '/contact');
+  const getData: CD = data?.data || [];
 
   const wd = `100%`;
 

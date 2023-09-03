@@ -3,21 +3,18 @@ import Cardtwo from '@/components/Cardtwo';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
 import { useState, useEffect } from 'react';
-import { useTestimonialsQuery } from '@/store/features/fetchData';
+import useGetQuery from '@/axios/useGetQuery';
 
 export default function Testimonials() {
+  type TEST = {
+    title: String;
+    img: string;
+    slug: string;
+    body: any;
+  };
 
-  const [getData, setData] = useState('');
-  const { data } = useTestimonialsQuery('') 
-
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
-
-
+  const { data } = useGetQuery('testimonials', '/testimonials');
+  const getData: TEST = data?.data;
 
   return (
     <Universal>

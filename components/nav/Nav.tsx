@@ -3,11 +3,11 @@ import Hamburgeropen from './Hamburgeropen';
 import Hamburgerclose from './Hamburgerclose';
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useContactQuery } from '@/store/features/fetchData';
 import { usePathname } from 'next/navigation';
+import useGetQuery from '@/axios/useGetQuery';
 
 const Nav = () => {
-  type CN = {
+  type POST = {
     email: string;
     mobile1: string;
     mobile2: string;
@@ -18,18 +18,12 @@ const Nav = () => {
     twitter: string;
     instagram: string;
   }[];
-  const [getData, setData] = useState<CN>([]);
-  const [getActive, setActive] = useState('');
-  const { data } = useContactQuery('');
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('contact', '/contact');
+
+  const getData: POST = data?.data || [];
 
   const arr = getData.map((v) => v);
-
   const nav = useRef<HTMLElement>(null);
 
   const opennav = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -85,9 +79,9 @@ const Nav = () => {
 
           <ul>
             <li>
-              <Link href="/" className={path === '/' ? 'active' : ''}>
+              <a href="/" className={path === '/' ? 'active' : ''}>
                 Home
-              </Link>
+              </a>
             </li>
             <li>
               <Link
@@ -176,13 +170,11 @@ const Nav = () => {
               </ul>
             </li>
 
-
             <li>
               <Link href="/blog" className={path === '/blog' ? 'active' : ''}>
                 Blog
               </Link>
             </li>
-
 
             <li>
               <Link
@@ -192,7 +184,7 @@ const Nav = () => {
                 Contact Us
               </Link>
             </li>
-     
+
             <li className="request-btn">
               <Link href="/contact">Request a free quote</Link>
             </li>

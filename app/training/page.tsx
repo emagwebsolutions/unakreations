@@ -1,16 +1,17 @@
 'use client';
 
+import useGetQuery from '@/axios/useGetQuery';
 import Headerimage from '@/components/Headerimage';
 import Otherservices from '@/components/Otherservices';
 import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { useBlogQuery } from '@/store/features/fetchData';
+
 import { PortableText } from '@portabletext/react';
 import { useState, useEffect } from 'react';
 
-const Blog = () => {
+const Training = () => {
   type GD = {
     title: string;
     body: any;
@@ -18,14 +19,10 @@ const Blog = () => {
     slug: string;
   }[];
 
-  const [getData, setData] = useState<GD>([]);
-  const { data } = useBlogQuery('');
+  const { data } = useGetQuery('taining', '/training');
+  const getData: GD = data?.data || [];
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+
 
   const header = getData.filter((v) => v.slug === 'header');
 
@@ -49,4 +46,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Training

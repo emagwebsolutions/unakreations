@@ -5,9 +5,8 @@ import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
 import Icons from '@/components/Icons';
 import Sectionthree from '@/components/home/Sectionthree';
-import { useEffect, useState } from 'react';
-import { useOverviewQuery } from '@/store/features/fetchData';
 import { PortableText } from '@portabletext/react';
+import useGetQuery from '@/axios/useGetQuery';
 
 export default function Overview() {
   type ST = {
@@ -16,14 +15,8 @@ export default function Overview() {
     body: any;
   }[];
 
-  const [getData, setData] = useState<ST>([]);
-  const { data } = useOverviewQuery('');
-
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
+  const { data } = useGetQuery('overview', '/overview');
+  const getData: ST = data?.data || [];
 
   const vision = getData.filter((v) => v.slug === 'vision');
   const mission = getData.filter((v) => v.slug === 'mission');
@@ -45,7 +38,7 @@ export default function Overview() {
             </div>
             <div>
               <h2>{mission[0]?.title}</h2>
-              <div >
+              <div>
                 <PortableText value={mission[0]?.body} />
               </div>
             </div>

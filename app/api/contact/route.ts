@@ -1,10 +1,13 @@
 import client from '@/sanity/client.config';
 import { groq } from 'next-sanity';
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 export async function GET(req: Request) {
-  try{
-  const ftch = await client.fetch(
-    groq`
+  try {
+    const ftch = await client.fetch(
+      groq`
     *[_type == 'contacts']{
         _id,
         _createdAt,
@@ -17,10 +20,10 @@ export async function GET(req: Request) {
         twitter,
         instagram
     }
-    `);
+    `
+    );
     return new Response(JSON.stringify(ftch));
-  }
-  catch(err){
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
 }

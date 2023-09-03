@@ -1,22 +1,17 @@
-import { useBrandingQuery } from '@/store/features/fetchData';
+import useGetQuery from '@/axios/useGetQuery';
 import Brands from './Brands';
 import { useState, useEffect } from 'react';
 
 const Otherservices = () => {
-  type BRNDS = {
+  type POST = {
     title: string;
     img: string;
     slug: string;
   }[];
 
-  const [getBrand, setBrand] = useState<BRNDS>([]);
-  const { data: branding } = useBrandingQuery('');
+  const { data } = useGetQuery('branding', '/branding');
 
-  useEffect(() => {
-    if (branding) {
-      setBrand(branding);
-    }
-  }, [branding]);
+  const getBrand: POST = data?.data || [];
 
   return (
     <div className="home-flex gap-2 otherservices justify-center">

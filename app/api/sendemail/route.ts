@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 let nodemailer = require('nodemailer');
 
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 export async function POST(req: Request) {
   const body: any = await req.json();
 

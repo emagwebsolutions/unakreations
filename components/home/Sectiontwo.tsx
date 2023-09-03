@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
-import { useEffect, useState } from 'react';
+import useGetQuery from '@/axios/useGetQuery';
 
 
 const Sectiontwo = () => {
@@ -10,19 +10,12 @@ const Sectiontwo = () => {
     slug: string;
     body: any;
   }[];
-  const [getData, setData] = useState<SEV>([]);
 
 
-  useEffect(() => {
-    fetch(`/api/services`)
-      .then((resp) => resp.json())
-      .then((data) => setData(data))
-      .catch((err) => console.log(err));
-  }, []);
+  const { data } = useGetQuery('services', '/services');
+  const arrs: SEV = data?.data || [];
 
-  console.log(getData)
-
-  const arr = getData.filter((v) => {
+  const arr = arrs.filter((v) => {
     return (
       v.slug === 'klodin' ||
       v.slug === 'graphicsdesign' ||
@@ -31,7 +24,7 @@ const Sectiontwo = () => {
     );
   });
 
-  const ourserv = getData.filter((v) => v.slug === 'serv');
+  const ourserv = arrs.filter((v) => v.slug === 'serv');
 
   return (
     <section className="sec2 unaklodin">

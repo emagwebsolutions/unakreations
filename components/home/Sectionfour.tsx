@@ -1,7 +1,7 @@
+import useGetQuery from '@/axios/useGetQuery';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { useBlogQuery } from '@/store/features/fetchData';
+
 
 const Sectionfour = () => {
   type BL = {
@@ -11,16 +11,10 @@ const Sectionfour = () => {
     slug: string;
   }[];
 
-  const [getData, setData] = useState<BL>([]);
-  const { data } = useBlogQuery('');
+  const { data } = useGetQuery('blog', '/blog');
+  const arrs: BL = data?.data || [];
 
-  useEffect(() => {
-    if (data) {
-      setData(data);
-    }
-  }, [data]);
-
-  const blogs = getData
+  const blogs = arrs
     .filter((v) => {
       return v.slug !== 'header' && v.slug !== 'paragraph';
     })

@@ -1,4 +1,3 @@
-import { useSendemailMutation } from '@/store/features/fetchData';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
@@ -9,17 +8,13 @@ const ContactForm = () => {
     message: string;
   };
 
-  const [sendemail,result] = useSendemailMutation()
-
   const form = useForm<formValues>();
   const { register, formState, handleSubmit } = form;
   const { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful } =
     formState;
 
   const onSubmit = (data: formValues) => {
-    sendemail(data)
-
-    console.log(data)
+    console.log(data);
   };
 
   if (isSubmitSuccessful) {
