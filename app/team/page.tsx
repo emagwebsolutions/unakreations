@@ -15,8 +15,10 @@ export default function Team() {
     body: any;
   }[];
 
-  const { data } = useGetQuery('team', '/ourteam');
+  const { data } = useGetQuery('ourteam', '/ourteam');
   const getData: TM = data?.data || [];
+
+  console.log(getData)
 
 
 
