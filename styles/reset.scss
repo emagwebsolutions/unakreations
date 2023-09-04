@@ -65,10 +65,7 @@ p {
   font-size: clamp(11px, 1.2vw, 1.5rem);
   color: muted();
 }
-.container {
-  padding-inline: 3em;
-  margin-inline: auto;
-}
+
 
 p {
   font-size: 1.8rem;
@@ -94,9 +91,20 @@ div {
   .blog-flex {
     flex-direction: column;
   }
+
+  .container {
+    padding-inline: 1em;
+    margin-inline: auto;
+  }
+
+
 }
 
 @media (min-width: 35em) {
+  .container {
+    padding-inline: 3em;
+    margin-inline: auto;
+  }
   .container h1 {
     font-size: 4rem;
     color: #444;
