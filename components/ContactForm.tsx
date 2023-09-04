@@ -1,21 +1,26 @@
+import { request } from '@/axios/axios.config';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
+
   type formValues = {
     fullname: string;
     email: string;
-    subject: string;
+    subject: string;  
     message: string;
   };
 
   const form = useForm<formValues>();
   const { register, formState, handleSubmit } = form;
-  const { errors, isDirty, isValid, isSubmitting, isSubmitSuccessful } =
+  const { errors, isSubmitting, isSubmitSuccessful } =
     formState;
 
+
   const onSubmit = (data: formValues) => {
-    console.log(data);
+    const res = request({ url: '/sendemail', method: 'POST', data });
+
   };
+
 
   if (isSubmitSuccessful) {
     return 'Submitting complete';

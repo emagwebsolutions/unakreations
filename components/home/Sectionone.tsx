@@ -26,8 +26,6 @@ const Sectionone = () => {
   const { data: branding } = useGetQuery('branding', '/branding');
   const getBrand: BRNDS = branding?.data || []
 
-
-
   const vision = getData.filter((v) => v.slug === 'vision');
   const labels = getBrand.filter((v) => v.slug === 'labels');
   const billboard = getBrand.filter((v) => v.slug === 'billboards');

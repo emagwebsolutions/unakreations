@@ -18,10 +18,6 @@ export default function Team() {
   const { data } = useGetQuery('ourteam', '/ourteam');
   const getData: TM = data?.data || [];
 
-  console.log(getData)
-
-
-
   const topinfo = getData.filter((v) => v.slug === 'topinfo');
   const bottominfo = getData.filter((v) => v.slug === 'bottominfo');
 
@@ -49,7 +45,9 @@ export default function Team() {
           </div>
         </div>
 
-        <div className="container blog-flex card-gap justify-center">{team}</div>
+        <div className="container blog-flex card-gap justify-center">
+          {team}
+        </div>
 
         <div>
           <h2>{bottominfo[0]?.title}</h2>
