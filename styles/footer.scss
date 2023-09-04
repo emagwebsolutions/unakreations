@@ -1,68 +1,54 @@
+footer {
+  padding: 3em;
+  background-color: primary();
+  display: flex;
+  justify-content: center;
+  color: white();
+  h4{
+    font-size: 1.8rem;
+  }
+}
+
+footer div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+footer div > div > .fa {
+  background-color: white(0.2);
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
-    footer{
-        padding: 3em;
-        background-color: primary();
-        display: flex;
-        justify-content: center;
-        color: white();
-    }
-    
-    footer div > div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap:  1rem;
-        margin-bottom: .5rem;
-    }
-    
-    footer div > div > .fa{
-        background-color: white(.2);
-        padding: 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    footer div > div:nth-of-type(1),
-    footer div > div:nth-of-type(2),
-    footer div > div:nth-of-type(3){
-        font-size: clamp(10px,1.3rem,1.8rem);
-    }
-    
-    
-    footer div > div:nth-of-type(1) .fa,
-    footer div > div:nth-of-type(2) .fa,
-    footer div > div:nth-of-type(3) .fa
-    {
-        border-radius: 100%;
-        width: 1rem;
-        height: 1rem;
-        font-size: clamp(11px,1.3rem,1.5rem);
-    }
-    
-    
-    footer div > div:nth-of-type(4) a > .fa
-    {
-        width: 1.8rem;
-        height: 1.8rem;
-        box-shadow: 0 0 .5rem muted();
-        background-color: white(.2);
-        padding: 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-    }
-    
-    footer div > div:nth-of-type(4)
-    {
-        margin-block: 2rem;
-    }
-    
-    footer div > div:nth-of-type(5)
-    {
-        font-size: clamp(11px,1.2rem,1.3rem);
-    }
+
+footer div > div:nth-of-type(1) .fa,
+footer div > div:nth-of-type(2) .fa,
+footer div > div:nth-of-type(3) .fa {
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+}
+
+footer div > div:nth-of-type(4) a > .fa {
+  width: 1.8rem;
+  height: 1.8rem;
+  box-shadow: 0 0 0.5rem muted();
+  background-color: white(0.2);
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+footer div > div:nth-of-type(4) {
+  margin-block: 2rem;
+}
 
 

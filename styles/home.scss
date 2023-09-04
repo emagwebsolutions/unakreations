@@ -150,3 +150,52 @@
     margin-block: 5rem;
   }
 }
+
+@media (max-width: 35em) {
+  .sec1-caption {
+    h1 {
+      font-size: 5rem;
+      margin-top: 2em;
+    }
+  }
+
+  .testimonials {
+    background-color: #eee;
+
+    h1 {
+      text-align: center;
+      color: muted();
+      font-size: 3rem;
+      margin-top: 2em;
+    }
+    .testm-row {
+      background-color: white;
+      padding: 2em;
+      text-align: center;
+
+      h4 {
+        margin-block: 0.5em;
+      }
+    }
+    .img-test {
+      width: 14rem;
+      height: 14rem;
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      border: solid 1rem danger();
+      margin-inline: auto;
+    }
+    .fa-quote-left {
+      text-align: left !important;
+      display: block;
+      color: #ccc;
+    }
+    .fa-quote-right {
+      text-align: right !important;
+      display: block;
+      color: #ccc;
+    }
+  }
+}

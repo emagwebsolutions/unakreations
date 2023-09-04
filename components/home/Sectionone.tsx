@@ -6,7 +6,6 @@ import { PortableText } from '@portabletext/react';
 import useGetQuery from '@/axios/useGetQuery';
 
 const Sectionone = () => {
-  
   type MSSN = {
     title: string;
     body: any;
@@ -19,12 +18,11 @@ const Sectionone = () => {
     slug: string;
   }[];
 
-
   const { data } = useGetQuery('overview', '/overview');
   const getData: MSSN = data?.data || [];
 
   const { data: branding } = useGetQuery('branding', '/branding');
-  const getBrand: BRNDS = branding?.data || []
+  const getBrand: BRNDS = branding?.data || [];
 
   const vision = getData.filter((v) => v.slug === 'vision');
   const labels = getBrand.filter((v) => v.slug === 'labels');
@@ -33,7 +31,6 @@ const Sectionone = () => {
   const businesscard = getBrand.filter((v) => v.slug == 'business-cards');
   const graphics = getBrand.filter((v) => v.slug === 'graphicsdesign');
 
-
   return (
     <section>
       <div className="container">
@@ -41,7 +38,6 @@ const Sectionone = () => {
           <div>
             <h1>{vision[0]?.title}</h1>
             <div className="divider"></div>
-
             <div>
               <PortableText value={vision[0]?.body} />
             </div>

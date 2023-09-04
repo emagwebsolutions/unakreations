@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import useGetQuery from '@/axios/useGetQuery';
 
-
 const Sectiontwo = () => {
   type SEV = {
     title: string;
@@ -10,7 +9,6 @@ const Sectiontwo = () => {
     slug: string;
     body: any;
   }[];
-
 
   const { data } = useGetQuery('services', '/services');
   const arrs: SEV = data?.data || [];

@@ -2,7 +2,6 @@ import useGetQuery from '@/axios/useGetQuery';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 const Sectionfour = () => {
   type BL = {
     title: string;
@@ -36,9 +35,7 @@ const Sectionfour = () => {
       <h1>Our Blog</h1>
       <div className="divider"></div>
 
-      <div className="container justify-center blog-flex gap-3">
-        {blogs}
-      </div>
+      <div className="container justify-center blog-flex gap-3">{blogs}</div>
 
       <div className="blog-btn">
         <Link href="/">VIEW ALL</Link>

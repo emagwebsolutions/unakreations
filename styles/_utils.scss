@@ -38,20 +38,6 @@
   gap: 2em;
 }
 
-.justify-center {
-  justify-content: center;
-}
-.alignitems-center {
-  align-items: center;
-}
-.flex-start {
-  justify-content: flex-start;
-}
-
-.flex-end {
-  justify-content: flex-end;
-}
-
 .pageheader {
   & > div {
     .active {
@@ -135,21 +121,6 @@
   padding-bottom: 5em;
 }
 
-.brands {
-  padding: 1em;
-  border: solid muted() 0.1rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 1.5em;
-  color: muted();
-  picture {
-    height: 90%;
-    overflow: hidden;
-  }
-}
-
 .otherservices {
   padding: 5rem;
   background-color: #dedede;
@@ -157,4 +128,68 @@
 
 .postcontent {
   padding-block: 5rem;
+}
+
+@media (max-width: 35em) {
+  .justify-center {
+    justify-content: none;
+  }
+  .alignitems-center {
+    align-items: none;
+  }
+  .flex-start {
+    justify-content: none;
+  }
+
+  .flex-end {
+    justify-content: none;
+  }
+
+  .brands {
+    padding: 1em;
+    border: solid muted() 0.1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5em;
+    color: muted();
+    h4 {
+      font-size: 2rem;
+    }
+    picture {
+      height: 90%;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (min-width: 35em) {
+  .justify-center {
+    justify-content: center;
+  }
+  .alignitems-center {
+    align-items: center;
+  }
+  .flex-start {
+    justify-content: flex-start;
+  }
+
+  .flex-end {
+    justify-content: flex-end;
+  }
+  .brands {
+    padding: 1em;
+    border: solid muted() 0.1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5em;
+    color: muted();
+    picture {
+      height: 90%;
+      overflow: hidden;
+    }
+  }
 }

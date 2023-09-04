@@ -1,47 +1,104 @@
-.blog{
+@media (max-width: 35em) {
+  .blog {
     margin-top: 2em;
     text-align: center;
-}
-
-.blog picture {
-  height: 15rem;
-  overflow: hidden;
-  display: block;
-}
-.blog > div {
-    h3{
-        text-align: center;
-        margin-block: .5em;
-    }
-  & > div {
-    padding: 0.3rem;
-    border-top: solid 1px #ccc;
-    font-size: 1.4rem;
-    justify-content: space-between;
-    display: flex;
-    padding-block: 1.2em;
   }
-}
 
-.blogpostwrapper {
-
-  .blog-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
-    a {
-      display: block;
-      background-color: #df4020;
-      color: white;
-      width: 12rem;
-      border-radius: 1.3rem;
+  .blog picture {
+    height: 15rem;
+    overflow: hidden;
+    display: block;
+  }
+  .blog > div {
+    h3 {
       text-align: center;
+      margin-block: 0.5em;
+      font-size: 2rem;
+    }
+    & > div {
+      padding: 0.3rem;
+      border-top: solid 1px #ccc;
+      font-size: 1.8rem;
+      justify-content: space-between;
+      display: flex;
+      padding-block: 1.2em;
     }
   }
 
-  h1 {
+  .blogpostwrapper {
+    .blog-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 2em;
+      margin-bottom: 3em;
+      a {
+        display: block;
+        background-color: #df4020;
+        color: white;
+        width: 12rem;
+        border-radius: 1.3rem;
+        text-align: center;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: muted();
+      font-size: 4rem;
+      margin-top: 1em;
+    }
+  }
+}
+
+
+
+
+
+@media (min-width: 35em) {
+  .blog {
+    margin-top: 2em;
     text-align: center;
-    color: muted();
   }
 
+  .blog picture {
+    height: 15rem;
+    overflow: hidden;
+    display: block;
+  }
+  .blog > div {
+    h3 {
+      text-align: center;
+      margin-block: 0.5em;
+    }
+    & > div {
+      padding: 0.3rem;
+      border-top: solid 1px #ccc;
+      font-size: 1.8rem;
+      justify-content: space-between;
+      display: flex;
+      padding-block: 1.2em;
+    }
+  }
+
+  .blogpostwrapper {
+    .blog-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 2em;
+      a {
+        display: block;
+        background-color: #df4020;
+        color: white;
+        width: 12rem;
+        border-radius: 1.3rem;
+        text-align: center;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: muted();
+      font-size: 4rem;
+    }
+  }
 }

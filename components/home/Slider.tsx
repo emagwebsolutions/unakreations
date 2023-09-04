@@ -11,23 +11,19 @@ const Slider = () => {
   const { data } = useGetQuery('slider', '/slider');
   const arrs: GRC = data?.data || [];
 
-
-
   const url = arrs.map((v, k) => v.img);
-
 
   const images = [
     {
-      url: url[0]
+      url: url[0],
     },
     {
-      url: url[1]
+      url: url[1],
     },
     {
-      url: url[2]
+      url: url[2],
     },
-  ]
-
+  ];
 
   return (
     <div className="slide-container">
