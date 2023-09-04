@@ -3,7 +3,6 @@
 import type { Metadata } from 'next';
 import './globals.scss';
 
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const metadata: Metadata = {

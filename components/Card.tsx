@@ -9,8 +9,10 @@ type CH = {
 const Card = ({img,children}: CH) => {
   return (
     <div className="card">
-      
-      <Image src={img} width={500} height={200} alt="" />
+      <div className="imgbx">
+      <Image src={img} width={400} height={500} alt="" />
+      </div>
+
       <div>{children}</div>
     </div>
   );
