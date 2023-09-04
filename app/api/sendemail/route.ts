@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     const options = {
       from: email,
-      to: 'emag38@yahoo.com',
+      to: 'emmanuelagyemang3@gmail.com',
       subject,
       text: message,
       html: message,
