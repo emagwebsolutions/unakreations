@@ -1,46 +1,31 @@
 'use client';
 
-import useGetQuery from '@/axios/useGetQuery';
-import Headerimage from '@/components/Headerimage';
-import Otherservices from '@/components/Otherservices';
-import Pageheadertwo from '@/components/Pageheadertwo';
-import Pagepara from '@/components/Pagepara';
-import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { PortableText } from '@portabletext/react';
-
+import Instagram from '@/components/blog/Instagram';
+import Multiimages from '@/components/blog/Multiimages';
+import Singleimage from '@/components/blog/Singleimage';
+import Singleimagetwo from '@/components/blog/Singleimagetwo';
+import Videocomponent from '@/components/blog/Videocomponent';
 
 const Blog = () => {
-  type GD = {
-    title: string;
-    body: any;
-    img: string;
-    slug: string;
-  }[];
-
-
-  const { data } = useGetQuery('blog', '/blog');
-  const getData: GD = data?.data || []
-
-
-  const header = getData.filter((v) => v.slug === 'header');
-
-  const para = getData.filter((v) => v.slug === 'paragraph');
-
-  const list = getData.filter(
-    (v) => v.slug !== 'header' && v.slug !== 'paragraph'
-  );
-
   return (
     <Universal>
-      <Pageheadertwo />
-      <Headerimage
-        img={header[0]?.img}
-        para={<PortableText value={header[0]?.body} />}
-      />
-      <Pagepara para={<PortableText value={para[0]?.body} />} />
-      <Postlist data={list} page="blog" />
-      <Otherservices />
+      <Videocomponent url="https://www.youtube.com/watch?v=7a34tgFDonI">
+        THIS IS A VIDEOS BOX
+      </Videocomponent>
+
+      <Multiimages data={[]} />
+
+      <Singleimage className="singleimage blue" />
+
+      <Instagram url="http://www.instagram.com" />
+
+      <Videocomponent url="https://www.youtube.com/watch?v=ZsH1_xMwQrI">
+        THIS IS A VIDEOS BOX
+      </Videocomponent>
+      <Singleimagetwo className="singleimage pink" />
+      <Multiimages data={[]} />
+      <Instagram url="http://www.instagram.com" />
     </Universal>
   );
 };
