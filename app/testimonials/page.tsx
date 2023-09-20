@@ -2,7 +2,6 @@
 import Cardtwo from '@/components/Cardtwo';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
-import { useState, useEffect } from 'react';
 import useGetQuery from '@/axios/useGetQuery';
 
 export default function Testimonials() {

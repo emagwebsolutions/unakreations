@@ -1,6 +1,5 @@
 'use client';
 
-import Card from '@/components/Card';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
 import Icons from '@/components/Icons';

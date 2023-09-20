@@ -3,7 +3,6 @@
 import Card from '@/components/Card';
 import Universal from '@/components/Universal';
 import Pageheader from '@/components/Pageheader';
-import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import useGetQuery from '@/axios/useGetQuery';
 

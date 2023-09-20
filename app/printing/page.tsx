@@ -8,7 +8,7 @@ import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
 import { PortableText } from '@portabletext/react';
-import { useState, useEffect } from 'react';
+
 
 const Printing = () => {
   type GD = {

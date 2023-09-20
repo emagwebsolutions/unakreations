@@ -3,7 +3,6 @@
 import Universal from '@/components/Universal';
 import ContactForm from '@/components/ContactForm';
 import Pageheadertwo from '@/components/Pageheadertwo';
-import { useEffect, useState } from 'react';
 import useGetQuery from '@/axios/useGetQuery';
 
 const Contact = () => {
