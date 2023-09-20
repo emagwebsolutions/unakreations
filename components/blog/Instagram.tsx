@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
-type UR = {
-  url: string;
-};
 
-const Instagram = ({ url }: UR) => {
-  return <Link className="iglink" href={url}>CLICK TO FOLLOW US ON IG</Link>;
+
+const Instagram = () => {
+  return <Link className="iglink" href="https://www.instagram.com">CLICK TO FOLLOW US ON IG</Link>;
 };
 
 export default Instagram;

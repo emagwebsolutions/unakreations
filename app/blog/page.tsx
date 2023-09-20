@@ -1,31 +1,75 @@
 'use client';
 
+import useGetQuery from '@/axios/useGetQuery';
 import Universal from '@/components/Universal';
-import Instagram from '@/components/blog/Instagram';
-import Multiimages from '@/components/blog/Multiimages';
-import Singleimage from '@/components/blog/Singleimage';
-import Singleimagetwo from '@/components/blog/Singleimagetwo';
-import Videocomponent from '@/components/blog/Videocomponent';
+import Entertainment from '@/components/blog/Entertainment';
+import Lifestyle from '@/components/blog/Lifestyle';
+import Music from '@/components/blog/Music';
+
+type TM = {
+  _createdAt: Date;
+  ytvideolink: string;
+  img: string;
+  slug: string;
+  cat: string;
+  excerpt: string;
+  body: any;
+  title: string;
+}[];
 
 const Blog = () => {
+  const { data } = useGetQuery('blog', '/blog');
+  const getData: TM = data?.data || [];
+
+  //LIFE STYLE
+  const lifestyleone =
+    getData.filter((v) => v.cat === 'Lifestyle').slice(0, 3) || [];
+  const lifestyletwo =
+    getData.filter((v) => v.cat === 'Lifestyle').slice(4, 6) || [];
+  const lifestylethree =
+    getData.filter((v) => v.cat === 'Lifestyle').slice(7, 9) || [];
+
+  //ENTERTAIMNMENT
+  const entertainmentone =
+    getData.filter((v) => v.cat === 'Entertainment News').slice(0, 3) || [];
+  const entertainmenttwo =
+    getData.filter((v) => v.cat === 'Entertainment News').slice(4, 6) || [];
+  const entertainmentthree =
+    getData.filter((v) => v.cat === 'Entertainment News').slice(7, 9) || [];
+
+  //MUSIC
+  const musicone = getData.filter((v) => v.cat === 'Music').slice(0, 3) || [];
+  const musictwo = getData.filter((v) => v.cat === 'Music').slice(4, 6) || [];
+  const musicthree = getData.filter((v) => v.cat === 'Music').slice(7, 9) || [];
+
   return (
     <Universal>
-      <Videocomponent url="https://www.youtube.com/watch?v=7a34tgFDonI">
-        THIS IS A VIDEOS BOX
-      </Videocomponent>
+      {/* MUSIC */}
+      <Music data={musicone} />
 
-      <Multiimages data={[]} />
+      {/* Entertainment */}
+      <Entertainment data={entertainmentone} />
 
-      <Singleimage className="singleimage blue" />
+      {/* Life Style */}
+      <Lifestyle data={lifestyleone} />
 
-      <Instagram url="http://www.instagram.com" />
+      {/* MUSIC */}
+      <Music data={musictwo} />
 
-      <Videocomponent url="https://www.youtube.com/watch?v=ZsH1_xMwQrI">
-        THIS IS A VIDEOS BOX
-      </Videocomponent>
-      <Singleimagetwo className="singleimage pink" />
-      <Multiimages data={[]} />
-      <Instagram url="http://www.instagram.com" />
+      {/* Entertainment */}
+      <Entertainment data={entertainmenttwo} />
+
+      {/* Life Style */}
+      <Lifestyle data={lifestyletwo} />
+
+      {/* MUSIC */}
+      <Music data={musicthree} />
+
+      {/* Entertainment */}
+      <Entertainment data={entertainmentthree} />
+
+      {/* Life Style */}
+      <Lifestyle data={lifestylethree} />
     </Universal>
   );
 };

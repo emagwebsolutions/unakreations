@@ -35,6 +35,9 @@ const Videocomponent = ({ url,children }: UR) => {
     },
   };
 
+
+  if(!url) return null
+
   return (
     <div className="youtube">
       <YouTube

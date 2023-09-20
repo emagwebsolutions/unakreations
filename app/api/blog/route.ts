@@ -11,6 +11,7 @@ export async function GET(req: Request) {
     *[_type == 'blog']{
         _id,
         _createdAt,
+        ytvideolink,
         'img': mainImage.asset->url,
         'slug': slug.current,
         'cat': categories[0]->title,

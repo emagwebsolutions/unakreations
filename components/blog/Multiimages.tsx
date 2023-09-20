@@ -1,47 +1,31 @@
 import Link from 'next/link';
 
 type DT = {
-  data: {}[];
+  data: {
+    img: string;
+    title: string;
+  }[];
 };
 
 const Multiimages = ({ data }: DT) => {
+  if(!data) return null
+const arr = data || []
   return (
     <div className="multiimage">
-      <div
-        style={{
-          backgroundImage: "url('/tshirt.jpeg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <h2>
-          <Link href="">THIS IS WHERE TITLE WILL APPEAR</Link>
-        </h2>
-      </div>
-
-      <div
-        style={{
-          backgroundImage: "url('/graphics.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-       <h2>
-          <Link href="">THIS IS WHERE TITLE WILL APPEAR</Link>
-        </h2>
-      </div>
-
-      <div
-        style={{
-          backgroundImage: "url('/serv.jpeg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <h2>
-          <Link href="">THIS IS WHERE TITLE WILL APPEAR</Link>
-        </h2>
-      </div>
+      {arr.map((v, k) => (
+        <div
+          key={k}
+          style={{
+            backgroundImage: `url(${v.img})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <h2>
+            <Link href="">{v.title.toUpperCase()}</Link>
+          </h2>
+        </div>
+      ))}
     </div>
   );
 };

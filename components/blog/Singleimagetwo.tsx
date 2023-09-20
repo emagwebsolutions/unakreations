@@ -1,20 +1,31 @@
-const Singleimagetwo = ({ ...rest }) => {
+type DT = {
+  data: {
+    _createdAt: Date;
+    ytvideolink: string;
+    img: string;
+    slug: string;
+    cat: string;
+    excerpt: string;
+    body: any;
+    title: string;
+  };
+} & React.ComponentProps<'div'>;
+
+const Singleimagetwo = ({ data, ...rest }: DT) => {
+  if (!data) return null;
+  const arr = data || [];
   return (
     <div {...rest}>
       <div className="container">
         <div className="simgb2">
-          <h2>TITLE HERE</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
-            impedit laborum quas fuga quasi, et, facilis dolore pariatur rerum
-            totam eos excepturi praesentium dolores, laboriosam nobis
-            voluptatibus. Deleniti, possimus est.
-          </p>
+          <h3>{data?.title}</h3>
+          <div>{data?.excerpt}</div>
         </div>
+
         <div
           className="simgb1"
           style={{
-            backgroundImage: "url('/serv.jpeg')",
+            backgroundImage: `url(${data?.img})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
