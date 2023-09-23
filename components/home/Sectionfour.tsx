@@ -23,12 +23,13 @@ const Sectionfour = () => {
           <Image width="500" height="200" src={vl.img} alt="" />
         </picture>
         <div>
-          <h3>{vl.title}</h3>
+          <h3>{vl.title.substring(0,45)}....</h3>
           <div>{vl.excerpt}</div>
           <div></div>
         </div>
       </div>
-    ));
+    ))
+    .slice(0, 3);
 
   return (
     <section className="sec3 blogpostwrapper">
@@ -38,7 +39,7 @@ const Sectionfour = () => {
       <div className="container justify-center blog-flex gap-3">{blogs}</div>
 
       <div className="blog-btn">
-        <Link href="/">VIEW ALL</Link>
+        <Link href="/blog">VIEW ALL</Link>
       </div>
     </section>
   );

@@ -17,7 +17,8 @@ export async function GET(req: Request) {
         'cat': categories[0]->title,
         "excerpt": array::join(string::split((pt::text(body)), "")[0..200], "") + "...",
         body,
-        title
+        title,
+        'arr': []
     }
     `);
     return new Response(JSON.stringify(ftch));

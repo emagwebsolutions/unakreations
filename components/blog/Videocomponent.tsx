@@ -6,7 +6,7 @@ type UR = {
   children?: React.ReactNode;
 };
 
-const Videocomponent = ({ url,children }: UR) => {
+const Videocomponent = ({ url, children }: UR) => {
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     event.target.playVideo();
     event.target.mute();
@@ -35,21 +35,21 @@ const Videocomponent = ({ url,children }: UR) => {
     },
   };
 
-
-  if(!url) return null
-
-  return (
-    <div className="youtube">
-      <YouTube
-        videoId={getYouTubeID(url)}
-        opts={opts}
-        onReady={onPlayerReady}
-        onEnd={onPlayerEnd}
-      />
-
-      <div>{children}</div>
-    </div>
-  );
+  if (url) {
+    return (
+      <div className="youtube">
+        <YouTube
+          videoId={getYouTubeID(url)}
+          opts={opts}
+          onReady={onPlayerReady}
+          onEnd={onPlayerEnd}
+        />
+        <div>{children}</div>
+      </div>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Videocomponent;
