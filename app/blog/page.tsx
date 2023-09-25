@@ -18,7 +18,7 @@ type TM = {
 }[];
 
 const Blog = () => {
-  const { data } = useGetQuery('blog', '/blog');
+  const { data } = useGetQuery('blogs', '/blog');
   const getData: TM = data?.data || [];
 
   return (

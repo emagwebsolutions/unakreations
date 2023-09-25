@@ -12,7 +12,7 @@ const Multiimages = ({ data }: DT) => {
   if (!data) return null;
   const arr = data || [];
 
-  if (data) {
+  if (arr) {
     return (
       <div className="multiimage">
         {arr.map((v, k) => (

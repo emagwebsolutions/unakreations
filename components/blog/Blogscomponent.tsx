@@ -12,9 +12,13 @@ type DT = {
 const Blogscomponent = ({ data }: DT) => {
   let arr: any = [];
 
-  data.forEach((v) => {
+  for(let i=0; i < 1; i++){
     arr.push(data.splice(0, 3));
-  });
+  }
+
+
+  console.log(data.length)
+  
 
   let newarr = [...arr, [...data]].map((v, k) => {
     const color = [

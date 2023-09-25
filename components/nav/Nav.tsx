@@ -149,25 +149,11 @@ const Nav = () => {
             </li>
             <li>
               <Link
-                href="/#"
-                className={
-                  path === '/branding'
-                    ? 'active'
-                    : path === '/gallery'
-                    ? 'active'
-                    : ''
-                }
+                href="/branding"
+                className={path === '/branding' ? 'active' : ''}
               >
-                Portfolio
+                Branding
               </Link>
-              <ul>
-                <li>
-                  <Link href="/branding">Branding</Link>
-                </li>
-                <li>
-                  <Link href="/gallery">Gallery</Link>
-                </li>
-              </ul>
             </li>
 
             <li>

@@ -22,10 +22,10 @@ type GD = {
 }[];
 
 const Post = ({ params: { slug } }: PR) => {
-  const { data } = useGetQuery('printing', '/printing');
-  const printing: GD = data?.data || [];
+  const { data } = useGetQuery('branding', '/branding');
+  const branding: GD = data?.data || [];
 
-  const res = printing.filter((v) => v.slug === slug)[0]
+  const res = branding.filter((v) => v.slug === slug)[0]
 
 
   return (

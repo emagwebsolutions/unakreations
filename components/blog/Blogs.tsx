@@ -14,6 +14,9 @@ type DT = {
 }[];
 
 const Blogs = ({ data }: { data: DT }) => {
+
+
+
   const red: DT = data.reduce((a: any, c: any) => {
     if (a[c.cat]) {
       a[c.cat].arr.push(c);
@@ -22,6 +25,7 @@ const Blogs = ({ data }: { data: DT }) => {
     }
     return a;
   }, {});
+
 
   const group = Object.values(red).map((v, k) => {
     const arr = [
@@ -39,7 +43,7 @@ const Blogs = ({ data }: { data: DT }) => {
       },
       ...v.arr,
     ];
-    if (data) {
+    if (arr) {
       return <Blogscomponent key={k} data={arr} />;
     } else {
       return null;

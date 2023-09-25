@@ -17,6 +17,9 @@ type POSTS = {
 };
 
 const Header = ({ singlepost, otherposts, page }: POSTS) => {
+
+
+
   return (
 
     <div className="blog-header">
@@ -38,7 +41,7 @@ const Header = ({ singlepost, otherposts, page }: POSTS) => {
         {otherposts.map((v, k) => {
           return (
             <Link href={`${page}/${v.slug}`} key={k}>
-              <Image src={v.img} alt="" width={170} height={170} />
+              <Image src={v.img || ''} alt="" width={170} height={170} />
             </Link>
           );
         })}

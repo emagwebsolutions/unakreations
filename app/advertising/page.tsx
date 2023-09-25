@@ -1,44 +1,37 @@
 'use client';
 
 import useGetQuery from '@/axios/useGetQuery';
-import Headerimage from '@/components/Headerimage';
-import Otherservices from '@/components/Otherservices';
-import Pageheadertwo from '@/components/Pageheadertwo';
-import Pagepara from '@/components/Pagepara';
-import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
-import { PortableText } from '@portabletext/react';
+import Header from '@/components/blog/pages/Header';
+import Otherservices from '@/components/blog/pages/Otherservices';
+import Recentposts from '@/components/blog/pages/Recentposts';
 
 const Advertising = () => {
   type GD = {
     title: string;
-    body: any;
     img: string;
+    excerpt: string;
     slug: string;
   }[];
 
   const { data } = useGetQuery('advertising', '/advertising');
   const getData: GD = data?.data || [];
 
-
-  const header = getData.filter((v) => v.slug === 'header');
-
-  const para = getData.filter((v) => v.slug === 'paragraph');
-
-  const list = getData.filter(
-    (v) => v.slug !== 'header' && v.slug !== 'paragraph'
-  );
+  const singlepost = getData.slice(0, 1);
+  const otherposts = getData;
 
   return (
     <Universal>
-      <Pageheadertwo />
-      <Headerimage
-        img={header[0]?.img}
-        para={<PortableText value={header[0]?.body} />}
-      />
-      <Pagepara para={<PortableText value={para[0]?.body} />} />
-      <Postlist data={list} page="Advertising" />
-      <Otherservices />
+      <Header singlepost={singlepost} otherposts={otherposts} page="advertising" />
+
+      <div className="post-wrapper">
+        <div>
+          <Otherservices />
+        </div>
+        <div>
+          <Recentposts />
+        </div>
+      </div>
     </Universal>
   );
 };
