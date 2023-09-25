@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Instagram from './Instagram';
 import Multiimages from './Multiimages';
 import Singleimage from './Singleimage';
@@ -42,7 +43,9 @@ const Blogscomponent = ({ data }: DT) => {
       return (
         <div key={k}>
           <Videocomponent url={v[0]?.ytvideolink}>
-            <div className="videxcerpt">{v[0]?.excerpt}</div>
+            <div className="videxcerpt">
+              <Link href={`blog/${v[0]?.slug}`}>{v[0]?.title}</Link>
+              </div>
           </Videocomponent>
           {singleimg}
           <Multiimages data={v} />

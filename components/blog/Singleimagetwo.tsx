@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 type DT = {
   data: {
     _createdAt: Date;
@@ -18,7 +20,9 @@ const Singleimagetwo = ({ data, ...rest }: DT) => {
     <div {...rest}>
       <div className="container">
         <div className="simgb2">
-          <h3>{data?.title}</h3>
+          <h3>
+            <Link href={`blog/${data?.slug}`}>{data?.title}</Link>
+          </h3>
           <div>{data?.excerpt}</div>
         </div>
 

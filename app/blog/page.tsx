@@ -21,8 +21,11 @@ const Blog = () => {
   const { data } = useGetQuery('blog', '/blog');
   const getData: TM = data?.data || [];
 
-
-  return <Universal><Blogs  data={getData} /></Universal>;
+  return (
+    <Universal>
+      <Blogs data={getData} />
+    </Universal>
+  );
 };
 
 export default Blog;

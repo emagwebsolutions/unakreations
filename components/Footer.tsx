@@ -1,55 +1,101 @@
 import useGetQuery from '@/axios/useGetQuery';
+import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+type CN = {
+  email: string;
+  mobile1: string;
+  mobile2: string;
+  gpsaddress: string;
+  officelocation: string;
+  googlemap: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+}[];
+
+type ST = {
+  title: string;
+  slug: string;
+  excerpt: string;
+}[];
+
+type TM = {
+  _id: string;
+  _createdAt: Date;
+  ytvideolink: string;
+  img: string;
+  slug: string;
+  cat: string;
+  excerpt: string;
+  body: any;
+  title: string;
+  arr: [];
+}[];
 
 const Footer = () => {
-  type CN = {
-    email: string;
-    mobile1: string;
-    mobile2: string;
-    gpsaddress: string;
-    officelocation: string;
-    googlemap: string;
-    facebook: string;
-    twitter: string;
-    instagram: string;
-  }[];
+  const { data: contactdata } = useGetQuery('contact', '/contact');
+  const contact: CN = contactdata?.data || [];
 
+  const { data: overviewData } = useGetQuery('overview', '/overview');
+  const overview: ST = overviewData?.data || [];
 
+  const { data: blogData } = useGetQuery('blog', '/blog');
+  const blog: TM = blogData?.data || [];
 
-  const { data } = useGetQuery('contact', '/contact');
-  const getData: CN = data?.data || [];
-
-  const arr = getData?.map((v) => v);
+  const one = blog.slice(0, 3);
+  const two = blog.slice(4, 7);
 
   return (
     <footer>
-      <div>
+      <div className="container">
         <div>
-          <i className="fa fa-mobile fa-lg"></i>
-          <h4>
-            {arr[0]?.mobile1}/{arr[0]?.mobile2}
-          </h4>
+          <h4>{overview[0]?.title.toUpperCase()}</h4>
+          <div>{overview[0]?.excerpt}</div>
+          <div className="footer-social">
+            <Link href={contact[0]?.facebook || ''}>
+              <i className="fa fa-facebook"></i>
+            </Link>
+            <Link href={contact[0]?.instagram || ''}>
+              <i className="fa fa-instagram"></i>
+            </Link>
+            <Link href={contact[0]?.twitter || ''}>
+              <i className="fa fa-twitter"></i>
+            </Link>
+          </div>
         </div>
         <div>
-          <i className="fa fa-envelope fa-lg"></i> <h4>{arr[0]?.email}</h4>
+          {one.map((v, k) => {
+            return (
+              <div key={k} className="footer-blog">
+                <div>
+                  <Link href={`/blog/${v.slug}`}>
+                  <Image src={v.img} alt="" width={130} height={70} />
+                  </Link>
+                </div>
+                <div>{v.excerpt.slice(0,66)}</div>
+              </div>
+            );
+          })}
         </div>
         <div>
-          <i className="fa fa-map-marker fa-lg"></i>
-          <h4>{arr[0]?.officelocation}</h4>
+
+        {two.map((v, k) => {
+            return (
+              <div key={k} className="footer-blog">
+                <div>
+                  <Link href={`/blog/${v.slug}`}>
+                  <Image src={v.img} alt="" width={130} height={70} />
+                  </Link>
+                </div>
+                <div>{v.excerpt.slice(0,66)}</div>
+              </div>
+            );
+          })}
+
+
         </div>
-        <div>
-          <Link href="https://www.facebook.com/unaklodin">
-            <i className="fa fa-facebook fa-lg"></i>
-          </Link>
-          <Link href="https://www.twitter.com">
-            <i className="fa fa-twitter fa-lg"></i>
-          </Link>
-          <Link href="https://www.instagram.com">
-            <i className="fa fa-instagram fa-lg"></i>
-          </Link>
-        </div>
-        <div>© 2022 UNA KREATIONS. All rights reserved.</div>
       </div>
     </footer>
   );

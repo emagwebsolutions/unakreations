@@ -4,6 +4,7 @@ type DT = {
   data: {
     img: string;
     title: string;
+    slug: string;
   }[];
 };
 
@@ -24,7 +25,7 @@ const Multiimages = ({ data }: DT) => {
             }}
           >
             <h2>
-              <Link href="">{v.title.toUpperCase()}</Link>
+              <Link href={`blog/${v.slug}`}>{v.title.toUpperCase()}</Link>
             </h2>
           </div>
         ))}

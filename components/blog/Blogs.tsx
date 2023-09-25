@@ -1,8 +1,4 @@
 import Blogscomponent from './Blogscomponent';
-import Instagram from './Instagram';
-import Multiimages from './Multiimages';
-import Singleimagetwo from './Singleimagetwo';
-import Videocomponent from './Videocomponent';
 
 type DT = {
   _id: string;

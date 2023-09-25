@@ -7,37 +7,34 @@ import Pageheadertwo from '@/components/Pageheadertwo';
 import Pagepara from '@/components/Pagepara';
 import Postlist from '@/components/Postlist';
 import Universal from '@/components/Universal';
+import Header from '@/components/blog/pages/Header';
+import Recentposts from '@/components/blog/pages/Recentposts';
 import { PortableText } from '@portabletext/react';
 
 const Klodin = () => {
   type GD = {
     title: string;
-    body: any;
     img: string;
+    excerpt: string;
     slug: string;
   }[];
 
   const { data } = useGetQuery('klodin', '/klodin');
-  const getData: GD = data?.data || []
+  const getData: GD = data?.data || [];
 
-  const header = getData.filter((v) => v.slug === 'header');
-
-  const para = getData.filter((v) => v.slug === 'paragraph');
-
-  const list = getData.filter(
-    (v) => v.slug !== 'header' && v.slug !== 'paragraph'
-  );
+  const singlepost = getData.slice(0, 1);
+  const otherposts = getData;
 
   return (
     <Universal>
-      <Pageheadertwo />
-      <Headerimage
-        img={header[0]?.img}
-        para={<PortableText value={header[0]?.body} />}
-      />
-      <Pagepara para={<PortableText value={para[0]?.body} />} />
-      <Postlist data={list} page="klodin" />
-      <Otherservices />
+      <Header singlepost={singlepost} otherposts={otherposts} page="klodin" />
+
+      <div className="post-wrapper">
+        <div>LEFT</div>
+        <div>
+          <Recentposts page="klodin" />
+        </div>
+      </div>
     </Universal>
   );
 };

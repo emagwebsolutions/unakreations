@@ -39,7 +39,7 @@ export default defineType({
     }),
 
     defineField({
-      name: 'facebooks',
+      name: 'facebook',
       title: 'Facebook',
       type: 'string',
     }),
