@@ -12,8 +12,11 @@ type OT = {
 };
 
 const Other = ({ title, page, data }: OT) => {
+
+
+
   return (
-    <div>
+    <div className="otherposts">
       <div></div>
       <div>{title}</div>
 
@@ -21,25 +24,24 @@ const Other = ({ title, page, data }: OT) => {
         {data.map((v, k) => {
           return (
             <div key={k}>
+               <Link href={`/${page}/${v.slug}`}>
               <div
                 style={{
                   backgroundImage: `url(${v.img})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
+                  height: '25rem'
                 }}
               ></div>
-              <div>
-                <h3>
-                  <Link href={`/${page}/${v.slug}`}>{v.title}</Link>
-                </h3>
-                <div>{v.excerpt}</div>
-              </div>
+              </Link>
             </div>
           );
-        })}
+        }).slice(0,3)}
       </div>
     </div>
   );
+
+  
 };
 
 export default Other;
