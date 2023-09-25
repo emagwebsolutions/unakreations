@@ -22,6 +22,7 @@ const Other = ({ title, page, data }: OT) => {
 
       <div>
         {data.map((v, k) => {
+          if(v.img){
           return (
             <div key={k}>
                <Link href={`/${page}/${v.slug}`}>
@@ -36,6 +37,7 @@ const Other = ({ title, page, data }: OT) => {
               </Link>
             </div>
           );
+              }
         }).slice(0,3)}
       </div>
     </div>

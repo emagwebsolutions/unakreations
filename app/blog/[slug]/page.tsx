@@ -1,13 +1,12 @@
 'use client';
 import useGetQuery from '@/axios/useGetQuery';
-import Otherservices from '@/components/Otherservices';
-import Pageheadertwo from '@/components/Pageheadertwo';
 import Universal from '@/components/Universal';
 import Videocomponent from '@/components/blog/Videocomponent';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import Video from '@/components/blog/Video';
+import Otherservices from '@/components/blog/pages/Otherservices';
 
 type PR = {
   params: {
@@ -80,7 +79,10 @@ const Post = ({ params: { slug } }: PR) => {
           }
         </div>
       </section>
-      <Otherservices />
+      <div className="container">
+           <Otherservices />
+      </div>
+   
     </Universal>
   );
 };

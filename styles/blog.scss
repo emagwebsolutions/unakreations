@@ -318,7 +318,6 @@
   gap: 5rem;
   & > div:nth-of-type(1) {
     flex-basis: 62%;
-
   }
 
   & > div:nth-of-type(2) {
@@ -348,26 +347,21 @@
     height: 4rem;
 
     color: white;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
-    
-    
   }
-  .fa-facebook{
+  .fa-facebook {
     background-color: #415594;
   }
-  .fa-twitter{
+  .fa-twitter {
     background-color: #3da8e0;
   }
 
-  .fa-instagram{
+  .fa-instagram {
     background-color: #ff6400;
   }
 }
-
-
-
 
 .recentposts {
   border-top: solid 0.1rem orange;
@@ -384,43 +378,49 @@
     background-color: white;
     padding: 0.6rem;
   }
-
-
 }
 
-.otherposts{
+.otherposts {
   margin-bottom: 4em;
-  & > div:nth-of-type(1){
-    border-top: solid #e1147b .2rem; 
+  & > div:nth-of-type(1) {
+    border-top: solid #e1147b 0.2rem;
   }
 
-  & > div:nth-of-type(2){
-    background-color: #e1147b; 
-    padding: .3em; 
-    width: 40rem; 
-    color: white; 
-    text-align: center; 
+  & > div:nth-of-type(2) {
+    background-color: #e1147b;
+    padding: 0.3em;
+    width: 40rem;
+    color: white;
+    text-align: center;
     transform: skew(-20deg);
-    margin-inline: auto; 
-    margin-top: .5rem;
-    margin-bottom: 4rem; 
+    margin-inline: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 4rem;
   }
 
-
-
-
-  & > div:nth-of-type(3){
+  & > div:nth-of-type(3) {
     display: flex;
-    gap: 2em; 
+    gap: 2em;
     flex-wrap: wrap;
-    & > div{
+    & > div {
       flex: 20rem 1 1;
     }
   }
+}
 
 
-
-
-
-
+.singlepost{
+  .container{
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    & > div:nth-of-type(1) {
+      flex-basis: 62%;
+    }
+  
+    & > div:nth-of-type(2) {
+      flex-basis: 33%;
+    }
+  }
 }

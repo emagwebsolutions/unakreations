@@ -21,10 +21,10 @@ type CN = {
   instagram: string;
 }[];
 
-const Recentposts = ({ page }: { page: string }) => {
+const Recentposts = () => {
   const { data: recentpost } = useGetQuery('blog', '/blog');
 
-  const arrs: DT = recentpost?.data.slice(0, 6) || [];
+  const arrs: DT = recentpost?.data?.slice(0, 6) || [];
 
   const { data: contactdata } = useGetQuery('contact', '/contact');
   const contact: CN = contactdata?.data || [];
