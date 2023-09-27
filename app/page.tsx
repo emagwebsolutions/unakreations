@@ -17,12 +17,13 @@ import {
 
 export default function Home() {
   const shareUrl = 'https://www.unakreations.com/';
+  const cont = "U & A Kreation is the best"
 
   return (
     <Universal>
       <FacebookShareButton
         url={shareUrl}
-        quote="U & A Kreation is the best"
+        quote={cont}
         hashtag="#U&AKreation"
       >
         <FacebookIcon size={32} round={true} />
