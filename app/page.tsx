@@ -19,17 +19,14 @@ export default function Home() {
 
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const title =
-    typeof document !== "undefined"
-      ? document.title
-      : "Check out this awesome content!";
+  const title = "Check out this awesome content!";
 
   return (
     <Universal>
       <FacebookShareButton
         url={shareUrl}
         quote={title}
-        hashtag="#KREATINGS"
+        hashtag="#KREATIONS"
       >
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
