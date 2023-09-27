@@ -22,8 +22,8 @@ export default function Home() {
     <Universal>
       <FacebookShareButton
         url={shareUrl}
-        quote={'U & A Kreation is the best'}
-        hashtag="U & A Kreation"
+        quote="U & A Kreation is the best"
+        hashtag="#U&AKreation"
       >
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
