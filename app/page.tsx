@@ -16,14 +16,19 @@ import {
 } from 'react-share';
 
 export default function Home() {
-  const shareUrl = 'https://www.unakreations.com/';
-  const cont = "U & A Kreation is the best"
+
+
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const title =
+    typeof document !== "undefined"
+      ? document.title
+      : "Check out this awesome content!";
 
   return (
     <Universal>
       <FacebookShareButton
         url={shareUrl}
-        quote={cont}
+        quote={title}
         hashtag="#U&AKreation"
       >
         <FacebookIcon size={32} round={true} />
