@@ -29,7 +29,7 @@ export default function Home() {
       <FacebookShareButton
         url={shareUrl}
         quote={title}
-        hashtag="#U&AKreation"
+        hashtag="#KREATINGS"
       >
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
