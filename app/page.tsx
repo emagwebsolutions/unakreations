@@ -7,28 +7,19 @@ import Sectionthree from '@/components/home/Sectionthree';
 import Sectiontwo from '@/components/home/Sectiontwo';
 import Slider from '@/components/home/Slider';
 
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  LinkedinShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-} from 'next-share';
+import { FacebookShareButton, FacebookIcon } from 'next-share';
 
 export default function Home() {
-
-
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
     <Universal>
       <FacebookShareButton
-        url={shareUrl}
-
-        quote= {'UNA KREATIONS IS THE BEST'}
-        hashtag="#KREATIONS"
+        url={'https://github.com/next-share'}
+        quote={'next-share is a social share buttons for your next React apps.'}
+        hashtag={'#nextshare'}
       >
-        <FacebookIcon size={32} round={true} />
+        <FacebookIcon size={32} round />
       </FacebookShareButton>
 
       <Slider />
