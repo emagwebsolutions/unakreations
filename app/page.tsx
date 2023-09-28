@@ -13,20 +13,19 @@ import {
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-} from 'react-share';
+} from 'next-share';
 
 export default function Home() {
 
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const title = "Check out this awesome content!";
 
   return (
     <Universal>
       <FacebookShareButton
         url={shareUrl}
 
-        title= "UNA KREATIONS IS THE BEST"
+        quote= {'UNA KREATIONS IS THE BEST'}
         hashtag="#KREATIONS"
       >
         <FacebookIcon size={32} round={true} />
