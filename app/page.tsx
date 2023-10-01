@@ -14,14 +14,6 @@ export default function Home() {
 
   return (
     <Universal>
-      <FacebookShareButton
-        url={'https://www.unakreations.com'}
-        quote={'U & A is the best'}
-        hashtag={'#unakreations'}
-      >
-        <FacebookIcon size={32} round />
-      </FacebookShareButton>
-
       <Slider />
       <Sectionone />
       <Sectiontwo />
