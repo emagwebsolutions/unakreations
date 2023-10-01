@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <Universal>
       <FacebookShareButton
-        url={'https://github.com/next-share'}
-        quote={'next-share is a social share buttons for your next React apps.'}
-        hashtag={'#nextshare'}
+        url={'https://www.unakreations.com'}
+        quote={'U & A is the best'}
+        hashtag={'#unakreations'}
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
