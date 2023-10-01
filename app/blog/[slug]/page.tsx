@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import Video from '@/components/blog/Video';
 import Otherservices from '@/components/blog/pages/Otherservices';
+import { FacebookShareButton, FacebookIcon } from 'next-share';
 
 type PR = {
   params: {
@@ -53,36 +54,47 @@ const Post = ({ params: { slug } }: PR) => {
       </section>
       <section className="post-sec2 orange">
         <div className="container">
-          {other.map((v, k) => {
-            return (
-              <div key={k}>
-                <div>
-                  <Image src={v?.img} width={300} height={170} alt="" />
+          {other
+            .map((v, k) => {
+              return (
+                <div key={k}>
+                  <div>
+                    <Image src={v?.img} width={300} height={170} alt="" />
+                  </div>
+                  <div>
+                    <h4>
+                      <Link href={`/blog/${v?.slug}`}>{v?.title}</Link>
+                    </h4>
+                    {v?.excerpt.substring(0, 100)}
+                  </div>
                 </div>
-                <div>
-                  <h4><Link href={`/blog/${v?.slug}`}>{v?.title}</Link></h4>
-                  {v?.excerpt.substring(0,100)}
-                </div>
-              </div>
-            );
-          }).slice(0,4)}
+              );
+            })
+            .slice(0, 4)}
         </div>
       </section>
       <section className="post-sec3">
         <div className="container">
-          {
-            other.map((v,k)=>{
-              return (
-                <Video key={k} url={v.ytvideolink} />
-              )
-            }).slice(0,4)
-          }
+          {other
+            .map((v, k) => {
+              return <Video key={k} url={v.ytvideolink} />;
+            })
+            .slice(0, 4)}
+
+          <FacebookShareButton
+            url={'https://www.unakreations.com/blog/5-cheek-hurting-videos-of-black-sherif-that-show-he-could-succeed-at-comedy-too'}
+            quote={'U & A is the best'}
+            hashtag={'#nextshare'}
+          >
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+
+
         </div>
       </section>
       <div className="container">
-           <Otherservices />
+        <Otherservices />
       </div>
-   
     </Universal>
   );
 };
