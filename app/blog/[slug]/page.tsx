@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import Video from '@/components/blog/Video';
 import Otherservices from '@/components/blog/pages/Otherservices';
-import { FacebookShareButton, FacebookIcon } from 'next-share';
+
 
 type PR = {
   params: {
@@ -81,15 +81,9 @@ const Post = ({ params: { slug } }: PR) => {
             })
             .slice(0, 4)}
 
-          <FacebookShareButton
-            url={'https://www.unakreations.com/blog/5-cheek-hurting-videos-of-black-sherif-that-show-he-could-succeed-at-comedy-too'}
-            quote={'U & A is the best'}
-            hashtag={'#unakreations'}
-          >
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
 
 
+          
         </div>
       </section>
       <div className="container">
