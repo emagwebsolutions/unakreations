@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import Video from '@/components/blog/Video';
 import Otherservices from '@/components/blog/pages/Otherservices';
-
+import Share from '@/components/Share';
 
 type PR = {
   params: {
@@ -81,9 +81,7 @@ const Post = ({ params: { slug } }: PR) => {
             })
             .slice(0, 4)}
 
-
-
-          
+          <Share />
         </div>
       </section>
       <div className="container">
