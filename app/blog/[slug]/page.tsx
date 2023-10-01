@@ -84,7 +84,7 @@ const Post = ({ params: { slug } }: PR) => {
           <FacebookShareButton
             url={'https://www.unakreations.com/blog/5-cheek-hurting-videos-of-black-sherif-that-show-he-could-succeed-at-comedy-too'}
             quote={'U & A is the best'}
-            hashtag={'#nextshare'}
+            hashtag={'#unakreations'}
           >
             <FacebookIcon size={32} round />
           </FacebookShareButton>
