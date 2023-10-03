@@ -50,7 +50,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <div>
+        <div className="footer-info">
           <h4>{overview[0]?.title.toUpperCase()}</h4>
           <div>{overview[0]?.excerpt}</div>
           <div className="footer-social">

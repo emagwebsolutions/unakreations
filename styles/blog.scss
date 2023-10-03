@@ -408,9 +408,8 @@
   }
 }
 
-
-.singlepost{
-  .container{
+.singlepost {
+  .container {
     padding: 2em;
     display: flex;
     flex-wrap: wrap;
@@ -418,9 +417,36 @@
     & > div:nth-of-type(1) {
       flex-basis: 62%;
     }
-  
+
     & > div:nth-of-type(2) {
       flex-basis: 33%;
+    }
+  }
+}
+
+.share-icons {
+  display: flex;
+  gap: 3rem;
+
+  padding: 0.6em;
+  margin-inline: 5em;
+  justify-content: center;
+  position: relative;
+  & > .share-box {
+    position: absolute;
+    top: -3rem;
+    & > div {
+      border-bottom: .5rem solid #777;
+      width: 16rem;
+      padding: 0.5em;
+      position: absolute;
+      left: -20%;
+      top: -.3rem;
+      z-index: -1;
+    }
+    & > h4 {
+      background-color: white;
+      padding-inline: .7rem;
     }
   }
 }

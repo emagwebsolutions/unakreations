@@ -120,7 +120,8 @@
   }
 
   .sec3 {
-    padding-block: 3em;
+    padding-top: 3em;
+    padding-bottom: 4em;
     h1 {
       font-size: 4rem;
     }
@@ -128,11 +129,13 @@
 
   .sec2 {
     background-color: muted();
-
     h1 {
       font-size: 4rem;
+      color: white;
     }
-    padding: 5em;
+    padding-inline: 5em;
+    padding-bottom: 4.3em;
+    padding-top: 1em;
   }
 
   .sec4 button {
@@ -154,7 +157,7 @@
 @media (max-width: 35em) {
   .sec1-caption {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
       margin-top: 2em;
     }
   }

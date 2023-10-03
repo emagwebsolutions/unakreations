@@ -7,37 +7,28 @@ import {
   WhatsappIcon,
 } from 'next-share';
 
-const Share = () => {
+const Share = ({ excerpt }: { excerpt: string }) => {
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
-    <>
-      <FacebookShareButton
-        url={
-          'https://www.unakreations.com/blog/5-cheek-hurting-videos-of-black-sherif-that-show-he-could-succeed-at-comedy-too'
-        }
-        hashtag={'#unakreations'}
-      >
+    <div className="share-icons">
+      <div className="share-box">
+        <div></div>
+        <h4>Share Post</h4>
+      </div>
+
+      <FacebookShareButton url={shareUrl} hashtag={'#unakreations'}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
 
-      <TwitterShareButton
-        url={'https://github.com/next-share'}
-        title={'next-share is a social share buttons for your next React apps.'}
-      >
-
-        
+      <TwitterShareButton url={shareUrl} title={excerpt}>
         <TwitterIcon size={32} round />
       </TwitterShareButton>
 
-      <WhatsappShareButton
-        url={'https://github.com/next-share'}
-        title={'next-share is a social share buttons for your next React apps.'}
-        separator=":: "
-      >
+      <WhatsappShareButton url={shareUrl} title={excerpt} separator=":: ">
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
-    </>
+    </div>
   );
 };
 

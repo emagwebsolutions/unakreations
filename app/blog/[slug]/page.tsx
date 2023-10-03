@@ -80,9 +80,8 @@ const Post = ({ params: { slug } }: PR) => {
               return <Video key={k} url={v.ytvideolink} />;
             })
             .slice(0, 4)}
-
-          <Share />
         </div>
+        <Share excerpt ={post?.excerpt } />
       </section>
       <div className="container">
         <Otherservices />

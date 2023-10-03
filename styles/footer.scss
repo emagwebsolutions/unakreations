@@ -1,13 +1,12 @@
 footer {
-  padding-block: 5em;
+  padding-top: 3em;
+  padding-bottom: 1em;
   background-color: #191919;
   .container {
     display: flex;
     color: white;
     flex-wrap: wrap;
     gap: 3rem;
-
-
 
     & > div {
       flex: 2rem 1 1;
@@ -35,11 +34,10 @@ footer {
   }
 }
 
-
 .footer-blog {
   display: flex;
   gap: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   font-size: 1.1rem;
   & > div:nth-of-type(1) {
     flex-basis: 22rem;
@@ -49,5 +47,16 @@ footer {
   & > div:nth-of-type(2) {
     flex-grow: 1;
     flex-shrink: 1;
+    font-size: 1.4rem!important;
+  }
+}
+
+.footer-info {
+  & > h4 {
+    font-size: 1.6rem!important;
+  }
+
+  & > div:nth-of-type(1){
+    font-size: 1.4rem!important;
   }
 }
