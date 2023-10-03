@@ -33,14 +33,19 @@ const Post = ({ params: { slug } }: PR) => {
   const getData: TM = data?.data || [];
 
   const post = Object.values(getData).filter((v) => v.slug === slug)[0];
+
   const cat = post?.cat;
   const other = Object.values(getData).filter((v) => v.cat === cat);
 
   const header = post?.ytvideolink ? (
     <Videocomponent url={post?.ytvideolink} />
   ) : (
-    <div className="postheader">
-      <Image src={post?.img} alt="" width="2000" height="700" />
+    <div className="postheader" style={{
+      backgroundImage: `url(${post?.img})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
+      
     </div>
   );
 
@@ -48,7 +53,7 @@ const Post = ({ params: { slug } }: PR) => {
     <Universal>
       {header}
       <section className="post-sec1">
-        <div className="container">
+        <div className="blog-container">
           <PortableText value={post?.body} />
         </div>
       </section>

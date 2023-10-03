@@ -427,7 +427,7 @@
 .share-icons {
   display: flex;
   gap: 3rem;
-margin-top: 2rem;
+  margin-top: 2rem;
   padding: 0.6em;
   margin-inline: 5em;
   justify-content: center;
@@ -436,17 +436,23 @@ margin-top: 2rem;
     position: absolute;
     top: -3rem;
     & > div {
-      border-bottom: .5rem solid #777;
+      border-bottom: 0.5rem solid #777;
       width: 16rem;
       padding: 0.5em;
       position: absolute;
       left: -20%;
-      top: -.3rem;
+      top: -0.3rem;
       z-index: -1;
     }
     & > h4 {
       background-color: white;
-      padding-inline: .7rem;
+      padding-inline: 0.7rem;
     }
   }
+}
+
+.postheader {
+  width: 100%;
+  height: 100vh;
+
 }
