@@ -12,11 +12,17 @@ export async function GET(req: Request) {
         _id,
         _createdAt,
         'img': mainImage.asset->url,
+        'gallery': imagesGallery[]{
+          'url':asset->url,
+          },
         'slug': slug.current,
         'cat': categories[0]->title,
         "excerpt": array::join(string::split((pt::text(body)), "")[0..200], "") + "...",
         body,
-        title
+        size,
+        price,
+        title,
+        stockstatus
     }
     `);
     return new Response(JSON.stringify(ftch));

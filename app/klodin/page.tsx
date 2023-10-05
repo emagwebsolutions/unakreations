@@ -2,34 +2,46 @@
 
 import useGetQuery from '@/axios/useGetQuery';
 import Universal from '@/components/Universal';
-import Header from '@/components/blog/pages/Header';
-import Otherservices from '@/components/blog/pages/Otherservices';
-import Recentposts from '@/components/blog/pages/Recentposts';
+import Link from 'next/link'
 
 const Klodin = () => {
   type GD = {
     title: string;
     img: string;
-    excerpt: string;
     slug: string;
+    price: string;
   }[];
 
   const { data } = useGetQuery('klodin', '/klodin');
   const getData: GD = data?.data || [];
 
-  const singlepost = getData.slice(0, 1);
-  const otherposts = getData;
-
   return (
     <Universal>
-      <Header singlepost={singlepost} otherposts={otherposts} page="klodin" />
+      <div className="store">
+        <div
+          style={{
+            backgroundImage: "url('/storebg.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+          className="store-header"
+        ></div>
 
-      <div className="post-wrapper">
         <div>
-          <Otherservices />
-        </div>
-        <div>
-          <Recentposts />
+          {getData.map((v, k) => (
+            <div key={k} className="store-items">
+              <Link href={`/klodin/${v?.slug}`}>
+              <div
+                style={{
+                  backgroundImage: `url(${v?.img})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'top',
+                }}
+              ></div>
+              <div>{v?.title} GHs: {v?.price}</div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </Universal>

@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'klodin',
@@ -11,6 +11,31 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'size',
+      title: 'Size',
+      type: 'string',
+    }),
+    defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'string',
+    }),
+
+    defineField({
+      title: 'Stock status',
+      name: 'stockstatus',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'In stock', value: 'instock' },
+          { title: 'Out of stock', value: 'outofstock' },
+        ],
+      },
+
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -21,39 +46,26 @@ export default defineType({
     }),
     defineField({
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Feature Image',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
+
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'imagesGallery',
+      title: 'Images gallery',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      of: [{ type: 'image' }],
     }),
     defineField({
       name: 'body',
-      title: 'Body',
+      title: 'Description',
       type: 'blockContent',
     }),
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
-    },
-  },
-})
+  initialValue: {
+    size: "XXL,XL,L,M,S"
+  }
+});
