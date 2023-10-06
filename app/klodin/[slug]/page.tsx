@@ -1,15 +1,14 @@
 'use client';
-
 import useGetQuery from '@/axios/useGetQuery';
 import Universal from '@/components/Universal';
 import { useState } from 'react';
-
 import { PortableText } from '@portabletext/react';
 import Visiteditems from '@/components/Visiteditems';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getVisiteditems } from '@/store/features/visited';
-import { cartList } from '@/store/features/cart';
+import { getcart } from '@/store/features/cart';
+
 
 type PR = {
   params: {
@@ -102,7 +101,7 @@ const Post = ({ params: { slug } }: PR) => {
                 );
               })}
             </select>
-            <button onClick={() => dispatch(cartList(res))}>
+            <button onClick={() => dispatch(getcart(res))}>
               <span>ADD TO CART</span>
               <i className="fa fa-shopping-cart fa-lg"></i>
             </button>
