@@ -2,10 +2,14 @@
 
 import useGetQuery from '@/axios/useGetQuery';
 import Universal from '@/components/Universal';
-import Otherservices from '@/components/blog/pages/Otherservices';
-import Recentposts from '@/components/blog/pages/Recentposts';
+import { useState } from 'react';
+
 import { PortableText } from '@portabletext/react';
-import Image from 'next/image';
+import Visiteditems from '@/components/Visiteditems';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getVisiteditems } from '@/store/features/visited';
+import { cartList } from '@/store/features/cart';
 
 type PR = {
   params: {
@@ -14,50 +18,109 @@ type PR = {
 };
 
 type GD = {
-  title: string;
+  gallery: { url: string }[];
   img: string;
-  excerpt: string;
+  price: string;
+  size: string;
   slug: string;
-  body: any
+  stockstatus: string;
+  title: string;
+  body: any;
+  excerpt: string;
 }[];
 
+// gallery
+// img
+// price
+// size
+// slug
+// stockstatus
+// title
+// body
+// excerpt
+
 const Post = ({ params: { slug } }: PR) => {
+  const [getImg, setImg] = useState('');
   const { data } = useGetQuery('klodin', '/klodin');
   const klodin: GD = data?.data || [];
+  const [getBox, setBox] = useState(false);
+  const res = klodin.filter((v) => v.slug === slug)[0];
+  const size = res?.size.split(',');
 
-  const res = klodin.filter((v) => v.slug === slug)[0]
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (res) {
+      dispatch(getVisiteditems(res));
+    }
+  }, [dispatch, res, slug]);
 
   return (
     <Universal>
-      <div className="singlepost">
+      <div className="single-item">
         <div className="container">
           <div>
+            <picture
+              style={{
+                backgroundImage: `url(${getImg ? getImg : res?.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'top',
+                width: '100%',
+              }}
+            ></picture>
 
-
-<div>
-<h1>{res?.title}</h1>
-<br />
-<Image src={res?.img} alt="" width={2000} height={500} />
-
-<br />
-
-<div>
-  <PortableText value={res?.body} />
-</div>
-
-
-</div>
-
-
-            <Otherservices />
+            <div>
+              {res?.gallery.map((v, k) => {
+                const newimg = v.url;
+                return (
+                  <div
+                    key={k}
+                    onClick={() => setImg(newimg)}
+                    style={{
+                      backgroundImage: `url(${v.url})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'top',
+                    }}
+                  ></div>
+                );
+              })}
+            </div>
           </div>
 
           <div>
-            <Recentposts />
+            <h4>{res?.title}</h4>
+            <h3>GHs {res?.price}</h3>
+            <select name="" id="">
+              <option hidden value="">
+                Choose size
+              </option>
+              {size?.map((v, k) => {
+                return (
+                  <option key={k} value={v}>
+                    {v}
+                  </option>
+                );
+              })}
+            </select>
+            <button onClick={() => dispatch(cartList(res))}>
+              <span>ADD TO CART</span>
+              <i className="fa fa-shopping-cart fa-lg"></i>
+            </button>
+
+            <span className="collapsebtn" onClick={() => setBox(!getBox)}>
+              {getBox ? '-' : '+'} Description
+            </span>
+            {getBox ? (
+              <div className="textbox">
+                {<PortableText value={res?.body} />}
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>
+      <Visiteditems />
     </Universal>
   );
 };

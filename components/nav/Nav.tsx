@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import useGetQuery from '@/axios/useGetQuery';
+import Cartbucket from '../Cartbucket';
 
 const Nav = () => {
   type POST = {
@@ -66,6 +67,7 @@ const Nav = () => {
           </a>
         </span>
         <span>Email us: {arr[0]?.email}</span>
+        <Cartbucket />
       </section>
 
       <Hamburgeropen opennav={opennav} name="U & A Creation" />
@@ -128,7 +130,7 @@ const Nav = () => {
               </Link>
               <ul>
                 <li>
-                  <Link href="klodin">U&A Klodin</Link>
+                  <Link href="/klodin">U&A Klodin</Link>
                 </li>
                 <li>
                   <Link href="/grafix">U&A GRAFIX</Link>
