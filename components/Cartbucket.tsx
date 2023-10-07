@@ -7,7 +7,7 @@ const Cartbucket = () => {
   const dispatch = useDispatch();
   const [getTotal, setTotal] = useState(0);
 
-  const [getHover, setHover] = useState(false);
+  const [getClicked, setClicked] = useState(false);
 
   type TM = {
     price: string;
@@ -16,6 +16,7 @@ const Cartbucket = () => {
     _id: string;
   }[];
   const data: TM = useSelector(cartList);
+
 
   const count = Object.values(data).length;
 
@@ -39,9 +40,12 @@ const Cartbucket = () => {
     dispatch(deletecart(flt));
   };
 
-  const showBox = ()=>{
-    setHover(!getHover)
-  }
+  const showBox = () => {
+    if(count > 0){
+      setClicked(!getClicked);
+    }
+
+  };
 
   return (
     <div className="cartbucket" onClick={showBox}>
@@ -50,7 +54,7 @@ const Cartbucket = () => {
         {count ? <span>{count}</span> : ''}
       </div>
 
-      {getHover ? (
+      {getClicked ? (
         <div>
           {Object.values(data).map((v, k) => {
             return (

@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 import { getVisiteditems } from '@/store/features/visited';
 import { getcart } from '@/store/features/cart';
 
-
 type PR = {
   params: {
     slug: string;
@@ -45,6 +44,8 @@ const Post = ({ params: { slug } }: PR) => {
   const [getBox, setBox] = useState(false);
   const res = klodin.filter((v) => v.slug === slug)[0];
   const size = res?.size.split(',');
+  const [getSize, setSize] = useState('');
+  const [getError, setError] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -53,6 +54,11 @@ const Post = ({ params: { slug } }: PR) => {
       dispatch(getVisiteditems(res));
     }
   }, [dispatch, res, slug]);
+
+  const setsize = (e: any) => {
+    setSize(e.target.value);
+    setError(false);
+  };
 
   return (
     <Universal>
@@ -89,7 +95,9 @@ const Post = ({ params: { slug } }: PR) => {
           <div>
             <h4>{res?.title}</h4>
             <h3>GHs {res?.price}</h3>
-            <select name="" id="">
+
+            <span className="err-danger">{getError ? 'Choose size' : ''}</span>
+            <select onChange={setsize}>
               <option hidden value="">
                 Choose size
               </option>
@@ -101,7 +109,20 @@ const Post = ({ params: { slug } }: PR) => {
                 );
               })}
             </select>
-            <button onClick={() => dispatch(getcart(res))}>
+            <button
+              onClick={() => {
+                if (!getSize) {
+                  setError(true);
+                } else {
+
+                  const edt = {
+                    ...res, 
+                    size: getSize
+                  }
+                  dispatch(getcart(edt));
+                }
+              }}
+            >
               <span>ADD TO CART</span>
               <i className="fa fa-shopping-cart fa-lg"></i>
             </button>
