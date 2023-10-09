@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { cartList, deletecart } from '@/store/features/cart';
 import format_number from '@/utils/format_number';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Cartbucket = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,6 @@ const Cartbucket = () => {
     _id: string;
   }[];
   const data: TM = useSelector(cartList);
-
 
   const count = Object.values(data).length;
 
@@ -41,10 +41,9 @@ const Cartbucket = () => {
   };
 
   const showBox = () => {
-    if(count > 0){
+    if (count > 0) {
       setClicked(!getClicked);
     }
-
   };
 
   return (
@@ -83,7 +82,11 @@ const Cartbucket = () => {
             <span>Total</span> <span>GHs {format_number(getTotal)}</span>
           </div>
 
-          <button>GO TO CHECKOUT</button>
+       
+            <Link href="/checkout">
+            GO TO CHECKOUT
+            </Link>
+       
         </div>
       ) : (
         ''

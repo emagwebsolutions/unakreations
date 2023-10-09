@@ -22,9 +22,7 @@ export async function GET(req: Request) {
         size,
         price,
         title,
-        stockstatus,
-        'qty': 1,
-        'total': 0
+        stockstatus
     }
     `);
     return new Response(JSON.stringify(ftch));
