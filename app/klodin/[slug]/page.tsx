@@ -27,15 +27,6 @@ type GD = {
   excerpt: string;
 }[];
 
-// gallery
-// img
-// price
-// size
-// slug
-// stockstatus
-// title
-// body
-// excerpt
 
 const Post = ({ params: { slug } }: PR) => {
   const [getImg, setImg] = useState('');
@@ -43,7 +34,7 @@ const Post = ({ params: { slug } }: PR) => {
   const klodin: GD = data?.data || [];
   const [getBox, setBox] = useState(false);
   const res = klodin.filter((v) => v.slug === slug)[0];
-  const size = res?.size.split(',');
+  const size = res?.size?.split(',');
   const [getSize, setSize] = useState('');
   const [getError, setError] = useState(false);
 

@@ -21,6 +21,9 @@ const cart = createSlice({
     total: (state, { payload }) => {
       state.total = {...state.total,...payload}
     },
+    updatetotal: (state, { payload }) => {
+      state.total = {...payload}
+    },
     items: (state, { payload }) => {
       state.items = {...state.items,...payload}
     },
@@ -30,7 +33,7 @@ const cart = createSlice({
 export default cart.reducer;
 
 //Use it in dispatch
-export const { getcart,deletecart,total,items } = cart.actions;
+export const { getcart,deletecart,total,items,updatetotal } = cart.actions;
 
 // use it in useSelector
 export const cartList = (state: any) => state.cart.posts;

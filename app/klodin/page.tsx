@@ -5,6 +5,7 @@ import Universal from '@/components/Universal';
 import Link from 'next/link';
 
 const Klodin = () => {
+  
   type GD = {
     title: string;
     img: string;

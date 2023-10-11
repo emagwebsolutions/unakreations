@@ -9,7 +9,7 @@ const visiteditems = createSlice({
   name: 'visiteditems',
   reducers: {
     getVisiteditems: (state, { payload }) => {
-      state.posts = { ...state.posts, [payload.title]: payload };
+      state.posts = { ...state.posts, [payload._id]: payload };
     },
   },
 });

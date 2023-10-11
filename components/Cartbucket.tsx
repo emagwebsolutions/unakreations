@@ -1,12 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { cartList, deletecart } from '@/store/features/cart';
+import {
+  cartList,
+  deletecart,
+  getTotal,
+  updatetotal,
+} from '@/store/features/cart';
 import format_number from '@/utils/format_number';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+type ARR = [string, string];
+
 const Cartbucket = () => {
   const dispatch = useDispatch();
-  const [getTotal, setTotal] = useState(0);
+  const [sumTotal, setTotal] = useState(0);
+  const grandtotal = useSelector(getTotal);
 
   const [getClicked, setClicked] = useState(false);
 
@@ -30,6 +38,14 @@ const Cartbucket = () => {
   const deleteItem = (e: any) => {
     const { id } = e.target.dataset;
 
+
+    const newArr = Object.entries(grandtotal).reduce((a: any, [k, v]: any) => {
+      if(k !== id){
+        a[k] = v;
+      }
+      return a;
+    }, {});
+
     const flt = Object.values(data)
       .filter((v) => v._id !== id)
       .reduce((a: any, c: any) => {
@@ -38,6 +54,8 @@ const Cartbucket = () => {
       }, {});
 
     dispatch(deletecart(flt));
+
+    dispatch(updatetotal(newArr));
   };
 
   const showBox = () => {
@@ -79,14 +97,10 @@ const Cartbucket = () => {
           })}
 
           <div className="cart-total">
-            <span>Total</span> <span>GHs {format_number(getTotal)}</span>
+            <span>Total</span> <span>GHs {format_number(sumTotal)}</span>
           </div>
 
-       
-            <Link href="/checkout">
-            GO TO CHECKOUT
-            </Link>
-       
+          <Link href="/checkout">GO TO CHECKOUT</Link>
         </div>
       ) : (
         ''
