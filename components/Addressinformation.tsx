@@ -43,18 +43,7 @@ const Addressinformation = () => {
 
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  if (isSubmitSuccessful) {
-    dispatch(getcart([]));
-    dispatch(total([]));
-    dispatch(items([]));
 
-    return (
-      <div className="feedbackbx">
-        <h1>Your Order has been submitted successfull</h1>
-        <p>one of our sales rep wil attend to you shortly</p>
-      </div>
-    );
-  } else {
     return (
       <div className="addressinfo">
         <form onSubmit={handleSubmit(formSubmit)}>
@@ -149,6 +138,6 @@ const Addressinformation = () => {
       </div>
     );
   }
-};
+
 
 export default Addressinformation;

@@ -1,6 +1,7 @@
 'use client';
 
 import Universal from '@/components/Universal';
+import Sectionfive from '@/components/home/Sectionfive';
 import Sectionfour from '@/components/home/Sectionfour';
 import Sectionone from '@/components/home/Sectionone';
 import Sectionthree from '@/components/home/Sectionthree';
@@ -15,6 +16,7 @@ export default function Home() {
       <Sectiontwo />
       <Sectionthree />
       <Sectionfour />
+      <Sectionfive />
     </Universal>
   );
 }

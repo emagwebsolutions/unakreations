@@ -33,7 +33,7 @@ const Slider = () => {
             <Image
               priority
               width={3000}
-              height={400}
+              height={500}
               alt=""
               src={fadeImage.url}
             />

@@ -202,3 +202,67 @@
     }
   }
 }
+
+.shop {
+  & > div:nth-of-type(1) {
+    text-align: center;
+    h1 {
+      font-size: 4rem;
+      color: #777;
+      line-height: 3rem;
+    }
+  }
+
+  & > div:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    & > div {
+      flex: 25rem 1 1;
+      & > a {
+        & > div:nth-of-type(1) {
+          height: 37rem;
+        }
+        & > div:nth-of-type(2) {
+          font-size: 1rem;
+          padding-block: 0.8em;
+        }
+      }
+    }
+  }
+}
+
+.single-item {
+  margin-top: 1em;
+  & > div {
+    display: flex;
+    gap: 3rem;
+    & > div {
+      flex: 5rem 1 1;
+    }
+    & > div:nth-of-type(1) {
+      margin-bottom: 5em;
+      & > picture {
+        height: 70rem;
+        display: block;
+        overflow: hidden;
+      }
+      & > div {
+        display: flex;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        margin-top: 1.2em;
+        justify-content: center;
+        & > div {
+          flex-basis: 8rem;
+          height: 6rem;
+          flex-grow: 0;
+          flex-shrink: 1;
+          overflow: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
