@@ -32,7 +32,7 @@ const Sectionone = () => {
   const graphics = getBrand.filter((v) => v.slug === 'graphicsdesign');
 
   return (
-    <section>
+    <section className="section1">
       <div className="container">
         <div className="sec1-caption">
           <div>
@@ -50,12 +50,10 @@ const Sectionone = () => {
         <div>
           <div className="home-flex gap-2">
             <Brands img={labels[0]?.img} title={labels[0]?.title} />
-
             <Brands img={billboard[0]?.img} title={billboard[0]?.title} />
           </div>
           <div className="home-flex gap-2">
             <Brands img={businesscard[0]?.img} title={businesscard[0]?.title} />
-
             <Brands img={graphics[0]?.img} title={graphics[0]?.title} />
           </div>
         </div>

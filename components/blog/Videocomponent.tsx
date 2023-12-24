@@ -6,6 +6,7 @@ type UR = {
   children?: React.ReactNode;
 };
 
+
 const Videocomponent = ({ url, children }: UR) => {
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     event.target.playVideo();

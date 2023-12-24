@@ -8,7 +8,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 8;
+        z-index: 88;
         .nav-wrapper{
              position: fixed;
              background-color: #fff;
@@ -18,13 +18,11 @@
              height: 100vh;
              width: 80vw;
              padding: 2.1em;
-        
-             .logo{
+            .logo{
                  width: 4rem;
                  height: 4rem;
                  margin-block: 2em;
              }
-
              & > ul{
 
                 & > li{
@@ -34,7 +32,6 @@
                         font-size: 1.6rem;
                         font-weight: bold;
                     }
-
                 }
 
                 & > li{

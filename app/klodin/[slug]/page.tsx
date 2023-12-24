@@ -27,7 +27,6 @@ type GD = {
   excerpt: string;
 }[];
 
-
 const Post = ({ params: { slug } }: PR) => {
   const [getImg, setImg] = useState('');
   const { data } = useGetQuery('klodin', '/klodin');
@@ -105,11 +104,10 @@ const Post = ({ params: { slug } }: PR) => {
                 if (!getSize) {
                   setError(true);
                 } else {
-
                   const edt = {
-                    ...res, 
-                    size: getSize
-                  }
+                    ...res,
+                    size: getSize,
+                  };
                   dispatch(getcart(edt));
                 }
               }}

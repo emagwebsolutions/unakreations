@@ -23,7 +23,7 @@ const Sectionfour = () => {
           <Image width="500" height="200" src={vl.img} alt="" />
         </picture>
         <div>
-          <h3>{vl.title.substring(0,45)}....</h3>
+          <h3>{vl.title.substring(0, 45)}....</h3>
           <div>{vl.excerpt}</div>
           <div></div>
         </div>
