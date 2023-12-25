@@ -1,14 +1,13 @@
 import { useForm } from 'react-hook-form';
-import { getItems, getcart, items, total } from '@/store/features/cart';
+import { getItems, getTotal, getcart, items, total } from '@/store/features/cart';
 import { useSelector, useDispatch } from 'react-redux';
-import { request } from '@/axios/axios.config';
+import Script from 'next/script';
+import paystack from './paystack';
 
 type FORM = {
   firstname: string;
   lastname: string;
-  phone: string;
   email: string;
-  city: string;
 };
 
 const Addressinformation = () => {
@@ -16,9 +15,7 @@ const Addressinformation = () => {
     defaultValues: {
       firstname: '',
       lastname: '',
-      phone: '',
       email: '',
-      city: '',
     },
   });
 
@@ -31,20 +28,30 @@ const Addressinformation = () => {
 
   const { isLoading, errors, isSubmitSuccessful } = formState;
 
-  const formSubmit = (data: FORM) => {
-    const obj = {
-      data,
-      item,
-    };
 
-    console.log(obj)
-    //const res = request({ url: '/sendorder', method: 'POST', obj });
+  //TOTAL 
+  const data = useSelector(getTotal);
+  const totl = Object.values(data).reduce((a, c) => {
+    return Number(a) + Number(c);
+  }, 0);
+
+ 
+
+  const formSubmit = (data: FORM) => {
+    const amount = totl
+    const email = data.email;
+
+    paystack(email, amount);
+
+    console.log(amount)
   };
 
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
+  return (
+    <>
+      <Script src="https://js.paystack.co/v1/inline.js"></Script>
 
-    return (
       <div className="addressinfo">
         <form onSubmit={handleSubmit(formSubmit)}>
           <h4>Address Information</h4>
@@ -81,37 +88,7 @@ const Addressinformation = () => {
             <p className="err-danger">{errors.lastname?.message}</p>
           </div>
 
-          <div className="form-control">
-            <input
-              type="text"
-              id="city"
-              placeholder=""
-              {...register('city', {
-                required: {
-                  value: true,
-                  message: 'City firld required!',
-                },
-              })}
-            />
-            <label htmlFor="city">City</label>
-            <p className="err-danger">{errors.city?.message}</p>
-          </div>
 
-          <div className="form-control">
-            <input
-              type="text"
-              id="phone"
-              {...register('phone', {
-                required: {
-                  value: true,
-                  message: 'Phone field required!',
-                },
-              })}
-              placeholder=""
-            />
-            <label htmlFor="phone">Phone</label>
-            <p className="err-danger">{errors.phone?.message}</p>
-          </div>
 
           <div className="form-control">
             <input
@@ -136,8 +113,8 @@ const Addressinformation = () => {
           <button>PLACE ORDER</button>
         </form>
       </div>
-    );
-  }
-
+    </>
+  );
+};
 
 export default Addressinformation;

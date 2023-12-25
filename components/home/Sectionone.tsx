@@ -64,8 +64,8 @@ const Sectionone = () => {
           </div>
 
           <div className="home-flex gap-2">
-            <Servicebuttons name="PORTFOLIO" url="/portfolio" fa="pencil" />
-            <Servicebuttons name="SERVICES" url="/klodin" fa="gear" />
+            <Servicebuttons name="SHOP" url="/klodin" fa="pencil" />
+            <Servicebuttons name="BLOG" url="/blog" fa="gear" />
           </div>
           <div className="home-flex gap-2">
             <Servicebuttons name="GET QUOTE" url="/contact" fa="book" />
