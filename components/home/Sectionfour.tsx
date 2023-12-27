@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const Sectionfour = () => {
   type BL = {
+    _id: string;
     title: string;
     excerpt: any;
     img: string;
@@ -13,20 +14,26 @@ const Sectionfour = () => {
   const { data } = useGetQuery('blog', '/blog');
   const arrs: BL = data?.data || [];
 
+
+
+
   const blogs = arrs
     .filter((v) => {
       return v.slug !== 'header' && v.slug !== 'paragraph';
     })
+    .reverse()
     .map((vl, ky) => (
       <div className="blog" key={ky}>
+        <Link href={`/blog/${vl.slug}`}>
         <picture>
           <Image width="500" height="200" src={vl.img} alt="" />
         </picture>
         <div>
-          <h3>{vl.title.substring(0, 45)}....</h3>
+          <h3 className="blog-title">{vl.title.substring(0, 45)}....</h3>
           <div>{vl.excerpt}</div>
           <div></div>
         </div>
+        </Link>
       </div>
     ))
     .slice(0, 3);

@@ -1,3 +1,11 @@
+
+
+.blog-title{
+  font-family: 'Courgette', cursive;
+}
+
+
+
 @media (max-width: 35em) {
   .blog {
     margin-top: 2em;
@@ -67,6 +75,15 @@
       text-align: center;
       color: muted();
       font-size: 4rem;
+    
+    }
+    div:nth-of-type(1){
+      h3{
+        line-height: 3rem!important;
+      }
+      div{
+        font-size: 1.6rem;
+      }
     }
   }
 }
