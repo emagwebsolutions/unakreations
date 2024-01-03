@@ -47,6 +47,8 @@ const Footer = () => {
   const one = blog.slice(0, 3);
   const two = blog.slice(4, 7);
 
+  console.log(contact)
+
   return (
     <footer>
       <div className="container">
@@ -54,15 +56,15 @@ const Footer = () => {
           <h4>{overview[0]?.title.toUpperCase()}</h4>
           <div>{overview[0]?.excerpt}</div>
           <div className="footer-social">
-            <Link href={contact[0]?.facebook || ''}>
+            <a href={contact[0]?.facebook || ''} target="_blank">
               <i className="fa fa-facebook"></i>
-            </Link>
-            <Link href={contact[0]?.instagram || ''}>
+            </a>
+            <a href={contact[0]?.instagram || ''} target="_blank">
               <i className="fa fa-instagram"></i>
-            </Link>
-            <Link href={contact[0]?.twitter || ''}>
+            </a>
+            <a href={contact[0]?.twitter || ''} target="_blank">
               <i className="fa fa-twitter"></i>
-            </Link>
+            </a>
           </div>
         </div>
         <div>

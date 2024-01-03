@@ -42,8 +42,6 @@ const Addressinformation = () => {
     const email = data.email;
 
     paystack(email, amount);
-
-    console.log(amount)
   };
 
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

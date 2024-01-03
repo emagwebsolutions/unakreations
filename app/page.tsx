@@ -1,5 +1,6 @@
 'use client';
 
+import Share from '@/components/Share';
 import Universal from '@/components/Universal';
 import Sectionfive from '@/components/home/Sectionfive';
 import Sectionfour from '@/components/home/Sectionfour';

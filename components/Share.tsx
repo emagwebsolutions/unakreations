@@ -1,14 +1,20 @@
 import {
   FacebookShareButton,
   FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  RedditShareButton,
+  RedditIcon,
   WhatsappShareButton,
   WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
 } from 'next-share';
+
 
 const Share = ({ excerpt }: { excerpt: string }) => {
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+
 
   return (
     <div className="share-icons">
@@ -17,15 +23,11 @@ const Share = ({ excerpt }: { excerpt: string }) => {
         <h4>Share Post</h4>
       </div>
 
-      <FacebookShareButton url={shareUrl} hashtag={'#unakreations'}>
+      <FacebookShareButton url="https://www.unakreations.com" hashtag={'#unakreations'}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
 
-      <TwitterShareButton url={shareUrl} title={excerpt}>
-        <TwitterIcon size={32} round />
-      </TwitterShareButton>
-
-      <WhatsappShareButton url={shareUrl} title={excerpt} separator=":: ">
+      <WhatsappShareButton url={shareUrl}>
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
     </div>
