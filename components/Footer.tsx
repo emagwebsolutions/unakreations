@@ -47,7 +47,6 @@ const Footer = () => {
   const one = blog.slice(0, 3);
   const two = blog.slice(4, 7);
 
-  console.log(contact)
 
   return (
     <footer>

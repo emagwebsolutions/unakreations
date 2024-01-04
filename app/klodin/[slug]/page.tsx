@@ -7,7 +7,8 @@ import Visiteditems from '@/components/Visiteditems';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getVisiteditems } from '@/store/features/visited';
-import { getcart } from '@/store/features/cart';
+import { getcart, getsinglecart } from '@/store/features/cart';
+import { redirect } from 'next/navigation';
 
 type PR = {
   params: {
@@ -36,6 +37,7 @@ const Post = ({ params: { slug } }: PR) => {
   const size = res?.size?.split(',');
   const [getSize, setSize] = useState('');
   const [getError, setError] = useState(false);
+  const [isRedirect,setRedirect] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -49,6 +51,27 @@ const Post = ({ params: { slug } }: PR) => {
     setSize(e.target.value);
     setError(false);
   };
+
+  const addsinglecart = () => {
+    if (!getSize) {
+      setError(true);
+    } else {
+      const edt = {
+        ...res,
+        size: getSize,
+      };
+      dispatch(getsinglecart(edt));
+
+      setRedirect(true)
+    }
+  };
+
+
+
+  if(isRedirect){
+    redirect('/checkout');
+  }
+
 
   return (
     <Universal>
@@ -114,6 +137,11 @@ const Post = ({ params: { slug } }: PR) => {
             >
               <span>ADD TO CART</span>
               <i className="fa fa-shopping-cart fa-lg"></i>
+            </button>
+
+            <button onClick={addsinglecart}>
+              <span>BUY IT NOW</span>
+              <i className="fa fa-arrow-right fa-lg"></i>
             </button>
 
             <span className="collapsebtn" onClick={() => setBox(!getBox)}>
