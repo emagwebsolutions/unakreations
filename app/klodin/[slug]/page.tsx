@@ -7,7 +7,7 @@ import Visiteditems from '@/components/Visiteditems';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getVisiteditems } from '@/store/features/visited';
-import { getcart, getsinglecart } from '@/store/features/cart';
+import { getcart, getsinglecart,singlebuyer } from '@/store/features/cart';
 import { redirect } from 'next/navigation';
 
 type PR = {
@@ -61,7 +61,7 @@ const Post = ({ params: { slug } }: PR) => {
         size: getSize,
       };
       dispatch(getsinglecart(edt));
-
+      dispatch(singlebuyer());
       setRedirect(true)
     }
   };

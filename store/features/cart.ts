@@ -3,9 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   posts: {},
   total: {
-    amnt: 0
+    amnt: 0,
   },
-  items: {}
+  items: {},
+  singlebuy: false,
 };
 
 const cart = createSlice({
@@ -16,27 +17,40 @@ const cart = createSlice({
       state.posts = { ...state.posts, [payload.title]: payload };
     },
     getsinglecart: (state, { payload }) => {
-      state.posts = {[payload.title]: payload };
+      state.posts = { [payload.title]: payload };
     },
     deletecart: (state, { payload }) => {
-      state.posts = payload 
+      state.posts = payload;
+    },
+    singlebuyer: (state) => {
+      state.singlebuy = true;
     },
     total: (state, { payload }) => {
-      state.total = {...state.total,...payload}
+      if (state.singlebuy) {
+        state.total = { ...payload };
+        console.log('Single buy purchase')
+      } else {
+        state.total = { ...state.total, ...payload };
+        console.log('multiple buy purchase')
+      }
     },
     updatetotal: (state, { payload }) => {
-      state.total = {...payload}
+      state.total = { ...payload };
     },
     items: (state, { payload }) => {
-      state.items = {...state.items,...payload}
+      state.items = { ...state.items, ...payload };
     },
   },
 });
 
+
+
+
 export default cart.reducer;
 
 //Use it in dispatch
-export const { getcart,getsinglecart,deletecart,total,items,updatetotal } = cart.actions;
+export const { getcart, getsinglecart, deletecart, total, items, updatetotal, singlebuyer } =
+  cart.actions;
 
 // use it in useSelector
 export const cartList = (state: any) => state.cart.posts;
