@@ -31,7 +31,7 @@ const Sectiontwo = () => {
           <div>
             <h1>{ourserv[0]?.title}</h1>
             <div className="divider"></div>
-            <div>
+            <div className="sec-2-info">
               <PortableText value={ourserv[0]?.body} />
             </div>
             <br />

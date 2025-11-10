@@ -47,13 +47,14 @@
 @media (min-width: 35em) {
   .blog {
     margin-top: 2em;
-    text-align: center;
+    text-align: left;
   }
 
   .blog picture {
     height: 22rem;
     overflow: hidden;
     display: block;
+    border-radius: 1.6rem;
   }
   .blog > div {
     h3 {
@@ -81,6 +82,7 @@
     div:nth-of-type(1){
       h3{
         line-height: 3rem!important;
+        margin-bottom: 3.2rem;
       }
       div{
         font-size: 1.6rem;
@@ -448,15 +450,17 @@
 .blog-btn {
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  margin-top: 4rem;
   margin-bottom: 3em;
   font-size: 1.4rem;
   a {
     display: block;
-    background-color: #333;
+    background-color: #F3741F;
     color: white;
-    width: 12rem;
-    padding-block: 0.4em;
+    width: max-content;
+    padding-block: 0.8rem;
+padding-inline: 1.6rem;
     text-align: center;
+    border-radius: 2.4rem;
   }
 }

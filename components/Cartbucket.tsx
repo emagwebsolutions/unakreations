@@ -25,11 +25,12 @@ const Cartbucket = () => {
     _id: string;
   }[];
   const data: TM = useSelector(cartList);
+  
 
-  const count = Object.values(data).length;
+  const count = data?.length;
 
   useEffect(() => {
-    const total = Object.values(data).reduce((a: number, c: any) => {
+    const total = data && data.reduce((a: number, c: any) => {
       return Number(a) + Number(c.price);
     }, 0);
     setTotal(total);
@@ -46,7 +47,7 @@ const Cartbucket = () => {
       return a;
     }, {});
 
-    const flt = Object.values(data)
+    const flt = data
       .filter((v) => v._id !== id)
       .reduce((a: any, c: any) => {
         a[c.title] = c;
@@ -73,7 +74,7 @@ const Cartbucket = () => {
 
       {getClicked ? (
         <div>
-          {Object.values(data).map((v, k) => {
+          {data.map((v, k) => {
             return (
               <div key={k}>
                 <div

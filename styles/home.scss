@@ -8,7 +8,6 @@
     }
   }
   .testimonials {
-    background-color: #eee;
     padding: 5em;
     h1 {
       text-align: center;
@@ -59,25 +58,25 @@
     .unaklodinimg {
       width: 100%;
       background-color: white;
-      padding: 1em;
+      border-radius: 1.6rem;
       height: 100%;
       overflow: hidden;
+      opacity: 0.8;
     }
   }
 
-  .home section {
-    width: 100vw;
-    padding: 2em;
+  .section1 {
+    padding-block: 5.6rem;
   }
 
   .sec1-caption {
     text-align: center;
     color: muted();
-    margin-bottom: 1em;
-
+    margin-block: 6.4rem;
+    width: 60rem;
+    margin-inline: auto;
     h1 {
       font-size: 4rem;
-      margin-top: 1em;
     }
   }
 
@@ -85,8 +84,8 @@
     width: 10rem;
     margin-inline: auto;
     height: 0.1rem;
-    border-bottom: solid 0.2rem muted();
-    margin-bottom: 1em;
+    border-bottom: solid 0.2rem #f5731f;
+    margin-bottom: 2.4rem;
   }
 
   .sbx {
@@ -112,11 +111,12 @@
   }
 
   .big-ser-img {
-    height: 62%;
+    height: 40rem;
     overflow: hidden;
     display: block;
     margin-bottom: 2em;
     box-shadow: 1rem 1rem 2rem muted(0.3);
+    border-radius: 2.4rem;
   }
 
   .sec3 {
@@ -128,14 +128,22 @@
   }
 
   .sec2 {
-    background-color: muted();
+    background-color: #1f1d2a;
     h1 {
       font-size: 4rem;
-      color: white;
+      color: #f4721e;
     }
-    padding-inline: 5em;
-    padding-bottom: 4.3em;
-    padding-top: 1em;
+    padding-inline: 6.4rem;
+    padding-top: 6.4rem;
+    padding-bottom: 8rem;
+  }
+
+  .sec-2-info {
+    width: 60rem;
+    margin-inline: auto;
+    & > p {
+      opacity: 0.7;
+    }
   }
 
   .sec4 button {
@@ -155,88 +163,32 @@
 }
 
 @media (max-width: 35em) {
-  .sec1-caption {
-    text-align: justify;
-    h1 {
-      font-size: 4rem;
-      margin-top: 0.1em;
-      text-align: center;
-    }
-  }
-
-  .sec2 {
-    background-color: muted();
-    h1 {
-      font-size: 4rem;
-      color: white;
-    }
-    padding-inline: 1em;
-    padding-bottom: 1.3em;
-    padding-top: 1em;
-    color: white;
-  }
-
-  .unaklodin {
-    color: white;
-    text-align: center;
-    p {
+  .serv-btns > div:hover {
+    background-color: #777;
+    cursor: pointer;
+    a {
       color: white !important;
-      margin-bottom: 2em;
-    }
-
-    .divider {
-      width: 10rem;
-      border-bottom: solid 1px white;
-      margin-inline: auto;
-    }
-
-
-    .unaklodinimg {
-      width: 100%;
-      background-color: white;
-      padding: 1em;
-      height: 100%;
-      overflow: hidden;
-    }
-
-
-
-
-  }
-
-  .section1 {
-    & > div:nth-of-type(2) {
-      & > div:nth-of-type(1) {
-        display: flex;
-        gap: 1.4rem;
-        & > div {
-          flex: 5rem 1 1;
-        }
-      }
+      display: block;
     }
   }
-
   .testimonials {
-    background-color: #eee;
-
+    padding-block: 5em;
     h1 {
       text-align: center;
       color: muted();
-      font-size: 3rem;
-      margin-top: 2em;
     }
     .testm-row {
       background-color: white;
       padding: 2em;
       text-align: center;
-
+      margin-top: 2em;
       h4 {
         margin-block: 0.5em;
       }
     }
     .img-test {
-      width: 14rem;
-      height: 14rem;
+      width: 15rem;
+      height: 15rem;
       display: block;
       border-radius: 50%;
       overflow: hidden;
@@ -255,23 +207,153 @@
       color: #ccc;
     }
   }
+  .unaklodin {
+    color: white;
+    text-align: center;
+    p {
+      color: white !important;
+      margin-bottom: 2em;
+    }
+
+    .divider {
+      width: 10rem;
+      border-bottom: solid 1px white;
+    }
+    .unaklodinimg {
+      width: 100%;
+      background-color: white;
+      border-radius: 1.6rem;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0.8;
+    }
+  }
+
+  .section1 {
+    padding-block: 5.6rem;
+  }
+
+  .sec1-caption {
+    text-align: center;
+    color: muted();
+    margin-block: 6.4rem;
+    margin-inline: auto;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  .divider {
+    width: 10rem;
+    margin-inline: auto;
+    height: 0.1rem;
+    border-bottom: solid 0.2rem #f5731f;
+    margin-bottom: 2.4rem;
+  }
+
+  .sbx {
+    border: solid 1px muted();
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+  .sbx h4 {
+    color: muted();
+    text-align: center;
+    font-weight: 800;
+  }
+  .sbx picture {
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  .sbx picture img {
+    display: block;
+    height: 18rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mb-btns{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .big-ser-img {
+    height: 40rem;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 2em;
+    box-shadow: 1rem 1rem 2rem muted(0.3);
+    border-radius: 2.4rem;
+  }
+
+  .sec3 {
+    padding-top: 3em;
+    padding-bottom: 4em;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  .sec2 {
+    background-color: #1f1d2a;
+    h1 {
+      font-size: 4rem;
+      color: #f4721e;
+    }
+    padding-inline: 2.4rem;
+    padding-top: 6.4rem;
+    padding-bottom: 8rem;
+  }
+
+  .sec-2-info {
+  
+    margin-inline: auto;
+    & > p {
+      opacity: 0.7;
+    }
+  }
+
+  .sec4 button {
+    margin-inline: auto;
+    display: block;
+    background-color: danger();
+    color: white();
+    padding: 1rem;
+    border-radius: 3rem;
+    padding-inline: 3rem;
+    cursor: pointer;
+  }
+
+  .mtb {
+    margin-block: 5rem;
+  }
 }
 
 @media (min-width: 35em) {
   .shop {
+    padding-bottom: 4rem;
     & > div:nth-of-type(1) {
       text-align: center;
       h1 {
         font-size: 4rem;
         color: #777;
         line-height: 3rem;
+        margin-bottom: 1.6rem;
+      }
+      h4 {
+        margin-bottom: 0.8rem;
+      }
+      .divider {
+        margin-bottom: 8rem;
       }
     }
 
     & > div:nth-of-type(2) {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 3.2rem;
       justify-content: center;
       & > div {
         flex: 25rem 1 1;
@@ -281,7 +363,7 @@
           }
           & > div:nth-of-type(2) {
             font-size: 1rem;
-            padding-block: 0.8em;
+            padding-block: 2.4rem;
           }
         }
       }

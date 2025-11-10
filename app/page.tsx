@@ -1,5 +1,6 @@
 'use client';
 
+import Leveltwentyfive from '@/components/Leveltwentyfive';
 import Share from '@/components/Share';
 import Universal from '@/components/Universal';
 import Sectionfive from '@/components/home/Sectionfive';
@@ -14,6 +15,7 @@ export default function Home() {
     <Universal>
       <Slider />
       <Sectionone />
+      <Leveltwentyfive />
       <Sectiontwo />
       <Sectionthree />
       <Sectionfour />

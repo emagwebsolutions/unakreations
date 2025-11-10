@@ -63,13 +63,11 @@ const Sectionone = () => {
             <Image width="1000" height="500" src={signage[0]?.img} alt="" />
           </div>
 
-          <div className="home-flex gap-2">
-            <Servicebuttons name="SHOP" url="/klodin" fa="pencil" />
-            <Servicebuttons name="BLOG" url="/blog" fa="gear" />
-          </div>
-          <div className="home-flex gap-2">
-            <Servicebuttons name="GET QUOTE" url="/contact" fa="book" />
-            <Servicebuttons name="CONTACT" url="/contact" fa="envelope" />
+          <div className="home-flex gap-2 mb-btns">
+            <Servicebuttons name="Shop" url="/klodin" fa="pencil" />
+            <Servicebuttons name="Blog" url="/blog" fa="gear" />
+            <Servicebuttons name="Get Quote" url="/contact" fa="book" />
+            <Servicebuttons name="Contact" url="/contact" fa="envelope" />
           </div>
         </div>
       </div>

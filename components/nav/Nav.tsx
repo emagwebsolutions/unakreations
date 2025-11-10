@@ -60,14 +60,16 @@ const Nav = () => {
   return (
     <>
       <section className="nav-section">
+
         <span>
-          Call us now on:
+          CALL:
           <a href="tel:+233576705880">
             {arr[0]?.mobile1}/{arr[0]?.mobile2}
           </a>
         </span>
         <span>Email us: {arr[0]?.email}</span>
         <Cartbucket />
+  
       </section>
 
       <Hamburgeropen opennav={opennav} name="U & A Creation" />

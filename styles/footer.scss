@@ -1,20 +1,40 @@
 @media (min-width: 35em) {
   footer {
-    padding-top: 3em;
-    padding-bottom: 1em;
-    background-color: #191919;
+    padding-block: 6.4rem;
+    background-color: #1f1d2a;
     .container {
       display: flex;
       color: white;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 6.4rem;
 
       & > div {
         flex: 2rem 1 1;
+      }
+
+              .footer-info{
         h4 {
-          font-size: 2.6rem;
+          font-size: 3.2rem!important;
+          color: #f4721e;
+          margin-bottom: 1.6rem;
+        }
+        & > div:nth-of-type(1){
+          color: white;
+          opacity: .7;
         }
       }
+      .footer-blog{
+        & > div:nth-of-type(2){
+          color: white; 
+          opacity: .7;
+        }
+      }
+    }
+    .copy-right{
+      color: white; 
+      text-align: center;
+      margin-top: 4rem;
+      opacity: .7;
     }
     .footer-social {
       display: flex;
@@ -24,9 +44,10 @@
         color: white;
       }
       i {
-        width: 3rem;
-        height: 3rem;
-        background-color: #303030;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        background-color: #f4721e;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -37,9 +58,12 @@
 
   .footer-blog {
     display: flex;
-    gap: 1em;
-    margin-bottom: 2em;
+    gap: 2.4rem;
+    margin-bottom: 3.2rem;
     font-size: 1.1rem;
+    img{
+      border-radius: 1.6rem;
+    }
     & > div:nth-of-type(1) {
       flex-basis: 22rem;
       flex-grow: 1;
@@ -69,22 +93,43 @@
 
 
 @media (max-width: 35em) {
-  footer {
-    padding-top: 3em;
-    padding-bottom: 1em;
-    background-color: #191919;
+   footer {
+    padding-inline: 2.4rem;
+    padding-block: 6.4rem;
+    background-color: #1f1d2a;
     .container {
-      display: flex;
+  
       color: white;
-      flex-wrap: wrap;
-      gap: 3rem;
-flex-direction: column;
+   
+
       & > div {
         flex: 2rem 1 1;
+      }
+
+              .footer-info{
         h4 {
-          font-size: 2.6rem;
+          font-size: 3.2rem!important;
+          color: #f4721e;
+          margin-bottom: 1.6rem;
+        }
+        & > div:nth-of-type(1){
+          color: white;
+          opacity: .7;
+        }
+        margin-bottom: 8rem;
+      }
+      .footer-blog{
+        & > div:nth-of-type(2){
+          color: white; 
+          opacity: .7;
         }
       }
+    }
+    .copy-right{
+      color: white; 
+      text-align: center;
+      margin-top: 4rem;
+      opacity: .7;
     }
     .footer-social {
       display: flex;
@@ -94,9 +139,10 @@ flex-direction: column;
         color: white;
       }
       i {
-        width: 3rem;
-        height: 3rem;
-        background-color: #303030;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        background-color: #f4721e;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -107,9 +153,12 @@ flex-direction: column;
 
   .footer-blog {
     display: flex;
-    gap: 1em;
-    margin-bottom: 2em;
+    gap: 2.4rem;
+    margin-bottom: 3.2rem;
     font-size: 1.1rem;
+    img{
+      border-radius: 1.6rem;
+    }
     & > div:nth-of-type(1) {
       flex-basis: 22rem;
       flex-grow: 1;

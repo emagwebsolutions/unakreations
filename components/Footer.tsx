@@ -98,6 +98,7 @@ const Footer = () => {
 
         </div>
       </div>
+      <div className="copy-right">All rights reserved &copy; UNA Kreations 2023</div>
     </footer>
   );
 };

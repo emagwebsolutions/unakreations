@@ -39,14 +39,24 @@
 }
 
 .servbtn {
-  flex: 1rem 1 1;
-  background-color: white();
-  color: muted();
-  padding: 1em;
-  margin-bottom: 1em;
-  font-size: clamp(11px, 1.2vw, 1.5rem);
-  box-shadow: 0 0 1rem muted(0.3);
-  font-weight: bold;
+  & > a {
+    width: max-content;
+
+    border: solid .1rem #f5731f;
+    color: #f5731f !important;
+    font-size: 1.4rem;
+    padding-inline: 1.6rem; 
+    padding-block: .8rem;
+    border-radius: 2.4rem;
+    display: flex; 
+    gap: 1.2rem;
+    align-items: center;
+    margin-top: 4rem;
+    &:hover{
+      background-color: #f5731f;
+      color: white!important;
+    }
+  }
 }
 
 .fa-icons {
@@ -145,8 +155,6 @@
 
   .brands {
     height: 25rem;
-    padding: 1em;
-    border: solid muted() 0.1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -157,8 +165,9 @@
       font-size: 2rem;
     }
     picture {
-      height: 10rem;
+      height: 25rem;
       overflow: hidden;
+      border-radius: 1.6rem;
     }
   }
 }
@@ -207,17 +216,22 @@
     justify-content: flex-end;
   }
   .brands {
-    padding: 1em;
-    border: solid muted() 0.1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 1.5em;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
     color: muted();
     picture {
       height: 90%;
       overflow: hidden;
+      border-radius: 2.4rem;
     }
   }
+}
+
+
+
+h1{
+  color: #f5731f!important;
 }
