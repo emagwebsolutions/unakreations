@@ -5,9 +5,11 @@ import format_number from '@/utils/format_number';
 const Total = () => {
   const data = useSelector(getTotal);
 
-  const tot1 = data && Object.values(data).reduce((a, c) => {
-    return Number(a) + Number(c);
-  }, 0);
+  const tot1 = Array.isArray(data)
+    ? Object.values(data).reduce((a, c) => {
+        return Number(a) + Number(c);
+      }, 0)
+    : 0;
 
   const total = format_number(Number(tot1));
 
@@ -17,7 +19,6 @@ const Total = () => {
       <div> {total}</div>
     </div>
   );
-
 };
 
 export default Total;

@@ -1,5 +1,11 @@
 import { useForm } from 'react-hook-form';
-import { getItems, getTotal, getcart, items, total } from '@/store/features/cart';
+import {
+  getItems,
+  getTotal,
+  getcart,
+  items,
+  total,
+} from '@/store/features/cart';
 import { useSelector, useDispatch } from 'react-redux';
 import Script from 'next/script';
 import paystack from './paystack';
@@ -28,17 +34,16 @@ const Addressinformation = () => {
 
   const { isLoading, errors, isSubmitSuccessful } = formState;
 
-
-  //TOTAL 
+  //TOTAL
   const data = useSelector(getTotal);
-  const totl = data && Object.values(data).reduce((a, c) => {
-    return Number(a) + Number(c);
-  }, 0);
-
- 
+  const totl = Array.isArray(data)
+    ? Object.values(data).reduce((a, c) => {
+        return Number(a) + Number(c);
+      }, 0)
+    : 0;
 
   const formSubmit = (data: FORM) => {
-    const amount = totl
+    const amount = totl;
     const email = data.email;
 
     paystack(email, amount);
@@ -85,8 +90,6 @@ const Addressinformation = () => {
             <label htmlFor="lastname">Last Name</label>
             <p className="err-danger">{errors.lastname?.message}</p>
           </div>
-
-
 
           <div className="form-control">
             <input

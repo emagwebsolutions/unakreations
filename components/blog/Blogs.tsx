@@ -14,18 +14,16 @@ type DT = {
 }[];
 
 const Blogs = ({ data }: { data: DT }) => {
-
-
-
-  const red: DT = data && data.reduce((a: any, c: any) => {
-    if (a[c.cat]) {
-      a[c.cat].arr.push(c);
-    } else {
-      a[c.cat] = c;
-    }
-    return a;
-  }, {});
-
+  const red: DT = Array.isArray(data)
+    ? data.reduce((a: any, c: any) => {
+        if (a[c.cat]) {
+          a[c.cat].arr.push(c);
+        } else {
+          a[c.cat] = c;
+        }
+        return a;
+      }, {})
+    : {};
 
   const group = Object.values(red).map((v, k) => {
     const arr = [

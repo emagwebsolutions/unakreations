@@ -25,23 +25,23 @@ const Cartbucket = () => {
     _id: string;
   }[];
   const data: TM = useSelector(cartList);
-  
 
   const count = data?.length;
 
   useEffect(() => {
-    const total = data && data.reduce((a: number, c: any) => {
-      return Number(a) + Number(c.price);
-    }, 0);
+    const total = Array.isArray(data)
+      ? data.reduce((a: number, c: any) => {
+          return Number(a) + Number(c.price);
+        }, 0)
+      : 0;
     setTotal(total);
   }, [data]);
 
   const deleteItem = (e: any) => {
     const { id } = e.target.dataset;
 
-
     const newArr = Object.entries(grandtotal).reduce((a: any, [k, v]: any) => {
-      if(k !== id){
+      if (k !== id) {
         a[k] = v;
       }
       return a;
