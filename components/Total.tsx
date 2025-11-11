@@ -5,7 +5,7 @@ import format_number from '@/utils/format_number';
 const Total = () => {
   const data = useSelector(getTotal);
 
-  const tot1 = Object.values(data).reduce((a, c) => {
+  const tot1 = data && Object.values(data).reduce((a, c) => {
     return Number(a) + Number(c);
   }, 0);
 

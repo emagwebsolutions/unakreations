@@ -31,7 +31,7 @@ const Addressinformation = () => {
 
   //TOTAL 
   const data = useSelector(getTotal);
-  const totl = Object.values(data).reduce((a, c) => {
+  const totl = data && Object.values(data).reduce((a, c) => {
     return Number(a) + Number(c);
   }, 0);
 

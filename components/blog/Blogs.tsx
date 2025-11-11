@@ -17,7 +17,7 @@ const Blogs = ({ data }: { data: DT }) => {
 
 
 
-  const red: DT = data.reduce((a: any, c: any) => {
+  const red: DT = data && data.reduce((a: any, c: any) => {
     if (a[c.cat]) {
       a[c.cat].arr.push(c);
     } else {
