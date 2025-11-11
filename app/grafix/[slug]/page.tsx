@@ -6,12 +6,9 @@ import Otherservices from '@/components/blog/pages/Otherservices';
 import Recentposts from '@/components/blog/pages/Recentposts';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
-type PR = {
-  params: {
-    slug: string;
-  };
-};
+
 
 type GD = {
   title: string;
@@ -21,9 +18,11 @@ type GD = {
   body: any
 }[];
 
-const Post = ({ params: { slug } }: PR) => {
+const Post = () => {
   const { data } = useGetQuery('grafix', '/grafix');
   const grafix: GD = data?.data || [];
+
+     const {slug} = useParams();
 
   const res = grafix.filter((v) => v.slug === slug)[0]
 

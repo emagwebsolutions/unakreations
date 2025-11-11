@@ -8,13 +8,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getVisiteditems } from '@/store/features/visited';
 import { getcart, getsinglecart,singlebuyer } from '@/store/features/cart';
-import { redirect } from 'next/navigation';
+import { redirect, useParams } from 'next/navigation';
 
-type PR = {
-  params: {
-    slug: string;
-  };
-};
 
 type GD = {
   gallery: { url: string }[];
@@ -28,7 +23,8 @@ type GD = {
   excerpt: string;
 }[];
 
-const Post = ({ params: { slug } }: PR) => {
+const Post = () => {
+     const {slug} = useParams();
   const [getImg, setImg] = useState('');
   const { data } = useGetQuery('klodin', '/klodin');
   const klodin: GD = data?.data || [];

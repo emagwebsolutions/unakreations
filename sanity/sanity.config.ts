@@ -1,13 +1,12 @@
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool} from 'sanity/structure';
 import { schemaTypes } from './schemas/index';
 
 const conf = defineConfig({
   dataset: 'production',
   projectId: 'k4oizxiu',
   title: 'UNA KREATIONS',
-  apiVersion: '2023-09-27',
-  plugins: [deskTool()],
+  plugins: [structureTool()],
   basePath: '/dashboard',
   schema: {
     types: schemaTypes,

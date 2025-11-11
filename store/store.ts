@@ -2,8 +2,9 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import visiteditemsReducer from './features/visited';
 import cartReducer from './features/cart';
-import { persistReducer } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
 
 const persistConfig = {
   key: 'root',

@@ -60,7 +60,7 @@ const Sectionone = () => {
 
         <div>
           <div className="big-ser-img">
-            <Image width="1000" height="500" src={signage[0]?.img} alt="" />
+            { signage[0] && <Image width="1000" height="500" src={signage[0]?.img} alt="" /> }
           </div>
 
           <div className="home-flex gap-2 mb-btns">

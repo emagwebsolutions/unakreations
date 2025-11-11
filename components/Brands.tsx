@@ -7,10 +7,12 @@ type BR = {
 };
 
 const Brands = ({ img, title }: BR) => {
+
+  const imgs = img ?   <Image width="500" height="200" src={img} alt="" /> : ''
   return (
     <div className="brands">
       <picture>
-        <Image width="500" height="200" src={img} alt="" />
+      {imgs}
       </picture>
       <h4>{title}</h4>
     </div>

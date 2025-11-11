@@ -8,12 +8,9 @@ import { PortableText } from '@portabletext/react';
 import Video from '@/components/blog/Video';
 import Otherservices from '@/components/blog/pages/Otherservices';
 import Share from '@/components/Share';
+import { useParams } from 'next/navigation';
 
-type PR = {
-  params: {
-    slug: string;
-  };
-};
+
 
 type TM = {
   _id: string;
@@ -28,9 +25,11 @@ type TM = {
   arr: [];
 }[];
 
-const Post = ({ params: { slug } }: PR) => {
+const Post = () => {
   const { data } = useGetQuery('blog', '/blog');
   const getData: TM = data?.data || [];
+
+     const {slug} = useParams();
 
   const post = Object.values(getData).filter((v) => v.slug === slug)[0];
 

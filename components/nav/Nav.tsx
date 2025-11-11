@@ -83,9 +83,9 @@ const Nav = () => {
 
           <ul>
             <li>
-              <a href="/" className={path === '/' ? 'active' : ''}>
+              <Link href="/" className={path === '/' ? 'active' : ''}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <Link

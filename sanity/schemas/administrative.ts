@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'administrative',
@@ -30,9 +30,9 @@ export default defineType({
     defineField({
       name: 'categories',
       title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      type: 'category'
     }),
+
     defineField({
       name: 'publishedAt',
       title: 'Published at',
@@ -52,8 +52,8 @@ export default defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
     },
   },
-})
+});

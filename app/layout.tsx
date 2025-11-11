@@ -18,12 +18,17 @@ export default function RootLayout({
   const queryClient = new QueryClient();
 
   return (
-    <html lang="en">
-      <body>
+    <html
+      lang="en"
+      data-qb-installed="true"
+      suppressHydrationWarning={true}
+  
+    >
+      <body
+          cz-shortcut-listen="true"
+      >
         <QueryClientProvider client={queryClient}>
-          <Providers>
-          {children}
-          </Providers>
+          <Providers>{children}</Providers>
         </QueryClientProvider>
       </body>
     </html>

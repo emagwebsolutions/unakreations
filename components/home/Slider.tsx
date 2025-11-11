@@ -61,7 +61,7 @@ const Slider = () => {
               height={SLIDER_HEIGHT}
               className="slider"
               alt=""
-              src={fadeImage.url}
+              src={fadeImage.url || '/1.jpg'}
             />
           </div>
         ))}
